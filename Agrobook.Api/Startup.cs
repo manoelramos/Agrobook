@@ -1,12 +1,14 @@
 namespace Agrobook.Api
 {
-    using Agrobook.Infra.Data.Context;
+    using Agrobook.Api.Configurations;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
     using Microsoft.OpenApi.Models;
+    using MediatR;
+    using System.Reflection;
 
     public class Startup
     {
@@ -20,9 +22,18 @@ namespace Agrobook.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationContext>();
+            services.RegisterRepositories();
+            
+            services.RegisterMediatr();
+            
+            services.RegisterServices();
+
+            services.AddMediatR(Assembly.GetExecutingAssembly());
+
+            //services.AddAuthorizedMvc();
 
             services.AddControllers();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Agrobook.Api", Version = "v1" });
@@ -43,7 +54,14 @@ namespace Agrobook.Api
 
             app.UseRouting();
 
+            app.UseAuthentication();
+
             app.UseAuthorization();
+
+            app.UseCors(x => x
+                          .AllowAnyOrigin()
+                          .AllowAnyMethod()
+                          .AllowAnyHeader());
 
             app.UseEndpoints(endpoints =>
             {
