@@ -5,7 +5,7 @@
     using Agrobook.Domain.Models;
     using Microsoft.EntityFrameworkCore;
 
-    class ColaboradorMap : EntityTypeConfiguration<Colaborador>
+    internal class ColaboradorMap : EntityTypeConfiguration<Colaborador>
     {
         protected override void Configure(EntityTypeBuilder<Colaborador> builder)
         {

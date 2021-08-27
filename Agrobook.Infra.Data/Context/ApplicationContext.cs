@@ -1,10 +1,15 @@
 ﻿namespace Agrobook.Infra.Data.Context
 {
     using Agrobook.Infra.Data.Repositories.Colaborador;
+    using Agrobook.Infra.Data.Repositories.Fazenda;
+    using Agrobook.Infra.Data.Repositories.Localidade;
+    using Agrobook.Infra.Data.Repositories.Organizacao;
+    using Agrobook.Infra.Data.Repositories.Patrimonio;
     using FluentValidation.Results;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Storage;
     using Microsoft.Extensions.Configuration;
+    using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
 
@@ -22,9 +27,20 @@
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Ignore<ValidationResult>();
-            modelBuilder.ApplyConfiguration(new ColaboradorMap());
+            //modelBuilder.ApplyConfiguration(new ColaboradorMap());
+            
+            modelBuilder.ApplyConfiguration(new PaisMap());
+            modelBuilder.ApplyConfiguration(new CidadeMap());
+            modelBuilder.ApplyConfiguration(new EstadoMap());
+            modelBuilder.ApplyConfiguration(new EnderecoMap());
 
-            //SetDecimalPoints(modelBuilder);
+
+            modelBuilder.ApplyConfiguration(new OrganizacaoMap());
+            modelBuilder.ApplyConfiguration(new PatrimonioMap());
+            modelBuilder.ApplyConfiguration(new FazendaMap());
+            
+            
+            SetDecimalPoints(modelBuilder);
 
             base.OnModelCreating(modelBuilder);
         }
@@ -35,6 +51,15 @@
             optionsBuilder.UseSqlServer(connectionString);
         }
 
+        private void SetDecimalPoints(ModelBuilder modelBuilder)
+        {
+            var properties = modelBuilder.Model.GetEntityTypes()
+                                .SelectMany(t => t.GetProperties())
+                                .Where(p => p.ClrType == typeof(decimal));
+
+            foreach (var property in properties)
+                property.SetColumnType("decimal(18, 6)");
+        }
 
         #region ContextTransaction
 
