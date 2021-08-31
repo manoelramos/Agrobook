@@ -1,6 +1,7 @@
-﻿namespace Agrobook.Domain.Models
+﻿namespace Agrobook.Domain.Models.PatrimonioGroup
 {
     using Agrobook.Domain.Core.Models;
+    using Agrobook.Domain.Models.Producao;
     using System.Collections.Generic;
 
     public class Fazenda : Entity<Fazenda>
@@ -13,5 +14,6 @@
         public int EnderecoId { get; set; }
         public Endereco Endereco {  get; set; }
         public Patrimonio Patrimonio {  get; set; }
+        public ICollection<Talhao> Talhoes {  get; set; }
     }
 }

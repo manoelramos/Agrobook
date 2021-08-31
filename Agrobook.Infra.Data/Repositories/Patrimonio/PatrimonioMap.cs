@@ -4,6 +4,7 @@
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
     using Agrobook.Domain.Models;
     using Microsoft.EntityFrameworkCore;
+    using Agrobook.Domain.Models.PatrimonioGroup;
 
     internal class PatrimonioMap : EntityTypeConfiguration<Patrimonio>
     {
@@ -17,6 +18,11 @@
                 .WithOne(c => c.Patrimonio)
                 .HasForeignKey<Patrimonio>(c => c.FazendaId)
                 .OnDelete(DeleteBehavior.NoAction);
+
+            builder.HasOne(c => c.Veiculo)
+               .WithOne(c => c.Patrimonio)
+               .HasForeignKey<Patrimonio>(c => c.VeivuloId)
+               .OnDelete(DeleteBehavior.NoAction);
 
             builder.HasOne(c => c.Organizacao)
                 .WithMany(c => c.Patrimonios)

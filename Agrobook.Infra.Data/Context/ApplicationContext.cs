@@ -1,10 +1,9 @@
 ﻿namespace Agrobook.Infra.Data.Context
 {
-    using Agrobook.Infra.Data.Repositories.Colaborador;
-    using Agrobook.Infra.Data.Repositories.Fazenda;
     using Agrobook.Infra.Data.Repositories.Localidade;
     using Agrobook.Infra.Data.Repositories.Organizacao;
     using Agrobook.Infra.Data.Repositories.Patrimonio;
+    using Agrobook.Infra.Data.Repositories.Fazenda;
     using FluentValidation.Results;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Storage;
@@ -12,6 +11,11 @@
     using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
+    using Agrobook.Infra.Data.Repositories.Talhao;
+    using Agrobook.Infra.Data.Repositories.TalhaoSafra;
+    using Agrobook.Infra.Data.Repositories.Colaborador;
+    using Agrobook.Infra.Data.Repositories.Parceiro;
+    using Agrobook.Infra.Data.Repositories.Atividades;
 
     public class ApplicationContext : DbContext
     {
@@ -28,18 +32,21 @@
         {
             modelBuilder.Ignore<ValidationResult>();
             //modelBuilder.ApplyConfiguration(new ColaboradorMap());
-            
+
             modelBuilder.ApplyConfiguration(new PaisMap());
             modelBuilder.ApplyConfiguration(new CidadeMap());
             modelBuilder.ApplyConfiguration(new EstadoMap());
             modelBuilder.ApplyConfiguration(new EnderecoMap());
 
-
             modelBuilder.ApplyConfiguration(new OrganizacaoMap());
             modelBuilder.ApplyConfiguration(new PatrimonioMap());
+            modelBuilder.ApplyConfiguration(new AssociadoMap());
+            modelBuilder.ApplyConfiguration(new ContratacaoMap());
             modelBuilder.ApplyConfiguration(new FazendaMap());
-            
-            
+            modelBuilder.ApplyConfiguration(new TalhaoMap());
+            modelBuilder.ApplyConfiguration(new TalhaoSafraMap());
+            modelBuilder.ApplyConfiguration(new AtividadesMap());
+
             SetDecimalPoints(modelBuilder);
 
             base.OnModelCreating(modelBuilder);

@@ -1,9 +1,10 @@
 ﻿namespace Agrobook.Infra.Data.Repositories.Fazenda
 {
+    using Agrobook.Domain.Models.PatrimonioGroup;
+    using Agrobook.Domain.Models.Producao;
     using Agrobook.Infra.Data.TypeConfiguration;
-    using Agrobook.Domain.Models;
-    using Microsoft.EntityFrameworkCore.Metadata.Builders;
     using Microsoft.EntityFrameworkCore;
+    using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
     internal class FazendaMap : EntityTypeConfiguration<Fazenda>
     {
@@ -18,7 +19,8 @@
 
             builder.HasOne(c => c.Endereco)
                 .WithOne(c => c.Fazenda)
-                 .HasForeignKey<Fazenda>(b => b.EnderecoId);          
+                 .HasForeignKey<Fazenda>(b => b.EnderecoId);
+                        
         }
     }
 }

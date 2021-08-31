@@ -1,4 +1,4 @@
-﻿namespace Agrobook.Domain.Models
+﻿namespace Agrobook.Domain.Models.PatrimonioGroup
 {
     using Agrobook.Domain.Core.Models;
     using System;
@@ -12,6 +12,8 @@
         public decimal ValorVenda { get; set; }
         public int FazendaId {  get; set; }
         public Fazenda Fazenda {  get; set; }
+        public int VeivuloId { get; set; }
+        public Veiculo Veiculo { get; set; }
         public int OrganizacaoId {  get; set; }
         public Organizacao Organizacao {  get; set; }
     }

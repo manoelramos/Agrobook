@@ -2,6 +2,8 @@
 {
     using Agrobook.Domain.Core.Models;
     using Agrobook.Domain.Models.Base;
+    using Agrobook.Domain.Models.Parceiro;
+    using Agrobook.Domain.Models.PatrimonioGroup;
     using System.Collections.Generic;
 
     public class Endereco : Entity<Endereco>
@@ -32,6 +34,7 @@
         public decimal Latitude { get; set; }
         public decimal Longitude { get; set; }
         public ICollection<Organizacao> Oraganizacoes {  get; set; }
+        public ICollection<Associado> Associados { get; set; }
 
         protected IEnumerable<object> GetEqualityComponents()
         {

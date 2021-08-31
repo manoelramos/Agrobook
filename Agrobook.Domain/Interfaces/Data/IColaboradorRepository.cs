@@ -1,9 +1,9 @@
 ﻿namespace Agrobook.Domain.Interfaces.Data
 {
     using Agrobook.Domain.Core.Data;
-    using Agrobook.Domain.Models;
+    using Agrobook.Domain.Models.Parceiro;
 
-    public interface IColaboradorRepository: IRepository<Colaborador>
+    public interface IColaboradorRepository: IRepository<Associado>
     {
     }
 }
