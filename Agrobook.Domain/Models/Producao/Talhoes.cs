@@ -6,7 +6,8 @@
 
     public class Talhoes : Entity<Talhoes>
     {
-        public decimal Hectare { get; set; }
+        public decimal Area { get; set; }
+        public string Observacao {  get; set; }
         public int FazendaId {  get; set; } 
         public Fazendas Fazenda { get; set; }
         public ICollection<TalhoesSafras> TalhaoSafras {  get; set; }

@@ -17,6 +17,7 @@
     using Agrobook.Infra.Data.Repositories.Parceiro;
     using Agrobook.Infra.Data.Repositories.Atividades;
     using Agrobook.Infra.Data.Repositories.Despesas;
+    using Agrobook.Infra.Data.Repositories.Base;
 
     public class ApplicationContext : DbContext
     {
@@ -60,6 +61,8 @@
             modelBuilder.ApplyConfiguration(new DetalhesPatrimonioMap());
             modelBuilder.ApplyConfiguration(new ImoveisMap());
             modelBuilder.ApplyConfiguration(new ManutencoesMap());
+            modelBuilder.ApplyConfiguration(new UnidadesMedidaAgroMap());
+            modelBuilder.ApplyConfiguration(new UnidadesMedidaMap());
 
 
             SetDecimalPoints(modelBuilder);
