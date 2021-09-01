@@ -5,9 +5,9 @@
     using Agrobook.Domain.Models;
     using Microsoft.EntityFrameworkCore;
 
-    class OrganizacaoMap : EntityTypeConfiguration<Organizacao>
+    class OrganizacaoMap : EntityTypeConfiguration<Organizacoes>
     {
-        protected override void Configure(EntityTypeBuilder<Organizacao> builder)
+        protected override void Configure(EntityTypeBuilder<Organizacoes> builder)
         {
             builder.Property(c => c.NomeCompleto)
                .HasColumnType("varchar(200)")

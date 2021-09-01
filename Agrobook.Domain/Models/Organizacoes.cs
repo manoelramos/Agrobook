@@ -5,14 +5,14 @@
     using Agrobook.Domain.Models.Parceiro;
     using System.Collections.Generic;
 
-    public class Organizacao : Entity<Organizacao>
+    public class Organizacoes : Entity<Organizacoes>
     {
         public string NomeCompleto {  get; set; }
         public string NomeFantasia {  get; set; }
         public byte[] LogoMarca {  get; set; }
         public int EnderecoId {  get; set; }
-        public Endereco Endereco {  get; set; }
-        public ICollection<Patrimonio> Patrimonios {  get; set; }
-        public ICollection<Contratacao> Contratacoes {  get; set;}
+        public Enderecos Endereco {  get; set; }
+        public ICollection<Patrimonios> Patrimonios {  get; set; }
+        public ICollection<Contratacoes> Contratacoes {  get; set;}
     }
 }

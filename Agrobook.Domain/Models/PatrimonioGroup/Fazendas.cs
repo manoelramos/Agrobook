@@ -4,7 +4,7 @@
     using Agrobook.Domain.Models.Producao;
     using System.Collections.Generic;
 
-    public class Fazenda : Entity<Fazenda>
+    public class Fazendas : Entity<Fazendas>
     {
         public string Nome { get; set; }
         public string Descricao { get; set; }
@@ -12,8 +12,8 @@
         public decimal Hectare {  get; set; }        
         public string Administrador { get; set; }
         public int EnderecoId { get; set; }
-        public Endereco Endereco {  get; set; }
-        public Patrimonio Patrimonio {  get; set; }
-        public ICollection<Talhao> Talhoes {  get; set; }
+        public Enderecos Endereco {  get; set; }
+        public Patrimonios Patrimonio {  get; set; }
+        public ICollection<Talhoes> Talhoes {  get; set; }
     }
 }

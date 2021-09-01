@@ -5,9 +5,9 @@
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-    internal class VeiculoMap : EntityTypeConfiguration<Veiculo>
+    internal class VeiculoMap : EntityTypeConfiguration<Veiculos>
     {
-        protected override void Configure(EntityTypeBuilder<Veiculo> builder)
+        protected override void Configure(EntityTypeBuilder<Veiculos> builder)
         {
             builder.Property(c => c.Placa)
                .HasColumnType("varchar(8)")

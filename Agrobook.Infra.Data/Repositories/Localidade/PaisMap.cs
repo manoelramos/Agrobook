@@ -5,9 +5,9 @@
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-    internal class PaisMap : EntityTypeConfiguration<Pais>
+    internal class PaisMap : EntityTypeConfiguration<Paises>
     {
-        protected override void Configure(EntityTypeBuilder<Pais> builder)
+        protected override void Configure(EntityTypeBuilder<Paises> builder)
         {
             builder.Property(p => p.Nome)
                 .HasColumnType("varchar(200)")

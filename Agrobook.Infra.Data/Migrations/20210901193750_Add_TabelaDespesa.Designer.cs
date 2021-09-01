@@ -4,14 +4,16 @@ using Agrobook.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Agrobook.Infra.Data.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20210901193750_Add_TabelaDespesa")]
+    partial class Add_TabelaDespesa
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -133,30 +135,6 @@ namespace Agrobook.Infra.Data.Migrations
                     b.ToTable("Estados");
                 });
 
-            modelBuilder.Entity("Agrobook.Domain.Models.Base.Moeda", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("AddedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("Ativo")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("CascadeMode")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Moeda");
-                });
-
             modelBuilder.Entity("Agrobook.Domain.Models.Base.Paises", b =>
                 {
                     b.Property<int>("Id")
@@ -182,33 +160,6 @@ namespace Agrobook.Infra.Data.Migrations
                     b.ToTable("Paises");
                 });
 
-            modelBuilder.Entity("Agrobook.Domain.Models.Caixa.CategoriasDespesas", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("AddedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("Ativo")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("CascadeMode")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Descricao")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("CategoriasDespesas");
-                });
-
             modelBuilder.Entity("Agrobook.Domain.Models.Caixa.Despesas", b =>
                 {
                     b.Property<int>("Id")
@@ -222,17 +173,8 @@ namespace Agrobook.Infra.Data.Migrations
                     b.Property<bool>("Ativo")
                         .HasColumnType("bit");
 
-                    b.Property<int>("CategoriaDespesaId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("ModifiedDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<int>("MoedaId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Observacao")
-                        .HasColumnType("varchar(400)");
 
                     b.Property<int>("PatrimonioId")
                         .HasColumnType("int");
@@ -240,17 +182,7 @@ namespace Agrobook.Infra.Data.Migrations
                     b.Property<int>("SafraId")
                         .HasColumnType("int");
 
-                    b.Property<string>("TipoPessoa")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("Valor")
-                        .HasColumnType("decimal(18,6)");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("CategoriaDespesaId");
-
-                    b.HasIndex("MoedaId");
 
                     b.HasIndex("PatrimonioId");
 
@@ -1331,18 +1263,6 @@ namespace Agrobook.Infra.Data.Migrations
 
             modelBuilder.Entity("Agrobook.Domain.Models.Caixa.Despesas", b =>
                 {
-                    b.HasOne("Agrobook.Domain.Models.Caixa.CategoriasDespesas", "CategoriaDespesa")
-                        .WithMany("Despesas")
-                        .HasForeignKey("CategoriaDespesaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Agrobook.Domain.Models.Base.Moeda", "Moeda")
-                        .WithMany("Despesas")
-                        .HasForeignKey("MoedaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Agrobook.Domain.Models.PatrimonioGroup.Patrimonios", "Patrimonio")
                         .WithMany("Despesas")
                         .HasForeignKey("PatrimonioId")
@@ -1354,10 +1274,6 @@ namespace Agrobook.Infra.Data.Migrations
                         .HasForeignKey("SafraId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("CategoriaDespesa");
-
-                    b.Navigation("Moeda");
 
                     b.Navigation("Patrimonio");
 
@@ -1681,21 +1597,11 @@ namespace Agrobook.Infra.Data.Migrations
                     b.Navigation("Enderecos");
                 });
 
-            modelBuilder.Entity("Agrobook.Domain.Models.Base.Moeda", b =>
-                {
-                    b.Navigation("Despesas");
-                });
-
             modelBuilder.Entity("Agrobook.Domain.Models.Base.Paises", b =>
                 {
                     b.Navigation("Enderecos");
 
                     b.Navigation("Estados");
-                });
-
-            modelBuilder.Entity("Agrobook.Domain.Models.Caixa.CategoriasDespesas", b =>
-                {
-                    b.Navigation("Despesas");
                 });
 
             modelBuilder.Entity("Agrobook.Domain.Models.Caixa.Despesas", b =>

@@ -12,12 +12,12 @@
         public DateTime Inicio { get; set; }
         public DateTime Fim { get; set; }
         public int AssociadoId { get; set; }
-        public Associado Associado { get; set; }
+        public Associados Associado { get; set; }
         public int VeiculoId { get; set; }
-        public Veiculo Veiculo { get; set; }
+        public Veiculos Veiculo { get; set; }
         public int TalhaoId { get; set; }
-        public Talhao Talhao { get; set; }
+        public Talhoes Talhao { get; set; }
         public int SafraId { get; set; }
-        public Safra Safra { get; set; }
+        public Safras Safra { get; set; }
     }
 }

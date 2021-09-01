@@ -11,7 +11,7 @@
         Temporario
     }
 
-    public class Contratacao : Entity<Contratacao>
+    public class Contratacoes : Entity<Contratacoes>
     {
         public int Modelo {  get; set; }
         
@@ -21,8 +21,9 @@
 
         public DateTime Inicio {  get; set; }
         public DateTime Termmino {  get; set; }
+        public decimal Valor {  get; set; }
         public int OrganizacaoId {  get; set; }
-        public Organizacao Organizacao {  get; set; }
-        public ICollection<Associado> Associados {  get; set; }
+        public Organizacoes Organizacao {  get; set; }
+        public ICollection<Associados> Associados {  get; set; }
     }
 }

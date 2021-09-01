@@ -6,10 +6,10 @@
     using Agrobook.Domain.Models.PatrimonioGroup;
     using System.Collections.Generic;
 
-    public class Endereco : Entity<Endereco>
+    public class Enderecos : Entity<Enderecos>
     {
-        public Endereco() { }
-        public Endereco(string logradouro, string bairro, Cidade cidade, Estado estado, Pais pais, int cep, decimal latitude, decimal longitude)
+        public Enderecos() { }
+        public Enderecos(string logradouro, string bairro, Cidades cidade, Estados estado, Paises pais, int cep, decimal latitude, decimal longitude)
         {
             Logradouro = logradouro;
             Bairro = bairro;
@@ -25,16 +25,17 @@
         public string Bairro { get; set; }
         public int CEP { get; set; }
         public int CidadeId { get; set; }
-        public Cidade Cidade { get; set; }
+        public Cidades Cidade { get; set; }
         public int EstadoId { get; set; }
-        public Estado Estado { get; set; }
+        public Estados Estado { get; set; }
         public int PaisId { get; set; }
-        public Pais Pais { get; set; }        
-        public Fazenda Fazenda {  get; set; }
+        public Paises Pais { get; set; }        
+        public Fazendas Fazenda {  get; set; }
         public decimal Latitude { get; set; }
         public decimal Longitude { get; set; }
-        public ICollection<Organizacao> Oraganizacoes {  get; set; }
-        public ICollection<Associado> Associados { get; set; }
+        public ICollection<Organizacoes> Oraganizacoes {  get; set; }
+        public ICollection<Associados> Associados { get; set; }
+        public ICollection<Imoveis> Imoveis { get; set; }
 
         protected IEnumerable<object> GetEqualityComponents()
         {

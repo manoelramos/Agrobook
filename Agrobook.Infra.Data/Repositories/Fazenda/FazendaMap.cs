@@ -1,14 +1,13 @@
 ﻿namespace Agrobook.Infra.Data.Repositories.Fazenda
 {
     using Agrobook.Domain.Models.PatrimonioGroup;
-    using Agrobook.Domain.Models.Producao;
     using Agrobook.Infra.Data.TypeConfiguration;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-    internal class FazendaMap : EntityTypeConfiguration<Fazenda>
+    internal class FazendaMap : EntityTypeConfiguration<Fazendas>
     {
-        protected override void Configure(EntityTypeBuilder<Fazenda> builder)
+        protected override void Configure(EntityTypeBuilder<Fazendas> builder)
         {
             builder.Property(c => c.Nome)
                .HasColumnType("varchar(100)")
@@ -19,7 +18,7 @@
 
             builder.HasOne(c => c.Endereco)
                 .WithOne(c => c.Fazenda)
-                 .HasForeignKey<Fazenda>(b => b.EnderecoId);
+                 .HasForeignKey<Fazendas>(b => b.EnderecoId);
                         
         }
     }

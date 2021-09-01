@@ -3,7 +3,7 @@
     using Agrobook.Domain.Core.Data;
     using Agrobook.Domain.Models.PatrimonioGroup;
 
-    public interface IFazendaRepository : IRepository<Fazenda>
+    public interface IFazendaRepository : IRepository<Fazendas>
     {
     }
 }

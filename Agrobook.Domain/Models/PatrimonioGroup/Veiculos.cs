@@ -4,14 +4,22 @@
     using System;
     using System.Collections.Generic;
 
-    public class Veiculo : Entity<Veiculo>
+    public class Veiculos : Entity<Veiculos>
     {
+        public string Marca { get; set; }
         public string Modelo { get; set; }
         public string Placa { get; set; }
+        public string Renavam { get; set; }
+        public string Chassi { get; set; }
+        public string Cor { get; set; }
+        public string Tipo { get; set; }
         public string Combustivel { get; set; }
+
         public DateTime AnoFabricao { get; set; }
         public long Kilometragem { get; set; }
-        public Patrimonio Patrimonio { get; set; }
+        public Patrimonios Patrimonio { get; set; }
         public ICollection<Atividades> Atividades { get; set; }
+        public ICollection<Manutencoes> Manutencoes { get; set; }
+        public ICollection<AnexosVeiculo> Anexos { get; set; }
     }
 }

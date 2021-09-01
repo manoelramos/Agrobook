@@ -5,7 +5,7 @@
     using Agrobook.Infra.Data.Context;
     using Agrobook.Infra.Data.Repositories.Base;
 
-    public class FazendaRepository : Repository<Fazenda>, IFazendaRepository
+    public class FazendaRepository : Repository<Fazendas>, IFazendaRepository
     {
         public FazendaRepository(ApplicationContext context) : base(context)
         {

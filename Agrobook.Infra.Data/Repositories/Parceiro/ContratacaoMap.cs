@@ -5,9 +5,9 @@
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
     using System;
 
-    internal class ContratacaoMap : EntityTypeConfiguration<Contratacao>
+    internal class ContratacaoMap : EntityTypeConfiguration<Contratacoes>
     {
-        protected override void Configure(EntityTypeBuilder<Contratacao> builder)
+        protected override void Configure(EntityTypeBuilder<Contratacoes> builder)
         {
             builder.Property(c => c.Modelo)
                 .HasConversion(

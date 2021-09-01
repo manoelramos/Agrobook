@@ -5,9 +5,9 @@
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-    internal class CidadeMap : EntityTypeConfiguration<Cidade>
+    internal class CidadeMap : EntityTypeConfiguration<Cidades>
     {
-        protected override void Configure(EntityTypeBuilder<Cidade> builder)
+        protected override void Configure(EntityTypeBuilder<Cidades> builder)
         {
             builder.Property(c => c.Nome)
                .HasColumnType("varchar(200)")

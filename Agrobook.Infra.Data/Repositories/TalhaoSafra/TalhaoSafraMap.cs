@@ -4,9 +4,9 @@
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
     using Agrobook.Domain.Models.Producao;
 
-    internal class TalhaoSafraMap : EntityTypeConfiguration<TalhaoSafra>
+    internal class TalhaoSafraMap : EntityTypeConfiguration<TalhoesSafras>
     {
-        protected override void Configure(EntityTypeBuilder<TalhaoSafra> builder)
+        protected override void Configure(EntityTypeBuilder<TalhoesSafras> builder)
         {
             builder.HasOne(c => c.Talhao)
                 .WithMany(c => c.TalhaoSafras)

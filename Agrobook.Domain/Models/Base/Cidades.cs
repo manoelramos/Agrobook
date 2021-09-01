@@ -4,12 +4,12 @@
     using FluentValidation;
     using System.Collections.Generic;
 
-    public class Cidade : Entity<Cidade>
+    public class Cidades : Entity<Cidades>
     {
         public string Nome { get; set; }
         public int EstadoId { get; set; }
-        public Estado Estado { get; set; }
-        public ICollection<Endereco> Enderecos { get; set; }
+        public Estados Estado { get; set; }
+        public ICollection<Enderecos> Enderecos { get; set; }
 
         public override bool IsValid()
         {

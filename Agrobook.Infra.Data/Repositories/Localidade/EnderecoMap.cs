@@ -5,9 +5,9 @@
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-    internal class EnderecoMap : EntityTypeConfiguration<Endereco>
+    internal class EnderecoMap : EntityTypeConfiguration<Enderecos>
     {
-        protected override void Configure(EntityTypeBuilder<Endereco> builder)
+        protected override void Configure(EntityTypeBuilder<Enderecos> builder)
         {
             builder.Property(c => c.Logradouro)
                .HasColumnType("varchar(200)")

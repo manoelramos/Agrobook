@@ -4,9 +4,9 @@
     using Agrobook.Infra.Data.TypeConfiguration;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-    internal class TalhaoMap : EntityTypeConfiguration<Talhao>
+    internal class TalhaoMap : EntityTypeConfiguration<Talhoes>
     {
-        protected override void Configure(EntityTypeBuilder<Talhao> builder)
+        protected override void Configure(EntityTypeBuilder<Talhoes> builder)
         {
             builder.HasOne(c => c.Fazenda)
                 .WithMany(c => c.Talhoes)

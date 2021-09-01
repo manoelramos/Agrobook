@@ -5,7 +5,7 @@
     using Agrobook.Infra.Data.Context;
     using Agrobook.Infra.Data.Repositories.Base;
 
-    public class AssociadoRepository : Repository<Associado>, IColaboradorRepository
+    public class AssociadoRepository : Repository<Associados>, IColaboradorRepository
     {
         public AssociadoRepository(ApplicationContext context) : base(context)
         {

@@ -16,6 +16,7 @@
     using Agrobook.Infra.Data.Repositories.Colaborador;
     using Agrobook.Infra.Data.Repositories.Parceiro;
     using Agrobook.Infra.Data.Repositories.Atividades;
+    using Agrobook.Infra.Data.Repositories.Despesas;
 
     public class ApplicationContext : DbContext
     {
@@ -46,6 +47,20 @@
             modelBuilder.ApplyConfiguration(new TalhaoMap());
             modelBuilder.ApplyConfiguration(new TalhaoSafraMap());
             modelBuilder.ApplyConfiguration(new AtividadesMap());
+            modelBuilder.ApplyConfiguration(new DespesasMap());
+            modelBuilder.ApplyConfiguration(new ComprovantesPagamentosMap());
+            modelBuilder.ApplyConfiguration(new ContasBancariasMap());
+            modelBuilder.ApplyConfiguration(new LancamentosContabeisMap());
+            modelBuilder.ApplyConfiguration(new ContatosMap());
+            modelBuilder.ApplyConfiguration(new DocumentosMap());
+            modelBuilder.ApplyConfiguration(new PagamentosMap());
+            modelBuilder.ApplyConfiguration(new AnexosManutencaoMap());
+            modelBuilder.ApplyConfiguration(new AnexosVeiculoMap());
+            modelBuilder.ApplyConfiguration(new AnexosManutencaoMap());
+            modelBuilder.ApplyConfiguration(new DetalhesPatrimonioMap());
+            modelBuilder.ApplyConfiguration(new ImoveisMap());
+            modelBuilder.ApplyConfiguration(new ManutencoesMap());
+
 
             SetDecimalPoints(modelBuilder);
 

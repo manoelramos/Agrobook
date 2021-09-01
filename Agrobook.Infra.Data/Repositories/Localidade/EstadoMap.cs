@@ -5,9 +5,9 @@
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-    internal class EstadoMap : EntityTypeConfiguration<Estado>
+    internal class EstadoMap : EntityTypeConfiguration<Estados>
     {
-        protected override void Configure(EntityTypeBuilder<Estado> builder)
+        protected override void Configure(EntityTypeBuilder<Estados> builder)
         {
             builder.Property(c => c.Nome)
                .HasColumnType("varchar(200)")

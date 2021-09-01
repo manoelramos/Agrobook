@@ -2,13 +2,12 @@
 {
     using Agrobook.Infra.Data.TypeConfiguration;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
-    using Agrobook.Domain.Models;
     using Microsoft.EntityFrameworkCore;
     using Agrobook.Domain.Models.PatrimonioGroup;
 
-    internal class PatrimonioMap : EntityTypeConfiguration<Patrimonio>
+    internal class PatrimonioMap : EntityTypeConfiguration<Patrimonios>
     {
-        protected override void Configure(EntityTypeBuilder<Patrimonio> builder)
+        protected override void Configure(EntityTypeBuilder<Patrimonios> builder)
         {
             builder.Property(c => c.Descricao)
                .HasColumnType("varchar(200)")
@@ -16,13 +15,18 @@
 
             builder.HasOne(c => c.Fazenda)
                 .WithOne(c => c.Patrimonio)
-                .HasForeignKey<Patrimonio>(c => c.FazendaId)
+                .HasForeignKey<Patrimonios>(c => c.FazendaId)
                 .OnDelete(DeleteBehavior.NoAction);
 
             builder.HasOne(c => c.Veiculo)
                .WithOne(c => c.Patrimonio)
-               .HasForeignKey<Patrimonio>(c => c.VeivuloId)
+               .HasForeignKey<Patrimonios>(c => c.VeivuloId)
                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.HasOne(c => c.Imovel)
+              .WithOne(c => c.Patrimonio)
+              .HasForeignKey<Patrimonios>(c => c.ImovelId)
+              .OnDelete(DeleteBehavior.NoAction);
 
             builder.HasOne(c => c.Organizacao)
                 .WithMany(c => c.Patrimonios)
