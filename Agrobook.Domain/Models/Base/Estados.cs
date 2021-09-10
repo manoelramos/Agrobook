@@ -6,8 +6,11 @@
 
     public class Estados : Entity<Estados>
     {
-        public string Sigla { get; set; }
+        public int CodigoUf {  get; set; }
         public string Nome { get; set; }
+        public string Uf { get; set; }
+        public int Regiao {  get; set; }
+        
         public ICollection<Cidades> Cidades { get; set; }
         public Paises Pais { get; set; }
         public int PaisId {  get; set; }
@@ -19,7 +22,7 @@
                 .MaximumLength(100)
                 .NotEmpty();
 
-            RuleFor(c => c.Sigla)
+            RuleFor(c => c.Uf)
                 .Length(2)
                 .NotEmpty();
 

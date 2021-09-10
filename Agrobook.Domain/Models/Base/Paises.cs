@@ -6,8 +6,11 @@
 
     public class Paises : Entity<Paises>
     {
+        public string Iso { get; set; }
+        public string Iso3 { get; set; }
+        public int Code { get; set; }
         public string Nome { get; set; }
-        
+
         public ICollection<Estados> Estados { get; set; }
         public ICollection<Enderecos> Enderecos { get; set; }
 

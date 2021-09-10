@@ -1,9 +1,16 @@
 ﻿namespace Agrobook.Infra.Data.Context
 {
+    using Agrobook.Infra.Data.Repositories.Atividades;
+    using Agrobook.Infra.Data.Repositories.Base;
+    using Agrobook.Infra.Data.Repositories.Colaborador;
+    using Agrobook.Infra.Data.Repositories.Despesas;
+    using Agrobook.Infra.Data.Repositories.Fazenda;
     using Agrobook.Infra.Data.Repositories.Localidade;
     using Agrobook.Infra.Data.Repositories.Organizacao;
+    using Agrobook.Infra.Data.Repositories.Parceiro;
     using Agrobook.Infra.Data.Repositories.Patrimonio;
-    using Agrobook.Infra.Data.Repositories.Fazenda;
+    using Agrobook.Infra.Data.Repositories.Talhao;
+    using Agrobook.Infra.Data.Repositories.TalhaoSafra;
     using FluentValidation.Results;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Storage;
@@ -11,13 +18,6 @@
     using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
-    using Agrobook.Infra.Data.Repositories.Talhao;
-    using Agrobook.Infra.Data.Repositories.TalhaoSafra;
-    using Agrobook.Infra.Data.Repositories.Colaborador;
-    using Agrobook.Infra.Data.Repositories.Parceiro;
-    using Agrobook.Infra.Data.Repositories.Atividades;
-    using Agrobook.Infra.Data.Repositories.Despesas;
-    using Agrobook.Infra.Data.Repositories.Base;
 
     public class ApplicationContext : DbContext
     {
@@ -28,7 +28,7 @@
             _configuration = configuration;
         }
 
-        //DbSet<Colaborador> Colaborador { get; set; }
+        //DbSet<Organizacoes> Organizacoes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

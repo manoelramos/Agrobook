@@ -1,0 +1,28 @@
+Insert into Estados (CodigoUf, Nome, Uf, Regiao,AddedDate,ModifiedDate,Ativo,PaisId) values (12, 'Acre', 'AC', 1, GETDATE(), GETDATE(), 1,33);
+Insert into Estados (CodigoUf, Nome, Uf, Regiao,AddedDate,ModifiedDate,Ativo,PaisId) values (27, 'Alagoas', 'AL', 2, GETDATE(), GETDATE(), 1,33);
+Insert into Estados (CodigoUf, Nome, Uf, Regiao,AddedDate,ModifiedDate,Ativo,PaisId) values (16, 'Amapá', 'AP', 1, GETDATE(), GETDATE(), 1,33);
+Insert into Estados (CodigoUf, Nome, Uf, Regiao,AddedDate,ModifiedDate,Ativo,PaisId) values (13, 'Amazonas', 'AM', 1, GETDATE(), GETDATE(), 1,33);
+Insert into Estados (CodigoUf, Nome, Uf, Regiao,AddedDate,ModifiedDate,Ativo,PaisId) values (29, 'Bahia', 'BA', 2, GETDATE(), GETDATE(), 1,33);
+Insert into Estados (CodigoUf, Nome, Uf, Regiao,AddedDate,ModifiedDate,Ativo,PaisId) values (23, 'Ceará', 'CE', 2, GETDATE(), GETDATE(), 1,33);
+Insert into Estados (CodigoUf, Nome, Uf, Regiao,AddedDate,ModifiedDate,Ativo,PaisId) values (53, 'Distrito Federal', 'DF', 5, GETDATE(), GETDATE(), 1,33);
+Insert into Estados (CodigoUf, Nome, Uf, Regiao,AddedDate,ModifiedDate,Ativo,PaisId) values (32, 'Espírito Santo', 'ES', 3, GETDATE(), GETDATE(), 1,33);
+Insert into Estados (CodigoUf, Nome, Uf, Regiao,AddedDate,ModifiedDate,Ativo,PaisId) values (52, 'Goiás', 'GO', 5, GETDATE(), GETDATE(), 1,33);
+Insert into Estados (CodigoUf, Nome, Uf, Regiao,AddedDate,ModifiedDate,Ativo,PaisId) values (21, 'Maranhão', 'MA', 2, GETDATE(), GETDATE(), 1,33);
+Insert into Estados (CodigoUf, Nome, Uf, Regiao,AddedDate,ModifiedDate,Ativo,PaisId) values (51, 'Mato Grosso', 'MT', 5, GETDATE(), GETDATE(), 1,33);
+Insert into Estados (CodigoUf, Nome, Uf, Regiao,AddedDate,ModifiedDate,Ativo,PaisId) values (50, 'Mato Grosso do Sul', 'MS', 5, GETDATE(), GETDATE(), 1,33);
+Insert into Estados (CodigoUf, Nome, Uf, Regiao,AddedDate,ModifiedDate,Ativo,PaisId) values (31, 'Minas Gerais', 'MG', 3, GETDATE(), GETDATE(), 1,33);
+Insert into Estados (CodigoUf, Nome, Uf, Regiao,AddedDate,ModifiedDate,Ativo,PaisId) values (15, 'Pará', 'PA', 1, GETDATE(), GETDATE(), 1,33);
+Insert into Estados (CodigoUf, Nome, Uf, Regiao,AddedDate,ModifiedDate,Ativo,PaisId) values (25, 'Paraíba', 'PB', 2, GETDATE(), GETDATE(), 1,33);
+Insert into Estados (CodigoUf, Nome, Uf, Regiao,AddedDate,ModifiedDate,Ativo,PaisId) values (41, 'Paraná', 'PR', 4, GETDATE(), GETDATE(), 1,33);
+Insert into Estados (CodigoUf, Nome, Uf, Regiao,AddedDate,ModifiedDate,Ativo,PaisId) values (26, 'Pernambuco', 'PE', 2, GETDATE(), GETDATE(), 1,33);
+Insert into Estados (CodigoUf, Nome, Uf, Regiao,AddedDate,ModifiedDate,Ativo,PaisId) values (22, 'Piauí', 'PI', 2, GETDATE(), GETDATE(), 1,33);
+Insert into Estados (CodigoUf, Nome, Uf, Regiao,AddedDate,ModifiedDate,Ativo,PaisId) values (33, 'Rio de Janeiro', 'RJ', 3, GETDATE(), GETDATE(), 1,33);
+Insert into Estados (CodigoUf, Nome, Uf, Regiao,AddedDate,ModifiedDate,Ativo,PaisId) values (24, 'Rio Grande do Norte', 'RN', 2, GETDATE(), GETDATE(), 1,33);
+Insert into Estados (CodigoUf, Nome, Uf, Regiao,AddedDate,ModifiedDate,Ativo,PaisId) values (43, 'Rio Grande do Sul', 'RS', 4, GETDATE(), GETDATE(), 1,33);
+Insert into Estados (CodigoUf, Nome, Uf, Regiao,AddedDate,ModifiedDate,Ativo,PaisId) values (11, 'Rondônia', 'RO', 1, GETDATE(), GETDATE(), 1,33);
+Insert into Estados (CodigoUf, Nome, Uf, Regiao,AddedDate,ModifiedDate,Ativo,PaisId) values (14, 'Roraima', 'RR', 1, GETDATE(), GETDATE(), 1,33);
+Insert into Estados (CodigoUf, Nome, Uf, Regiao,AddedDate,ModifiedDate,Ativo,PaisId) values (42, 'Santa Catarina', 'SC', 4, GETDATE(), GETDATE(), 1,33);
+Insert into Estados (CodigoUf, Nome, Uf, Regiao,AddedDate,ModifiedDate,Ativo,PaisId) values (35, 'São Paulo', 'SP', 3, GETDATE(), GETDATE(), 1,33);
+Insert into Estados (CodigoUf, Nome, Uf, Regiao,AddedDate,ModifiedDate,Ativo,PaisId) values (28, 'Sergipe', 'SE', 2, GETDATE(), GETDATE(), 1,33);
+Insert into Estados (CodigoUf, Nome, Uf, Regiao,AddedDate,ModifiedDate,Ativo,PaisId) values (17, 'Tocantins', 'TO', 1, GETDATE(), GETDATE(), 1,33);
+

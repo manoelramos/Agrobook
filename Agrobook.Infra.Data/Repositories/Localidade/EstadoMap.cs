@@ -13,7 +13,7 @@
                .HasColumnType("varchar(200)")
                .IsRequired();
 
-            builder.Property(c => c.Sigla)
+            builder.Property(c => c.Uf)
                .HasColumnType("varchar(2)")
                .IsRequired();
 

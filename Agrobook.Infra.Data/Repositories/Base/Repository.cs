@@ -99,7 +99,7 @@
         public DbConnection GetDbConnection() =>
             Context.Database.GetDbConnection();
 
-        public IQueryable<TEntity> Include()
+        public virtual IQueryable<TEntity> Include()
         {
             return DbSet;
         }
