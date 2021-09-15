@@ -9,7 +9,7 @@
     /// <remarks>Nunca retorne diretamente uma instância de <see cref="Response"/>.
     /// Use as propriedades <see cref="Messages"/> ou <see cref="Value"/> na Api em conjunto com códigos HTTP que fazem sentido.</remarks>
     /// </summary>
-    public class Response
+    public class Response<TData>
     {
         private IList<Notification> _messages { get; } = new List<Notification>();
 

@@ -2,7 +2,6 @@
 {
     using Agrobook.Application.Localidade.Queries;
     using Agrobook.Application.Localidade.Responses;
-    using Agrobook.Domain.Core.Messaging;
     using Agrobook.Domain.Interfaces.Data;
     using AutoMapper;
     using MediatR;
@@ -10,7 +9,7 @@
     using System.Threading;
     using System.Threading.Tasks;
 
-    public class PaisesQueryHandle : IRequestHandler<PaisesQuery, Response>
+    public class PaisesQueryHandle : IRequestHandler<PaisesQuery, List<PaisResponse>>
     {
         private readonly IPaisesRepository _paisesRepository;
         private readonly IMapper _mapper;
@@ -21,19 +20,10 @@
             _mapper = mapper;
         }
 
-        public async Task<Response> Handle(PaisesQuery request, CancellationToken cancellationToken)
-        {
-            var response = new Response();
-
-            var result = await _paisesRepository.GetAsync(cancellationToken);
-
-            //var paises = new List<PaisResponse>();
-
-            var paises = _mapper.Map(result, new List<PaisResponse>());
-
-            response.AddValue(paises);
-
-            return response;
+        public async Task<List<PaisResponse>> Handle(PaisesQuery request, CancellationToken cancellationToken)
+        {            
+            var result = await _paisesRepository.GetAsync(cancellationToken);                     
+            return _mapper.Map(result, new List<PaisResponse>());            
         }
     }
 }

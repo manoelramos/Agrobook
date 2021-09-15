@@ -8,18 +8,18 @@
 
     public class Enderecos : Entity<Enderecos>
     {
-        public Enderecos() { }
-        public Enderecos(string logradouro, string bairro, Cidades cidade, Estados estado, Paises pais, int cep, decimal latitude, decimal longitude)
-        {
-            Logradouro = logradouro;
-            Bairro = bairro;
-            Cidade = cidade;
-            Estado = estado;
-            Pais = pais;
-            CEP = cep;
-            Latitude = latitude;
-            Longitude = longitude;
-        }
+        //public Enderecos() { }
+        //public Enderecos(string logradouro, string bairro, int cidadeId, int estadoId, int paisId, int cep, decimal latitude, decimal longitude)
+        //{
+        //    Logradouro = logradouro;
+        //    Bairro = bairro;
+        //    CidadeId = cidadeId;
+        //    EstadoId = estadoId;
+        //    PaisId = paisId;
+        //    CEP = cep;
+        //    Latitude = latitude;
+        //    Longitude = longitude;
+        //}
 
         public string Logradouro { get; set; }
         public string Bairro { get; set; }

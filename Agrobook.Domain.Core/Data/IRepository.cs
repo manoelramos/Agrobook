@@ -12,6 +12,7 @@
 
     public interface IRepository<TEntity> where TEntity : Entity<TEntity>
     {
+        IUnitOfWork UnitOfWork { get; }
         ValueTask<TEntity> GetByIdAsync(long id, CancellationToken cancellationToken = default);
 
         ValueTask<List<TEntity>> GetAsync(CancellationToken cancellationToken = default);

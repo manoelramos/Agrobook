@@ -1,5 +1,6 @@
 ﻿namespace Agrobook.Infra.Data.Context
 {
+    using Agrobook.Domain.Core.Data;
     using Agrobook.Infra.Data.Repositories.Atividades;
     using Agrobook.Infra.Data.Repositories.Base;
     using Agrobook.Infra.Data.Repositories.Colaborador;
@@ -19,7 +20,7 @@
     using System.Threading;
     using System.Threading.Tasks;
 
-    public class ApplicationContext : DbContext
+    public class ApplicationContext : DbContext, IUnitOfWork
     {
         private readonly IConfiguration _configuration;
 

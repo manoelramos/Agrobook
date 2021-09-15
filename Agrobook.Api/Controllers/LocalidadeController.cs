@@ -24,13 +24,7 @@
         public async Task<IActionResult> GetPaises()
         {
             var response = await _mediator.Send(new PaisesQuery(true));
-
-            if (response.HasMessages)
-                return BadRequest(response.Messages);
-
-
-            return Ok(response.Value);
-
+            return Ok(response);
         }
 
         /// <summary>
@@ -41,11 +35,7 @@
         public async Task<IActionResult> GetEstados(int paisId)
         {
             var response = await _mediator.Send(new EstadosQuery(paisId));
-
-            if (response.HasMessages)
-                return BadRequest(response.Messages);
-
-            return Ok(response.Value);
+            return Ok(response);
         }
 
         ///// <summary>

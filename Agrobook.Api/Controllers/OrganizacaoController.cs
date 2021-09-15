@@ -1,11 +1,15 @@
 ﻿namespace Agrobook.Api.Controllers
 {
+    using Agrobook.Application.Organizacao.Commands;
+    using Agrobook.Application.Organizacao.Queries;
+    using Agrobook.Application.Organizacao.Responses;
+    using Agrobook.Domain.Models;
+    using MediatR;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
-    using MediatR;
+    using System.Collections.Generic;
     using System.Threading.Tasks;
-    using Agrobook.Application.Organizacao.Queries;
 
     //[Route("api/[controller]"), Authorize(AuthenticationSchemes = "Bearer")]
     public class OrganizacaoController : ControllerBase
@@ -17,17 +21,14 @@
             _mediator = mediator;
         }
 
-        [HttpGet, Route("organizacao"), AllowAnonymous]
+        [HttpGet, Route("organizacoes"), AllowAnonymous]
+        [ProducesResponseType(typeof(IEnumerable<OrganizacaoResponse>), StatusCodes.Status200OK)]
+        [ProducesDefaultResponseType]
         // GET: OrganizacaoController
-        public async Task<IActionResult> GetOrganizacao()
+        public async Task<ActionResult<IEnumerable<OrganizacaoResponse>>> GetOrganizacao()
         {
             var response = await _mediator.Send(new OrganizacaoQuery(true));
-
-            if (response.HasMessages)
-                return BadRequest(response.Messages);
-
-
-            return Ok(response.Value);
+            return Ok(response);
         }
 
         //[HttpGet, Route("organizacao/{id}"), AllowAnonymous]
@@ -49,20 +50,20 @@
         //    return View();
         //}
 
-        //// POST: OrganizacaoController/Create
-        //[HttpPost]
+        // POST: OrganizacaoController/Create
+        [HttpPost, Route("organizacoes"), AllowAnonymous]
         //[ValidateAntiForgeryToken]
-        //public ActionResult Create(IFormCollection collection)
-        //{
-        //    try
-        //    {
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
+        public async Task<IActionResult> Create([FromBody] OrganizacaoCommand command)
+        {
+
+            var response = await _mediator.Send(command);
+
+            if (!response.IsValid)
+                return BadRequest(response);
+
+            return Ok(response);
+
+        }
 
         //// GET: OrganizacaoController/Edit/5
         //public ActionResult Edit(int id)

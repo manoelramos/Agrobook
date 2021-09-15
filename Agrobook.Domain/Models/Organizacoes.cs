@@ -7,10 +7,19 @@
 
     public class Organizacoes : Entity<Organizacoes>
     {
+        //public Organizacoes(string nomeCompleto, string nomeFantasia, byte[] logoMarca, int? enderecoId, bool ativo)
+        //{
+        //    NomeCompleto = nomeCompleto;
+        //    NomeFantasia = nomeFantasia;
+        //    LogoMarca = logoMarca;
+        //    Ativo = ativo;
+        //    EnderecoId = enderecoId;
+        //}
+
         public string NomeCompleto {  get; set; }
         public string NomeFantasia {  get; set; }
         public byte[] LogoMarca {  get; set; }
-        public int EnderecoId {  get; set; }
+        public int? EnderecoId {  get; set; }
         public Enderecos Endereco {  get; set; }
         public ICollection<Patrimonios> Patrimonios {  get; set; }
         public ICollection<Contratacoes> Contratacoes {  get; set;}

@@ -120,6 +120,9 @@
   <data name="Authorization" xml:space="preserve">
     <value>Authorization</value>
   </data>
+  <data name="CommitErrorMessage" xml:space="preserve">
+    <value>Ocorreu um erro ao salvar os dados!</value>
+  </data>
   <data name="GetError" xml:space="preserve">
     <value>Ocorreu um erro durante a requisição [GET]</value>
   </data>

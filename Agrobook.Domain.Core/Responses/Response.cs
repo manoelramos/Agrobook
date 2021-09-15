@@ -1,4 +1,4 @@
-﻿namespace Agrobook.Domain.Core.Response
+﻿namespace Agrobook.Domain.Core.Responses
 {
     using FluentValidation.Results;
 

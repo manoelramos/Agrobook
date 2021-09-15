@@ -70,6 +70,15 @@ namespace Agrobook.Domain.Core {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ocorreu um erro ao salvar os dados!.
+        /// </summary>
+        internal static string CommitErrorMessage {
+            get {
+                return ResourceManager.GetString("CommitErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ocorreu um erro durante a requisição [GET].
         /// </summary>
         internal static string GetError {

@@ -2,15 +2,20 @@
 {
     using Agrobook.Application.Localidade.Handles;
     using Agrobook.Application.Localidade.Queries;
+    using Agrobook.Application.Localidade.Responses;
+    using Agrobook.Application.Organizacao.Commands;
     using Agrobook.Application.Organizacao.Handles;
     using Agrobook.Application.Organizacao.Queries;
-    using Agrobook.Domain.Core.Messaging;
+    using Agrobook.Application.Organizacao.Responses;
     using Agrobook.Domain.Interfaces.Data;
     using Agrobook.Infra.Data.Context;
+    using Agrobook.Infra.Data.Repositories.Enderecos;
     using Agrobook.Infra.Data.Repositories.Localidade;
     using Agrobook.Infra.Data.Repositories.Organizacao;
+    using FluentValidation.Results;
     using MediatR;
     using Microsoft.Extensions.DependencyInjection;
+    using System.Collections.Generic;
 
     public static class DependencyInjectionConfiguration
     {
@@ -22,14 +27,16 @@
             services.AddScoped<IOrganizacaoRepository, OrganizacaoRepository>();
             services.AddScoped<IPaisesRepository, PaisRepository>();
             services.AddScoped<IEstadosRepository, EstadoRepository>();
+            services.AddScoped<IEnderecosRepository, EnderecosRepository>();
         }
 
         public static void RegisterMediatr(this IServiceCollection services)
         {
             //services.AddScoped(typeof(IPipelineBehavior<,>), typeof(RequestsValidationMiddleware<,>));
-            services.AddScoped<IRequestHandler<OrganizacaoQuery, Response>, OrganizacaoQueryHandle>();
-            services.AddScoped<IRequestHandler<PaisesQuery, Response>, PaisesQueryHandle>();
-            services.AddScoped<IRequestHandler<EstadosQuery, Response>, EstadosQueryHandle>();
+            services.AddScoped<IRequestHandler<OrganizacaoQuery, List<OrganizacaoResponse>>, OrganizacaoQueryHandle>();
+            services.AddScoped<IRequestHandler<PaisesQuery, List<PaisResponse>>, PaisesQueryHandle>();
+            services.AddScoped<IRequestHandler<EstadosQuery, List<EstadoResponse>>, EstadosQueryHandle>();
+            services.AddScoped<IRequestHandler<OrganizacaoCommand, ValidationResult>, OrganizacaoCommandHandle>();
         }
 
         public static void RegisterServices(this IServiceCollection services)

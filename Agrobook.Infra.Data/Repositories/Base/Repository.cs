@@ -19,6 +19,8 @@
         protected readonly DbSet<TEntity> DbSet;
         private bool _disposed;
 
+        IUnitOfWork IRepository<TEntity>.UnitOfWork => Context;
+
         protected Repository(ApplicationContext context)
         {
             Context = context;

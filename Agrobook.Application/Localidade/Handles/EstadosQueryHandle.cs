@@ -2,7 +2,6 @@
 {
     using Agrobook.Application.Localidade.Queries;
     using Agrobook.Application.Localidade.Responses;
-    using Agrobook.Domain.Core.Messaging;
     using Agrobook.Domain.Interfaces.Data;
     using AutoMapper;
     using MediatR;
@@ -12,7 +11,7 @@
     using System.Threading;
     using System.Threading.Tasks;
 
-    public class EstadosQueryHandle : IRequestHandler<EstadosQuery, Response>
+    public class EstadosQueryHandle : IRequestHandler<EstadosQuery, List<EstadoResponse>>
     {
         private readonly IMapper _mapper;
         private readonly IEstadosRepository _estadoRepository;
@@ -23,13 +22,10 @@
             _estadoRepository = estadoRepository;
         }
 
-        public async Task<Response> Handle(EstadosQuery request, CancellationToken cancellationToken)
+        public async Task<List<EstadoResponse>> Handle(EstadosQuery request, CancellationToken cancellationToken)
         {
-            var response = new Response();
-            var result = await _estadoRepository.Include().Where(x => x.PaisId.Equals(request.PaisId)).ToListAsync();
-            var estados = _mapper.Map(result, new List<EstadoResponse>());
-            response.AddValue(estados);
-            return response;
+            var result = await _estadoRepository.Include().Where(x => x.PaisId.Equals(request.PaisId)).ToListAsync(cancellationToken: cancellationToken);
+            return _mapper.Map(result, new List<EstadoResponse>());         
         }
     }
 }
