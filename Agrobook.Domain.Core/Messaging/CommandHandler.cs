@@ -25,6 +25,16 @@
             return ValidationResult.IsValid;
         }
 
+
+        protected bool IsValid<TValidator, TEntity>(TValidator validator, TEntity target) where TValidator : AbstractValidator<TEntity>
+        {
+            var validationResult = validator.Validate(target);
+            foreach (var error in validationResult.Errors)
+                ValidationResult.Errors.Add(error);
+
+            return ValidationResult.IsValid;
+        }
+
         protected bool IsSuccess(ValidationResult validationResult)
         {
             foreach (var error in validationResult.Errors)

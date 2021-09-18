@@ -1,9 +1,8 @@
-﻿namespace Agrobook.Api.Controllers
+﻿namespace Agrobook.Api.Controllers.Organizacao
 {
     using Agrobook.Application.Organizacao.Commands;
     using Agrobook.Application.Organizacao.Queries;
     using Agrobook.Application.Organizacao.Responses;
-    using Agrobook.Domain.Models;
     using MediatR;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Http;
@@ -53,7 +52,7 @@
         // POST: OrganizacaoController/Create
         [HttpPost, Route("organizacoes"), AllowAnonymous]
         //[ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([FromBody] OrganizacaoCommand command)
+        public async Task<IActionResult> Create([FromBody] OrganizacaoCreateCommand command)
         {
 
             var response = await _mediator.Send(command);

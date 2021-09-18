@@ -16,7 +16,7 @@
             CreateMap<Enderecos, EnderecoResponse>().ReverseMap();
             CreateMap<Organizacoes, OrganizacaoResponse>().ReverseMap();
             CreateMap<Endereco, Enderecos>().ReverseMap();
-            CreateMap<OrganizacaoCommand, Organizacoes>().ReverseMap();
+            CreateMap<OrganizacaoCreateCommand, Organizacoes>().ReverseMap();
         }
     }
 }

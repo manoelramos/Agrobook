@@ -9,6 +9,7 @@ namespace Agrobook.Api
     using Microsoft.OpenApi.Models;
     using MediatR;
     using System.Reflection;
+    using FluentValidation;
 
     public class Startup
     {
@@ -23,9 +24,9 @@ namespace Agrobook.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.RegisterRepositories();
-            
+
             services.RegisterMediatr();
-            
+
             services.RegisterServices();
 
             services.AddMediatR(Assembly.GetExecutingAssembly());
