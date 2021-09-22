@@ -10,6 +10,8 @@ namespace Agrobook.Api
     using MediatR;
     using System.Reflection;
     using FluentValidation;
+    using Microsoft.AspNetCore.Mvc;
+    using FluentValidation.AspNetCore;
 
     public class Startup
     {
@@ -34,6 +36,20 @@ namespace Agrobook.Api
             //services.AddAuthorizedMvc();
 
             services.AddControllers();
+                //.AddFluentValidation(fvc => fvc.RegisterValidatorsFromAssemblyContaining<Startup>());
+
+            services.AddApiVersioning(p =>
+            {
+                p.DefaultApiVersion = new ApiVersion(1, 0);
+                p.ReportApiVersions = true;
+                p.AssumeDefaultVersionWhenUnspecified = true;
+            });
+
+            services.AddVersionedApiExplorer(p =>
+            {
+                p.GroupNameFormat = "'v'VVV";
+                p.SubstituteApiVersionInUrl = true;
+            });
 
             services.AddSwaggerGen(c =>
             {

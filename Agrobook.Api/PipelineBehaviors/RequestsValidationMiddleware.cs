@@ -1,5 +1,6 @@
 ﻿namespace Agrobook.Api.PipelineBehaviors
 {
+    using Agrobook.Domain.Core.Messaging;
     using Agrobook.Domain.Core.Responses;
     using FluentValidation;
     using FluentValidation.Results;
@@ -23,10 +24,10 @@
             var validationResults = await Task.WhenAll(_validators.Select(v => v.ValidateAsync(context, cancellationToken)));
             var failures = validationResults.SelectMany(r => r.Errors).Where(f => f != null).ToList();
                       
-            var result = Response<ValidationResult>.Fail(failures);            
+            //var result =  .Fail(failures);
 
             //if (_validators.Any())
-            //    return result;            
+            //    return result.ValidationResult;
 
             return await next();
         }        

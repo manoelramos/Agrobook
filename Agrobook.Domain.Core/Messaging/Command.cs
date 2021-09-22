@@ -2,12 +2,7 @@
 {
     using FluentValidation.Results;
     using MediatR;
-    using System;
-
-    //public abstract class Command<TResponse> : Notifiable<Notification>, IRequest<TResponse>
-    //{
-
-    //}
+    using System;     
 
     public abstract class Command<TResponse> : Message, IRequest<TResponse>
     {

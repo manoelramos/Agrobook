@@ -3,7 +3,7 @@
     using Agrobook.Domain.Models;
     using FluentValidation;
 
-    public class OrganizacaoValidator : AbstractValidator<Organizacoes>
+    public class OrganizacaoValidator : AbstractValidator<OrganizacaoCreateCommand>
     {
         public OrganizacaoValidator()
         {

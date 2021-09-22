@@ -1,4 +1,4 @@
-﻿namespace Agrobook.Api.Controllers.Organizacao
+﻿namespace Agrobook.Api.Controllers
 {
     using Agrobook.Application.Organizacao.Commands;
     using Agrobook.Application.Organizacao.Queries;
@@ -11,7 +11,8 @@
     using System.Threading.Tasks;
 
     //[Route("api/[controller]"), Authorize(AuthenticationSchemes = "Bearer")]
-    public class OrganizacaoController : ControllerBase
+    [ApiVersion("1")]
+    public class OrganizacaoController : ApiController
     {
         private readonly IMediator _mediator;
 
@@ -54,14 +55,8 @@
         //[ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([FromBody] OrganizacaoCreateCommand command)
         {
-
             var response = await _mediator.Send(command);
-
-            if (!response.IsValid)
-                return BadRequest(response);
-
-            return Ok(response);
-
+            return CustomResponse(response);
         }
 
         //// GET: OrganizacaoController/Edit/5

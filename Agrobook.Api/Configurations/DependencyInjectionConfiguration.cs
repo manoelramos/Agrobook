@@ -35,9 +35,8 @@
 
         public static void RegisterMediatr(this IServiceCollection services)
         {
-
             services.AddValidatorsFromAssembly(typeof(Startup).Assembly);
-            //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestsValidationMiddleware<,>));
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestsValidationMiddleware<,>));
 
             services.AddScoped<IRequestHandler<OrganizacaoQuery, List<OrganizacaoResponse>>, OrganizacaoQueryHandle>();
             services.AddScoped<IRequestHandler<PaisesQuery, List<PaisResponse>>, PaisesQueryHandle>();
