@@ -35,7 +35,11 @@
 
         public static void RegisterMediatr(this IServiceCollection services)
         {
-            services.AddValidatorsFromAssembly(typeof(Startup).Assembly);
+
+            //services.AddValidatorsFromAssembly(typeof(Startup).Assembly);
+
+            services.AddValidatorsFromAssembly(Assembly.Load("Agrobook.Application"));
+
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestsValidationMiddleware<,>));
 
             services.AddScoped<IRequestHandler<OrganizacaoQuery, List<OrganizacaoResponse>>, OrganizacaoQueryHandle>();

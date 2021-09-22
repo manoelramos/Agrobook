@@ -1,5 +1,6 @@
 ﻿namespace Agrobook.Api.PipelineBehaviors
 {
+    using Agrobook.Application.Organizacao.Commands;
     using Agrobook.Domain.Core.Messaging;
     using Agrobook.Domain.Core.Responses;
     using FluentValidation;
@@ -10,24 +11,23 @@
     using System.Threading;
     using System.Threading.Tasks;
 
-    public class RequestsValidationMiddleware<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TRequest : IRequest<TResponse>
+    public class RequestsValidationMiddleware<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
+        where TRequest : IRequest<TResponse> where TResponse : ValidationResult
     {
-        //private Response<ValidationResult> _response;
         private readonly IEnumerable<IValidator> _validators;
         public RequestsValidationMiddleware(IEnumerable<IValidator<TRequest>> validators)
         {
             _validators = validators;
         }
+
         public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
         {
-            var context = new ValidationContext<TRequest>(request);
-            var validationResults = await Task.WhenAll(_validators.Select(v => v.ValidateAsync(context, cancellationToken)));
-            var failures = validationResults.SelectMany(r => r.Errors).Where(f => f != null).ToList();
-                      
-            //var result =  .Fail(failures);
+            var contextValidation = new ValidationContext<TRequest>(request);
+            var validationResults = await Task.WhenAll(_validators.Select(v => v.ValidateAsync(contextValidation, cancellationToken)));
+            var failures = validationResults.SelectMany(r => r.Errors).Where(f => f != null).ToList();                     
 
-            //if (_validators.Any())
-            //    return result.ValidationResult;
+            if (_validators.Any())
+                return Response<TResponse>.Fail(failures).ValidationResult as TResponse;
 
             return await next();
         }        

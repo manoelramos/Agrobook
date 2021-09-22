@@ -7,7 +7,7 @@
 
     public class OrganizacaoCreateCommand : Command
     {
-        public string NomeCompleto { get; set; }
+        public string RazaoSocial { get; set; }
         public string NomeFantasia { get; set; }
         public string LogoImage64Bits { get; set; }
         public Endereco Endereco { get; set; }

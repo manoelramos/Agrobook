@@ -36,7 +36,6 @@ namespace Agrobook.Api
             //services.AddAuthorizedMvc();
 
             services.AddControllers();
-                //.AddFluentValidation(fvc => fvc.RegisterValidatorsFromAssemblyContaining<Startup>());
 
             services.AddApiVersioning(p =>
             {
