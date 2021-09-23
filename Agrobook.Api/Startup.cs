@@ -9,9 +9,7 @@ namespace Agrobook.Api
     using Microsoft.OpenApi.Models;
     using MediatR;
     using System.Reflection;
-    using FluentValidation;
     using Microsoft.AspNetCore.Mvc;
-    using FluentValidation.AspNetCore;
 
     public class Startup
     {

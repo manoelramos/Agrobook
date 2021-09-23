@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Agrobook.Application.Organizacao.Responses
+﻿namespace Agrobook.Application.Organizacao.Responses
 {
     public class OrganizacaoResponse
     {

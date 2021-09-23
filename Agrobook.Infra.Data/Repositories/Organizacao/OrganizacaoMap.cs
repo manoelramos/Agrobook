@@ -9,7 +9,7 @@
     {
         protected override void Configure(EntityTypeBuilder<Organizacoes> builder)
         {
-            builder.Property(c => c.NomeCompleto)
+            builder.Property(c => c.RazaoSocial)
                .HasColumnType("varchar(200)")
                .IsRequired();
 
