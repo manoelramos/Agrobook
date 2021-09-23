@@ -14,7 +14,7 @@
             RuleFor(a => a.Endereco.PaisId).GreaterThan(0).WithMessage("Informe um país válido.");
             RuleFor(a => a.Endereco.Latitude).NotNull().WithMessage("Informe a latitude válida.");
             RuleFor(a => a.Endereco.Longitude).NotNull().WithMessage("Informe a longitude válida.");
-            RuleFor(a => a.Endereco.CEP).GreaterThanOrEqualTo(00000000).WithMessage("Informe um CEP válido.");
+            RuleFor(a => a.Endereco.CEP).GreaterThanOrEqualTo(11111111).WithMessage("Informe um CEP válido.");
 
             //RuleFor(a => a.IsValidImage()).GreaterThan(false).WithMessage("A imagem enviada não corresponde ao formato esperado.");
         }

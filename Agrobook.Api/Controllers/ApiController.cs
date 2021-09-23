@@ -52,7 +52,7 @@
         protected ActionResult CustomResponse(ValidationResult validationResult)
         {
             foreach (var error in validationResult.Errors)
-                AddError(error.ErrorMessage);
+                AddError($"{error.PropertyName}:{error.ErrorMessage}");
 
             return CustomResponse();
         }
