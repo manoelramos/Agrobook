@@ -2,7 +2,8 @@
 {
     public class OrganizacaoResponse
     {
-        public string NomeCompleto { get; set; }
+        public long Id {  get; set; }
+        public string RazaoSocial { get; set; }
         public string NomeFantasia { get; set; }
         public byte[] LogoMarca { get; set; }
         public EnderecoResponse Endereco { get; set; }
@@ -10,7 +11,7 @@
 
     public class EnderecoResponse
     {
-        public long? Id {  get; set; }
+        public long Id {  get; set; }
         public string Logradouro { get; set; }
         public string Bairro { get; set; }
         public int? CEP { get; set; }

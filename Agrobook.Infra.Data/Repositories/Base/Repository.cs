@@ -92,7 +92,6 @@
         {
             return await Include().Where(predicate).ToListAsync(cancellationToken);
         }
-
         public async ValueTask<TEntity> GetByIdAsync(long id, CancellationToken cancellationToken = default)
         {
             return await Include().SingleOrDefaultAsync(c => c.Id == id, cancellationToken);
@@ -110,14 +109,12 @@
         {
             return DbSet.Include(navigationPropertyPath);
         }
-
         public ValueTask<TEntity> UpdateAsync(TEntity entity, CancellationToken cancellationToken = default)
         {
             entity.ModifiedDate = DateTime.Now;
             var entityEntry = DbSet.Update(entity);
             return new ValueTask<TEntity>(entityEntry.Entity);
         }
-
         protected virtual Task<int> SaveChangesAsync(CancellationToken cancellationToken = default) =>
            Context.SaveChangesAsync(cancellationToken);
 

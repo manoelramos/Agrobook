@@ -25,80 +25,44 @@
         [ProducesResponseType(typeof(IEnumerable<OrganizacaoResponse>), StatusCodes.Status200OK)]
         [ProducesDefaultResponseType]
         // GET: OrganizacaoController
-        public async Task<ActionResult<IEnumerable<OrganizacaoResponse>>> GetOrganizacao()
+        public async Task<ActionResult<IEnumerable<OrganizacaoResponse>>> GetOrganizacao(bool ativo = true)
         {
-            var response = await _mediator.Send(new OrganizacaoQuery(true));
+            var response = await _mediator.Send(new OrganizacaoQuery(ativo));
             return Ok(response);
         }
 
-        //[HttpGet, Route("organizacao/{id}"), AllowAnonymous]
-        //// GET: OrganizacaoController/Details/5
-        //public ActionResult GetOrganizacaoById(int id)
-        //{
-        //    var response = await _mediator.Send();
-
-        //    if (response.HasMessages)
-        //        return BadRequest(response.Messages);
-
-
-        //    return Ok(response.Value);
-        //}
-
-        //// GET: OrganizacaoController/Create
-        //public ActionResult Create()
-        //{
-        //    return View();
-        //}
+        // GET: OrganizacaoController/Details/5
+        [HttpGet, Route("details/{id}"), AllowAnonymous]
+        public async Task<ActionResult<OrganizacaoResponse>> GetOrganizacaoById(int id)
+        {
+            var response = await _mediator.Send(new OrganizacaoByIdQuery(id));
+            return Ok(response);
+        }
 
         // POST: OrganizacaoController/Create
         [HttpPost, Route("organizacoes"), AllowAnonymous]
-        //[ValidateAntiForgeryToken]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([FromBody] OrganizacaoCreateCommand command)
         {
             var response = await _mediator.Send(command);
             return CustomResponse(response);
         }
 
-        //// GET: OrganizacaoController/Edit/5
-        //public ActionResult Edit(int id)
-        //{
-        //    return View();
-        //}
+        // PUT: OrganizacaoController/Edit/5
+        [HttpPut, Route("edit"), AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Edit([FromBody] OrganizacaoUpdateCommand command)
+        {
+            var response = await _mediator.Send(command);
+            return CustomResponse(response);
+        }
 
-        //// POST: OrganizacaoController/Edit/5
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Edit(int id, IFormCollection collection)
-        //{
-        //    try
-        //    {
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
-
-        //// GET: OrganizacaoController/Delete/5
-        //public ActionResult Delete(int id)
-        //{
-        //    return View();
-        //}
-
-        //// POST: OrganizacaoController/Delete/5
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Delete(int id, IFormCollection collection)
-        //{
-        //    try
-        //    {
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
+        // DELETE: OrganizacaoController/Delete/5
+        [HttpDelete, Route("delete/{id}"), AllowAnonymous]
+        public async Task<ActionResult> Delete(int id)
+        {
+            var response = await _mediator.Send(new OrganizacaoDeleteCommand(id));
+            return CustomResponse(response);
+        }
     }
 }

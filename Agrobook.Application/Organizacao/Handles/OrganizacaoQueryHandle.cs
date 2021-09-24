@@ -7,6 +7,7 @@
     using MediatR;
     using Microsoft.EntityFrameworkCore;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
 
@@ -25,6 +26,7 @@
         {
             var entities = await _organizacaoRepository.
                 Include(c => c.Endereco).
+                Where(x => x.Ativo == request.Active).
                 ToListAsync(cancellationToken: cancellationToken);
 
             var organizacoes = _map.Map<List<OrganizacaoResponse>>(entities);

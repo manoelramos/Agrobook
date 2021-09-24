@@ -43,9 +43,14 @@
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestsValidationMiddleware<,>));
 
             services.AddScoped<IRequestHandler<OrganizacaoQuery, List<OrganizacaoResponse>>, OrganizacaoQueryHandle>();
-            services.AddScoped<IRequestHandler<PaisesQuery, List<PaisResponse>>, PaisesQueryHandle>();
-            services.AddScoped<IRequestHandler<EstadosQuery, List<EstadoResponse>>, EstadosQueryHandle>();
+            services.AddScoped<IRequestHandler<OrganizacaoByIdQuery, OrganizacaoResponse>, OrganizacaoByIdQueryHandle>();
             services.AddScoped<IRequestHandler<OrganizacaoCreateCommand, ValidationResult>, OrganizacaoCreateCommandHandle>();
+            services.AddScoped<IRequestHandler<OrganizacaoDeleteCommand, ValidationResult>, OrganizacaoDeleteCommandHandle>();
+            services.AddScoped<IRequestHandler<OrganizacaoUpdateCommand, ValidationResult>, OrganizacaoUpdateCommandHandle>();
+
+            services.AddScoped<IRequestHandler<PaisesQuery, List<PaisResponse>>, PaisesQueryHandle>();
+            services.AddScoped<IRequestHandler<EstadosQuery, List<EstadoResponse>>, EstadosQueryHandle>();           
+            
         }
 
         public static void RegisterServices(this IServiceCollection services)

@@ -21,4 +21,19 @@
     <ProjectReference Include="..\Agrobook.Infra.Data\Agrobook.Infra.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Rsc_Message.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Rsc_Message.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Rsc_Message.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Rsc_Message.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
 </Project>
