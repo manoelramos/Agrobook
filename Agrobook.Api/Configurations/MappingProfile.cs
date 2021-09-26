@@ -1,5 +1,6 @@
 ﻿namespace Agrobook.Api.Configurations
 {
+    using Agrobook.Application.Common;
     using Agrobook.Application.Localidade.Responses;
     using Agrobook.Application.Organizacao.Commands;
     using Agrobook.Application.Organizacao.Responses;
@@ -15,7 +16,7 @@
             CreateMap<Estados, EstadoResponse>().ReverseMap();
             CreateMap<Enderecos, EnderecoResponse>().ReverseMap();
             CreateMap<Organizacoes, OrganizacaoResponse>().ReverseMap();
-            CreateMap<Endereco, Enderecos>().ReverseMap();
+            CreateMap<EnderecoCreateCommand, Enderecos>().ReverseMap();
             CreateMap<OrganizacaoCreateCommand, Organizacoes>().ReverseMap();
             CreateMap<OrganizacaoUpdateCommand, Organizacoes>().ReverseMap();
         }

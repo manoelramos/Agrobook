@@ -18,6 +18,10 @@
             builder.HasOne(c => c.Organizacao)
                 .WithMany(c => c.Contratacoes)
                 .HasForeignKey(c => c.OrganizacaoId);
+
+            builder.HasOne(c => c.Associado)
+               .WithMany(c => c.Contratacoes)
+               .HasForeignKey(c => c.AssociadoId);
         }
     }
 }

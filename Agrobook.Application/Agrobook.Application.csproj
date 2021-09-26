@@ -6,14 +6,18 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="Flunt.Extensions.Br" Version="1.0.1" />
     <PackageReference Include="MediatR" Version="9.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Colaborador\Commands\" />
-    <Folder Include="Colaborador\Handlers\" />
-    <Folder Include="Colaborador\Responses\" />
-    <Folder Include="Colaborador\Queries\" />
+    <Folder Include="PessoaJuridica\Commands\" />
+    <Folder Include="PessoaJuridica\Handlers\" />
+    <Folder Include="PessoaJuridica\Queries\" />
+    <Folder Include="PessoaJuridica\Responses\" />
+    <Folder Include="PessoaFisica\Handlers\" />
+    <Folder Include="PessoaFisica\Responses\" />
+    <Folder Include="PessoaFisica\Queries\" />
   </ItemGroup>
 
   <ItemGroup>

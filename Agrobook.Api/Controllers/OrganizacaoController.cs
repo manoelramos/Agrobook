@@ -41,7 +41,7 @@
 
         // POST: OrganizacaoController/Create
         [HttpPost, Route("organizacoes"), AllowAnonymous]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([FromBody] OrganizacaoCreateCommand command)
         {
             var response = await _mediator.Send(command);
@@ -50,7 +50,7 @@
 
         // PUT: OrganizacaoController/Edit/5
         [HttpPut, Route("edit"), AllowAnonymous]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit([FromBody] OrganizacaoUpdateCommand command)
         {
             var response = await _mediator.Send(command);

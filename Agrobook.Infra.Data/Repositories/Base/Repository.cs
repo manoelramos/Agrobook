@@ -29,6 +29,7 @@
 
         public ValueTask<TEntity> CreateAsync(TEntity entity, CancellationToken cancellationToken = default)
         {
+            entity.Ativo = true;
             entity.AddedDate = DateTime.Now;
             var entityEntry = DbSet.Add(entity);
             return new ValueTask<TEntity>(entityEntry.Entity);

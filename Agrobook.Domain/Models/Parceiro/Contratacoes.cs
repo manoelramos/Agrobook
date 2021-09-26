@@ -7,23 +7,29 @@
     public enum ModeloContrato
     {
         CLT,
-        Terceirizado,
-        Temporario
+        TempoDeterminado,
+        TempoIndeterminado,
+        Temporario,
+        TrabalhoEventual,
+        JovemAprendiz,
+        Estagiario,
+        Intermitente,
+        PessoaJuridica
     }
 
     public class Contratacoes : Entity<Contratacoes>
     {
         public int Modelo {  get; set; }
-        
-        //Subistituir por um entidade pagamento
-        //public String Pagamento {  get; set; }
-
-
+        public string Funcao {  get; set; }
+                
         public DateTime Inicio {  get; set; }
         public DateTime Termmino {  get; set; }
         public decimal Valor {  get; set; }
+
         public int OrganizacaoId {  get; set; }
         public Organizacoes Organizacao {  get; set; }
-        public ICollection<Associados> Associados {  get; set; }
+
+        public int AssociadoId {  get; set; }
+        public Associados Associado {  get; set; }
     }
 }

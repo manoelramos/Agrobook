@@ -4,9 +4,9 @@
     using Agrobook.Infra.Data.TypeConfiguration;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-    internal class ContasBancariasMap : EntityTypeConfiguration<ContasBancarias>
+    internal class ContasBancariasMap : EntityTypeConfiguration<DadosBancarios>
     {
-        protected override void Configure(EntityTypeBuilder<ContasBancarias> builder)
+        protected override void Configure(EntityTypeBuilder<DadosBancarios> builder)
         {
             builder.HasOne(c => c.Associado)
                  .WithMany(c => c.ContasBancarias)

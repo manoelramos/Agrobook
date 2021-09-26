@@ -4,14 +4,16 @@ using Agrobook.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Agrobook.Infra.Data.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20210925233731_Alter_RelationshipAssociados")]
+    partial class Alter_RelationshipAssociados
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -436,6 +438,9 @@ namespace Agrobook.Infra.Data.Migrations
                     b.Property<bool>("Ativo")
                         .HasColumnType("bit");
 
+                    b.Property<int>("ContratacaoId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("varchar(200)");
@@ -451,6 +456,8 @@ namespace Agrobook.Infra.Data.Migrations
                         .HasColumnType("varchar(100)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ContratacaoId");
 
                     b.HasIndex("EnderecoId");
 
@@ -578,9 +585,6 @@ namespace Agrobook.Infra.Data.Migrations
                     b.Property<DateTime>("AddedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("AssociadoId")
-                        .HasColumnType("int");
-
                     b.Property<bool>("Ativo")
                         .HasColumnType("bit");
 
@@ -604,8 +608,6 @@ namespace Agrobook.Infra.Data.Migrations
                         .HasColumnType("decimal(18,6)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AssociadoId");
 
                     b.HasIndex("OrganizacaoId");
 
@@ -773,7 +775,7 @@ namespace Agrobook.Infra.Data.Migrations
                     b.Property<string>("PisPasep")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("RG")
+                    b.Property<int>("RG")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -803,10 +805,10 @@ namespace Agrobook.Infra.Data.Migrations
                     b.Property<int>("CNPJ")
                         .HasColumnType("int");
 
-                    b.Property<int?>("InscricaoEstadual")
+                    b.Property<int>("InscricaoEstadual")
                         .HasColumnType("int");
 
-                    b.Property<int?>("InscricaoMunicipal")
+                    b.Property<int>("InscricaoMunicipal")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("ModifiedDate")
@@ -1485,11 +1487,19 @@ namespace Agrobook.Infra.Data.Migrations
 
             modelBuilder.Entity("Agrobook.Domain.Models.Parceiro.Associados", b =>
                 {
+                    b.HasOne("Agrobook.Domain.Models.Parceiro.Contratacoes", "Contratacao")
+                        .WithMany("Associados")
+                        .HasForeignKey("ContratacaoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Agrobook.Domain.Models.Enderecos", "Endereco")
                         .WithMany("Associados")
                         .HasForeignKey("EnderecoId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
+
+                    b.Navigation("Contratacao");
 
                     b.Navigation("Endereco");
                 });
@@ -1529,19 +1539,11 @@ namespace Agrobook.Infra.Data.Migrations
 
             modelBuilder.Entity("Agrobook.Domain.Models.Parceiro.Contratacoes", b =>
                 {
-                    b.HasOne("Agrobook.Domain.Models.Parceiro.Associados", "Associado")
-                        .WithMany("Contratacoes")
-                        .HasForeignKey("AssociadoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Agrobook.Domain.Models.Organizacoes", "Organizacao")
                         .WithMany("Contratacoes")
                         .HasForeignKey("OrganizacaoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Associado");
 
                     b.Navigation("Organizacao");
                 });
@@ -1821,8 +1823,6 @@ namespace Agrobook.Infra.Data.Migrations
 
                     b.Navigation("Contatos");
 
-                    b.Navigation("Contratacoes");
-
                     b.Navigation("Documentos");
 
                     b.Navigation("Pagamentos");
@@ -1830,6 +1830,11 @@ namespace Agrobook.Infra.Data.Migrations
                     b.Navigation("PessoaFisica");
 
                     b.Navigation("PessoaJuridica");
+                });
+
+            modelBuilder.Entity("Agrobook.Domain.Models.Parceiro.Contratacoes", b =>
+                {
+                    b.Navigation("Associados");
                 });
 
             modelBuilder.Entity("Agrobook.Domain.Models.Parceiro.Pagamentos", b =>

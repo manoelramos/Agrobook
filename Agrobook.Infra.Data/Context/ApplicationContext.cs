@@ -44,6 +44,8 @@
             modelBuilder.ApplyConfiguration(new OrganizacaoMap());
             modelBuilder.ApplyConfiguration(new PatrimonioMap());
             modelBuilder.ApplyConfiguration(new AssociadoMap());
+            modelBuilder.ApplyConfiguration(new PessoaFisicaMap());
+            modelBuilder.ApplyConfiguration(new PessoaJuridicaMap());
             modelBuilder.ApplyConfiguration(new ContratacaoMap());
             modelBuilder.ApplyConfiguration(new FazendaMap());
             modelBuilder.ApplyConfiguration(new TalhaoMap());

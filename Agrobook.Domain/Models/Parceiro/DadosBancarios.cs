@@ -2,7 +2,7 @@
 {
     using Agrobook.Domain.Core.Models;
 
-    public class ContasBancarias : Entity<ContasBancarias>
+    public class DadosBancarios : Entity<DadosBancarios>
     {
         public string Instituicao { get; set; }
         public int Banco { get; set; }

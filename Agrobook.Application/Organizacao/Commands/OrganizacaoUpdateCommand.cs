@@ -1,5 +1,6 @@
 ﻿namespace Agrobook.Application.Organizacao.Commands
 {
+    using Agrobook.Application.Common;
     using Agrobook.Domain.Core.Messaging;
     using System;    
 
@@ -11,7 +12,7 @@
         public string LogoImage64Bits { get; set; }
         public bool Ativo {  get; set; }
 
-        public Endereco Endereco { get; set; }
+        public EnderecoCreateCommand Endereco { get; set; }
 
         public bool IsValidImage()
         {
