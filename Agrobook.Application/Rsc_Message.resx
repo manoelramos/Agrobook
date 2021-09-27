@@ -117,13 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ASS" xml:space="preserve">
+    <value>ASS</value>
+    <comment>Sigla para erros durante o processo de criação de associado(s)</comment>
+  </data>
   <data name="OCC" xml:space="preserve">
     <value>OCC</value>
-    <comment>Sigla para erros durant o processo de criação da organização</comment>
+    <comment>Sigla para erros durante o processo de criação da organização</comment>
   </data>
   <data name="OUC" xml:space="preserve">
     <value>OUC</value>
-    <comment>Sigla para erros durant o processo de atualização da organização</comment>
+    <comment>Sigla para erros durante o processo de atualização da organização</comment>
   </data>
   <data name="RegistroNaoEncontrado" xml:space="preserve">
     <value>Identificar incorreto ou registro não encontrado!</value>

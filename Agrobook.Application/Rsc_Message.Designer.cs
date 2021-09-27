@@ -61,6 +61,15 @@ namespace Agrobook.Application {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ASS.
+        /// </summary>
+        internal static string ASS {
+            get {
+                return ResourceManager.GetString("ASS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to OCC.
         /// </summary>
         internal static string OCC {

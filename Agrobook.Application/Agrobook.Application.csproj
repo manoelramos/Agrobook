@@ -15,7 +15,6 @@
     <Folder Include="PessoaJuridica\Handlers\" />
     <Folder Include="PessoaJuridica\Queries\" />
     <Folder Include="PessoaJuridica\Responses\" />
-    <Folder Include="PessoaFisica\Handlers\" />
     <Folder Include="PessoaFisica\Responses\" />
     <Folder Include="PessoaFisica\Queries\" />
   </ItemGroup>

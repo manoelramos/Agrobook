@@ -1,9 +1,10 @@
 ﻿namespace Agrobook.Application.PessoaFisica.Commands
 {
     using Agrobook.Application.Common;
+    using Agrobook.Domain.Core.Messaging;
     using System;
 
-    public class PessoaFisicaCreateCommand
+    public class PessoaFisicaCreateCommand : Command
     {
         public string Nome { get; set; }
         public string Emai { get; set; }
@@ -18,8 +19,6 @@
         public EnderecoCreateCommand Endereco { get; set; }
         public ContatosCreateCommand Contato { get; set; }
         public DadosBancariosCreateCommand DadosBancarios { get; set; }
-        public DocumentosCreateCommand Anexos { get; set; }
-
-        //Nome associado, email, endereço, CPF, RG, Data nascimento, Grau Instrução, função, estado civil, ctps(7 DIGIOS INT), Serie CTPS(4 DIGITOS INT), pispasep(11 DIGITOS INT)
+        public DocumentosCreateCommand Anexos { get; set; }                
     }
 }

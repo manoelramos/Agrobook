@@ -8,8 +8,11 @@
     using Agrobook.Application.Organizacao.Handles;
     using Agrobook.Application.Organizacao.Queries;
     using Agrobook.Application.Organizacao.Responses;
+    using Agrobook.Application.PessoaFisica.Commands;
+    using Agrobook.Application.PessoaFisica.Handlers;
     using Agrobook.Domain.Interfaces.Data;
     using Agrobook.Infra.Data.Context;
+    using Agrobook.Infra.Data.Repositories.Colaborador;
     using Agrobook.Infra.Data.Repositories.Enderecos;
     using Agrobook.Infra.Data.Repositories.Localidade;
     using Agrobook.Infra.Data.Repositories.Organizacao;
@@ -27,10 +30,12 @@
         {
             services.AddDbContext<ApplicationContext>();
             //services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
-            services.AddScoped<IOrganizacaoRepository, OrganizacaoRepository>();
+            
             services.AddScoped<IPaisesRepository, PaisRepository>();
             services.AddScoped<IEstadosRepository, EstadoRepository>();
             services.AddScoped<IEnderecosRepository, EnderecosRepository>();
+            services.AddScoped<IOrganizacaoRepository, OrganizacaoRepository>();
+            services.AddScoped<IAssociadosRepository, AssociadoRepository>();
         }
 
         public static void RegisterMediatr(this IServiceCollection services)
@@ -39,7 +44,6 @@
             //services.AddValidatorsFromAssembly(typeof(Startup).Assembly);
 
             services.AddValidatorsFromAssembly(Assembly.Load("Agrobook.Application"));
-
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestsValidationMiddleware<,>));
 
             services.AddScoped<IRequestHandler<OrganizacaoQuery, List<OrganizacaoResponse>>, OrganizacaoQueryHandle>();
@@ -48,9 +52,11 @@
             services.AddScoped<IRequestHandler<OrganizacaoDeleteCommand, ValidationResult>, OrganizacaoDeleteCommandHandle>();
             services.AddScoped<IRequestHandler<OrganizacaoUpdateCommand, ValidationResult>, OrganizacaoUpdateCommandHandle>();
 
+            services.AddScoped<IRequestHandler<PessoaFisicaCreateCommand, ValidationResult>, PessoaFisicaCreateCommandHandle>();
+
             services.AddScoped<IRequestHandler<PaisesQuery, List<PaisResponse>>, PaisesQueryHandle>();
-            services.AddScoped<IRequestHandler<EstadosQuery, List<EstadoResponse>>, EstadosQueryHandle>();           
-            
+            services.AddScoped<IRequestHandler<EstadosQuery, List<EstadoResponse>>, EstadosQueryHandle>();
+
         }
 
         public static void RegisterServices(this IServiceCollection services)
