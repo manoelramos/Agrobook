@@ -17,11 +17,6 @@
                .HasColumnType("varchar(2)")
                .IsRequired();
 
-            builder.HasOne(c => c.Pais)
-                .WithMany(c => c.Estados)
-                .HasForeignKey(c => c.PaisId)
-                .OnDelete(DeleteBehavior.NoAction);
-
             builder.HasMany(c => c.Cidades)
                 .WithOne(c => c.Estado)
                 .HasForeignKey(c => c.EstadoId)

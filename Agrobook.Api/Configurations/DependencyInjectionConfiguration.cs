@@ -32,8 +32,7 @@
         {
             services.AddDbContext<ApplicationContext>();
             //services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
-            
-            services.AddScoped<IPaisesRepository, PaisRepository>();
+
             services.AddScoped<IEstadosRepository, EstadoRepository>();
             services.AddScoped<IEnderecosRepository, EnderecosRepository>();
             services.AddScoped<IOrganizacaoRepository, OrganizacaoRepository>();
@@ -55,11 +54,9 @@
             services.AddScoped<IRequestHandler<OrganizacaoUpdateCommand, ValidationResult>, OrganizacaoUpdateCommandHandle>();
 
             services.AddScoped<IRequestHandler<AssociadoCreateCommand, ValidationResult>, PessoaFisicaCreateCommandHandle>();
-            services.AddScoped<IRequestHandler<PessoaFisicaQuery, List<AssociadoResponse>>, PessoaFisicaQueryHandle>();            
+            services.AddScoped<IRequestHandler<PessoaFisicaQuery, List<AssociadoResponse>>, PessoaFisicaQueryHandle>();
 
-            services.AddScoped<IRequestHandler<PaisesQuery, List<PaisResponse>>, PaisesQueryHandle>();
             services.AddScoped<IRequestHandler<EstadosQuery, List<EstadoResponse>>, EstadosQueryHandle>();
-
         }
 
         public static void RegisterServices(this IServiceCollection services)

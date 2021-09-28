@@ -6,7 +6,8 @@
     using Microsoft.AspNetCore.Mvc;
     using System.Threading.Tasks;
 
-    public class LocalidadeController : ControllerBase
+    [ApiVersion("1")]
+    public class LocalidadeController : ApiController
     {
 
         private readonly IMediator _mediator;
@@ -14,27 +15,16 @@
         public LocalidadeController(IMediator mediator)
         {
             _mediator = mediator;
-        }
-
-        /// <summary>
-        /// Lista completa de paises
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet, Route("paises"), AllowAnonymous]
-        public async Task<IActionResult> GetPaises()
-        {
-            var response = await _mediator.Send(new PaisesQuery(true));
-            return Ok(response);
-        }
+        }   
 
         /// <summary>
         /// Lista completa de estados
         /// </summary>
         /// <returns></returns>
-        [HttpGet, Route("estados/{paisId}"), AllowAnonymous]
-        public async Task<IActionResult> GetEstados(int paisId)
+        [HttpGet, Route("estados"), AllowAnonymous]
+        public async Task<IActionResult> GetEstados()
         {
-            var response = await _mediator.Send(new EstadosQuery(paisId));
+            var response = await _mediator.Send(new EstadosQuery(33));
             return Ok(response);
         }
 

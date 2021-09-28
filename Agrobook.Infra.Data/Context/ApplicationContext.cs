@@ -36,7 +36,6 @@
             modelBuilder.Ignore<ValidationResult>();
             //modelBuilder.ApplyConfiguration(new ColaboradorMap());
 
-            modelBuilder.ApplyConfiguration(new PaisMap());
             modelBuilder.ApplyConfiguration(new CidadeMap());
             modelBuilder.ApplyConfiguration(new EstadoMap());
             modelBuilder.ApplyConfiguration(new EnderecoMap());

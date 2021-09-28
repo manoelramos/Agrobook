@@ -12,8 +12,6 @@
         public int Regiao {  get; set; }
         
         public ICollection<Cidades> Cidades { get; set; }
-        public Paises Pais { get; set; }
-        public int PaisId {  get; set; }
         public ICollection<Enderecos> Enderecos { get; set; }
 
         public override bool IsValid()

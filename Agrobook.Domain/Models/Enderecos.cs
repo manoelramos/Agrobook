@@ -29,7 +29,6 @@
         public int EstadoId { get; set; }
         public Estados Estado { get; set; }
         public int PaisId { get; set; }
-        public Paises Pais { get; set; }        
         public Fazendas Fazenda {  get; set; }
         public decimal Latitude { get; set; }
         public decimal Longitude { get; set; }

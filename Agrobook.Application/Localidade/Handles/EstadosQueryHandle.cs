@@ -24,7 +24,7 @@
 
         public async Task<List<EstadoResponse>> Handle(EstadosQuery request, CancellationToken cancellationToken)
         {
-            var result = await _estadoRepository.Include().Where(x => x.PaisId.Equals(request.PaisId)).ToListAsync(cancellationToken: cancellationToken);
+            var result = await _estadoRepository.Include().ToListAsync(cancellationToken: cancellationToken);
             return _mapper.Map(result, new List<EstadoResponse>());         
         }
     }

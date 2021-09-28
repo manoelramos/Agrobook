@@ -15,7 +15,6 @@
     {
         public MappingProfile()
         {
-            CreateMap<Paises, PaisResponse>().ReverseMap();
             CreateMap<Estados, EstadoResponse>().ReverseMap();
             CreateMap<Enderecos, EnderecoResponse>().ReverseMap();
             CreateMap<Organizacoes, OrganizacaoResponse>().ReverseMap();
