@@ -1,9 +1,13 @@
 ﻿namespace Agrobook.Api.Controllers
 {
     using Agrobook.Application.PessoaFisica.Commands;
+    using Agrobook.Application.PessoaFisica.Queries;
+    using Agrobook.Application.PessoaFisica.Responses;
     using MediatR;
     using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
+    using System.Collections.Generic;
     using System.Threading.Tasks;
 
     [ApiVersion("1")]
@@ -16,15 +20,15 @@
             _mediator = mediator;
         }
 
-        //[HttpGet, Route("pessoafisica"), AllowAnonymous]
-        //[ProducesResponseType(typeof(IEnumerable<OrganizacaoResponse>), StatusCodes.Status200OK)]
-        //[ProducesDefaultResponseType]
-        //// GET: OrganizacaoController
-        //public async Task<ActionResult<IEnumerable<OrganizacaoResponse>>> GetOrganizacao(bool ativo = true)
-        //{
-        //    var response = await _mediator.Send(new OrganizacaoQuery(ativo));
-        //    return Ok(response);
-        //}
+        [HttpGet, Route("pessoafisica"), AllowAnonymous]
+        [ProducesResponseType(typeof(IEnumerable<AssociadoResponse>), StatusCodes.Status200OK)]
+        [ProducesDefaultResponseType]
+        // GET: PessoaFisicaController
+        public async Task<ActionResult<IEnumerable<AssociadoResponse>>> GetPessoaFisica(bool ativo = true)
+        {
+            var response = await _mediator.Send(new PessoaFisicaQuery(ativo));
+            return Ok(response);
+        }
 
         //// GET: OrganizacaoController/Details/5
         //[HttpGet, Route("details/{id}"), AllowAnonymous]
@@ -36,8 +40,10 @@
 
         // POST: PessoaFisicaController/Create
         [HttpPost, Route("pessoas/fisicas"), AllowAnonymous]
+        [ProducesResponseType(typeof(IEnumerable<AssociadoResponse>), StatusCodes.Status201Created)]
+        [ProducesDefaultResponseType]
         //[ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([FromBody] PessoaFisicaCreateCommand command)
+        public async Task<IActionResult> Create([FromBody] AssociadoCreateCommand command)
         {
             var response = await _mediator.Send(command);
             return CustomResponse(response);

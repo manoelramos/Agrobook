@@ -1,6 +1,6 @@
 ﻿namespace Agrobook.Application.Common
 {
-    public class EnderecoCreateCommand
+    public class EnderecoCommand
     {
         public string Logradouro { get; set; }
         public string Bairro { get; set; }

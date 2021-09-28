@@ -11,7 +11,7 @@
     using System.Threading;
     using System.Threading.Tasks;
 
-    public class PessoaFisicaCreateCommandHandle : CommandHandler, IRequestHandler<PessoaFisicaCreateCommand, ValidationResult>
+    public class PessoaFisicaCreateCommandHandle : CommandHandler, IRequestHandler<AssociadoCreateCommand, ValidationResult>
     {
         private readonly IAssociadosRepository _associadosRepository;
         private readonly IMapper _map;
@@ -23,7 +23,7 @@
             _associadosRepository = associadosRepository;
         }
 
-        public async Task<ValidationResult> Handle(PessoaFisicaCreateCommand request, CancellationToken cancellationToken)
+        public async Task<ValidationResult> Handle(AssociadoCreateCommand request, CancellationToken cancellationToken)
         {
             try
             {

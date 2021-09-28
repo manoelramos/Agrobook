@@ -12,7 +12,7 @@
         public string LogoImage64Bits { get; set; }
         public bool Ativo {  get; set; }
 
-        public EnderecoCreateCommand Endereco { get; set; }
+        public EnderecoCommand Endereco { get; set; }
 
         public bool IsValidImage()
         {

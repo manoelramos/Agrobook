@@ -21,9 +21,7 @@
             _mediator = mediator;
         }
 
-        [HttpGet, Route("organizacoes"), AllowAnonymous]
-        [ProducesResponseType(typeof(IEnumerable<OrganizacaoResponse>), StatusCodes.Status200OK)]
-        [ProducesDefaultResponseType]
+        [HttpGet, Route("organizacoes"), AllowAnonymous]        
         // GET: OrganizacaoController
         public async Task<ActionResult<IEnumerable<OrganizacaoResponse>>> GetOrganizacao(bool ativo = true)
         {
@@ -41,6 +39,8 @@
 
         // POST: OrganizacaoController/Create
         [HttpPost, Route("organizacoes"), AllowAnonymous]
+        [ProducesResponseType(typeof(IEnumerable<OrganizacaoResponse>), StatusCodes.Status201Created)]
+        [ProducesDefaultResponseType]
         //[ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([FromBody] OrganizacaoCreateCommand command)
         {
@@ -50,6 +50,8 @@
 
         // PUT: OrganizacaoController/Edit/5
         [HttpPut, Route("edit"), AllowAnonymous]
+        [ProducesResponseType(typeof(IEnumerable<OrganizacaoResponse>), StatusCodes.Status200OK)]
+        [ProducesDefaultResponseType]
         //[ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit([FromBody] OrganizacaoUpdateCommand command)
         {
@@ -59,6 +61,8 @@
 
         // DELETE: OrganizacaoController/Delete/5
         [HttpDelete, Route("delete/{id}"), AllowAnonymous]
+        [ProducesResponseType(typeof(IEnumerable<OrganizacaoResponse>), StatusCodes.Status204NoContent)]
+        [ProducesDefaultResponseType]
         public async Task<ActionResult> Delete(int id)
         {
             var response = await _mediator.Send(new OrganizacaoDeleteCommand(id));

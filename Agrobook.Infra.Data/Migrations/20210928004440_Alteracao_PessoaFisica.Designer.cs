@@ -4,14 +4,16 @@ using Agrobook.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Agrobook.Infra.Data.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20210928004440_Alteracao_PessoaFisica")]
+    partial class Alteracao_PessoaFisica
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -593,8 +595,8 @@ namespace Agrobook.Infra.Data.Migrations
                     b.Property<int?>("Banco")
                         .HasColumnType("int");
 
-                    b.Property<string>("Conta")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("Conta")
+                        .HasColumnType("int");
 
                     b.Property<string>("Instituicao")
                         .HasColumnType("nvarchar(max)");
@@ -746,8 +748,8 @@ namespace Agrobook.Infra.Data.Migrations
                     b.Property<bool>("Ativo")
                         .HasColumnType("bit");
 
-                    b.Property<long>("CPF")
-                        .HasColumnType("bigint");
+                    b.Property<int>("CPF")
+                        .HasColumnType("int");
 
                     b.Property<string>("CTPS")
                         .HasColumnType("nvarchar(max)");

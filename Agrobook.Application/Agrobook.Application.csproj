@@ -11,12 +11,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="PessoaJuridica\Commands\" />
     <Folder Include="PessoaJuridica\Handlers\" />
     <Folder Include="PessoaJuridica\Queries\" />
     <Folder Include="PessoaJuridica\Responses\" />
-    <Folder Include="PessoaFisica\Responses\" />
-    <Folder Include="PessoaFisica\Queries\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -4,14 +4,16 @@ using Agrobook.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Agrobook.Infra.Data.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20210927223637_Alteracao_tipoRg")]
+    partial class Alteracao_tipoRg
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -440,7 +442,7 @@ namespace Agrobook.Infra.Data.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(200)");
 
-                    b.Property<int?>("EnderecoId")
+                    b.Property<int>("EnderecoId")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("ModifiedDate")
@@ -499,7 +501,7 @@ namespace Agrobook.Infra.Data.Migrations
                     b.Property<DateTime>("AddedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("AssociadoId")
+                    b.Property<int>("AssociadoId")
                         .HasColumnType("int");
 
                     b.Property<bool>("Ativo")
@@ -511,8 +513,8 @@ namespace Agrobook.Infra.Data.Migrations
                     b.Property<string>("Nome")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long>("Telefone")
-                        .HasColumnType("bigint");
+                    b.Property<int>("Telefone")
+                        .HasColumnType("int");
 
                     b.Property<string>("TipoContato")
                         .HasColumnType("nvarchar(max)");
@@ -581,7 +583,7 @@ namespace Agrobook.Infra.Data.Migrations
                     b.Property<DateTime>("AddedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("Agencia")
+                    b.Property<int>("Agencia")
                         .HasColumnType("int");
 
                     b.Property<int>("AssociadoId")
@@ -590,11 +592,11 @@ namespace Agrobook.Infra.Data.Migrations
                     b.Property<bool>("Ativo")
                         .HasColumnType("bit");
 
-                    b.Property<int?>("Banco")
+                    b.Property<int>("Banco")
                         .HasColumnType("int");
 
-                    b.Property<string>("Conta")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Conta")
+                        .HasColumnType("int");
 
                     b.Property<string>("Instituicao")
                         .HasColumnType("nvarchar(max)");
@@ -602,8 +604,8 @@ namespace Agrobook.Infra.Data.Migrations
                     b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("PIX")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("PIX")
+                        .HasColumnType("int");
 
                     b.Property<string>("TipoPix")
                         .HasColumnType("nvarchar(max)");
@@ -746,8 +748,8 @@ namespace Agrobook.Infra.Data.Migrations
                     b.Property<bool>("Ativo")
                         .HasColumnType("bit");
 
-                    b.Property<long>("CPF")
-                        .HasColumnType("bigint");
+                    b.Property<int>("CPF")
+                        .HasColumnType("int");
 
                     b.Property<string>("CTPS")
                         .HasColumnType("nvarchar(max)");
@@ -777,9 +779,6 @@ namespace Agrobook.Infra.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("RG")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SerieCtps")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -1494,7 +1493,8 @@ namespace Agrobook.Infra.Data.Migrations
                     b.HasOne("Agrobook.Domain.Models.Enderecos", "Endereco")
                         .WithMany("Associados")
                         .HasForeignKey("EnderecoId")
-                        .OnDelete(DeleteBehavior.NoAction);
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
 
                     b.Navigation("Endereco");
                 });
@@ -1514,7 +1514,9 @@ namespace Agrobook.Infra.Data.Migrations
                 {
                     b.HasOne("Agrobook.Domain.Models.Parceiro.Associados", "Associado")
                         .WithMany("Contatos")
-                        .HasForeignKey("AssociadoId");
+                        .HasForeignKey("AssociadoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Associado");
                 });

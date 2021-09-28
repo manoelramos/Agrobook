@@ -10,6 +10,8 @@
     using Agrobook.Application.Organizacao.Responses;
     using Agrobook.Application.PessoaFisica.Commands;
     using Agrobook.Application.PessoaFisica.Handlers;
+    using Agrobook.Application.PessoaFisica.Queries;
+    using Agrobook.Application.PessoaFisica.Responses;
     using Agrobook.Domain.Interfaces.Data;
     using Agrobook.Infra.Data.Context;
     using Agrobook.Infra.Data.Repositories.Colaborador;
@@ -52,7 +54,8 @@
             services.AddScoped<IRequestHandler<OrganizacaoDeleteCommand, ValidationResult>, OrganizacaoDeleteCommandHandle>();
             services.AddScoped<IRequestHandler<OrganizacaoUpdateCommand, ValidationResult>, OrganizacaoUpdateCommandHandle>();
 
-            services.AddScoped<IRequestHandler<PessoaFisicaCreateCommand, ValidationResult>, PessoaFisicaCreateCommandHandle>();
+            services.AddScoped<IRequestHandler<AssociadoCreateCommand, ValidationResult>, PessoaFisicaCreateCommandHandle>();
+            services.AddScoped<IRequestHandler<PessoaFisicaQuery, List<AssociadoResponse>>, PessoaFisicaQueryHandle>();            
 
             services.AddScoped<IRequestHandler<PaisesQuery, List<PaisResponse>>, PaisesQueryHandle>();
             services.AddScoped<IRequestHandler<EstadosQuery, List<EstadoResponse>>, EstadosQueryHandle>();

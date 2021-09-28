@@ -9,9 +9,8 @@
         protected override void Configure(EntityTypeBuilder<DadosBancarios> builder)
         {
             builder.HasOne(c => c.Associado)
-                 .WithMany(c => c.ContasBancarias)
+                 .WithMany(c => c.DadosBancarios)
                   .HasForeignKey(b => b.AssociadoId);
-            //.OnDelete(DeleteBehavior.NoAction);
         }
     }
 }
