@@ -2,7 +2,6 @@
 {
     using Agrobook.Domain.Core.Models;
     using System;
-    using System.Collections.Generic;
 
     public enum ModeloContrato
     {
@@ -24,7 +23,7 @@
                 
         public DateTime Inicio {  get; set; }
         public DateTime Termmino {  get; set; }
-        public decimal Valor {  get; set; }
+        public decimal ValorReferencia {  get; set; }
 
         public int OrganizacaoId {  get; set; }
         public Organizacoes Organizacao {  get; set; }

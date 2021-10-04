@@ -95,5 +95,32 @@ namespace Agrobook.Application {
                 return ResourceManager.GetString("RegistroNaoEncontrado", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UMCC.
+        /// </summary>
+        internal static string UMCC {
+            get {
+                return ResourceManager.GetString("UMCC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UMDC.
+        /// </summary>
+        internal static string UMDC {
+            get {
+                return ResourceManager.GetString("UMDC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UMUC.
+        /// </summary>
+        internal static string UMUC {
+            get {
+                return ResourceManager.GetString("UMUC", resourceCulture);
+            }
+        }
     }
 }

@@ -5,7 +5,7 @@
     using Flunt.Extensions.Br.Validations;
     using Flunt.Validations;
 
-    public class PessoaFisicaCreateValidator : AbstractValidator<AssociadoCreateCommand>
+    public class PessoaFisicaCreateValidator : AbstractValidator<PessoaFisicaCreateCommand>
     {
         public PessoaFisicaCreateValidator()
         {

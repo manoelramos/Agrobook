@@ -15,7 +15,7 @@
     {
         private readonly IOrganizacaoRepository _organizacaoRepository;
         private readonly IMapper _map;
-        private ValidationResult _error = new ValidationResult();
+        private readonly ValidationResult _error = new();
 
         public OrganizacaoUpdateCommandHandle(IOrganizacaoRepository organizacaoRepository, IMapper map)
             : base(organizacaoRepository.UnitOfWork)

@@ -10,11 +10,11 @@
 
     //[Authorize]
     [ApiController]
-    [Route("api/v{version:apiVersion}/[controller]")]
+    [Route("api/v{version:apiVersion}")]
     [Consumes("application/json")]
     public abstract class ApiController : ControllerBase
     {
-        private readonly List<string> _errors = new List<string>();
+        private readonly List<string> _errors = new();
         protected readonly string _verbs = "GET,OPTIONS,POST,PUT,DELETE";
 
         [HttpOptions]

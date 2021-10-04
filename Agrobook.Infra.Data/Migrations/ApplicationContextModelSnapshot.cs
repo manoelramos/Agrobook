@@ -158,7 +158,7 @@ namespace Agrobook.Infra.Data.Migrations
                     b.ToTable("Moeda");
                 });
 
-            modelBuilder.Entity("Agrobook.Domain.Models.Base.UnidadesMedida", b =>
+            modelBuilder.Entity("Agrobook.Domain.Models.Base.UnidadesMedidas", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -178,12 +178,15 @@ namespace Agrobook.Infra.Data.Migrations
                     b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Simbolo")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
-                    b.ToTable("UnidadesMedida");
+                    b.ToTable("UnidadesMedidas");
                 });
 
-            modelBuilder.Entity("Agrobook.Domain.Models.Base.UnidadesMedidaAgro", b =>
+            modelBuilder.Entity("Agrobook.Domain.Models.Base.UnidadesMedidasAgro", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -206,14 +209,17 @@ namespace Agrobook.Infra.Data.Migrations
                     b.Property<decimal>("Quantidade")
                         .HasColumnType("decimal(18,6)");
 
-                    b.Property<int>("UnidadesMedidaId")
+                    b.Property<string>("Simbolo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UnidadesMedidasId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UnidadesMedidaId");
+                    b.HasIndex("UnidadesMedidasId");
 
-                    b.ToTable("UnidadesMedidaAgro");
+                    b.ToTable("UnidadesMedidasAgro");
                 });
 
             modelBuilder.Entity("Agrobook.Domain.Models.Caixa.CategoriasDespesas", b =>
@@ -516,7 +522,7 @@ namespace Agrobook.Infra.Data.Migrations
                     b.Property<DateTime>("Termmino")
                         .HasColumnType("datetime2");
 
-                    b.Property<decimal>("Valor")
+                    b.Property<decimal>("ValorReferencia")
                         .HasColumnType("decimal(18,6)");
 
                     b.HasKey("Id");
@@ -604,6 +610,111 @@ namespace Agrobook.Infra.Data.Migrations
                     b.ToTable("Documentos");
                 });
 
+            modelBuilder.Entity("Agrobook.Domain.Models.Parceiro.Fisicas", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("AddedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("AssociadoId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Ativo")
+                        .HasColumnType("bit");
+
+                    b.Property<long>("CPF")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("CTPS")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DataNascimento")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("EstadoCivil")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Funcao")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("GrauInstrucao")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("NomeMae")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NomePai")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PisPasep")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RG")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SerieCtps")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AssociadoId")
+                        .IsUnique();
+
+                    b.ToTable("Fisicas");
+                });
+
+            modelBuilder.Entity("Agrobook.Domain.Models.Parceiro.Juridicas", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("AddedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("AssociadoId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Ativo")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("CNPJ")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("InscricaoEstadual")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("InscricaoMunicipal")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("NomeFantasia")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RamoAtividade")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Tipo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AssociadoId")
+                        .IsUnique();
+
+                    b.ToTable("Juridicas");
+                });
+
             modelBuilder.Entity("Agrobook.Domain.Models.Parceiro.LancamentosContabeis", b =>
                 {
                     b.Property<int>("Id")
@@ -685,111 +796,6 @@ namespace Agrobook.Infra.Data.Migrations
                     b.HasIndex("DespesaId");
 
                     b.ToTable("Pagamentos");
-                });
-
-            modelBuilder.Entity("Agrobook.Domain.Models.Parceiro.PessoasFisicas", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("AddedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("AssociadoId")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("Ativo")
-                        .HasColumnType("bit");
-
-                    b.Property<long>("CPF")
-                        .HasColumnType("bigint");
-
-                    b.Property<string>("CTPS")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("DataNascimento")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("EstadoCivil")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Funcao")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("GrauInstrucao")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("NomeMae")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NomePai")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PisPasep")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("RG")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SerieCtps")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AssociadoId")
-                        .IsUnique();
-
-                    b.ToTable("PessoasFisicas");
-                });
-
-            modelBuilder.Entity("Agrobook.Domain.Models.Parceiro.PessoasJuridicas", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("AddedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("AssociadoId")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("Ativo")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("CNPJ")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("InscricaoEstadual")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("InscricaoMunicipal")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("NomeFantasia")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("RamoAtividade")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Tipo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AssociadoId")
-                        .IsUnique();
-
-                    b.ToTable("PessoasJuridicas");
                 });
 
             modelBuilder.Entity("Agrobook.Domain.Models.Parceiro.TiposLancamentos", b =>
@@ -1353,15 +1359,15 @@ namespace Agrobook.Infra.Data.Migrations
                     b.Navigation("Estado");
                 });
 
-            modelBuilder.Entity("Agrobook.Domain.Models.Base.UnidadesMedidaAgro", b =>
+            modelBuilder.Entity("Agrobook.Domain.Models.Base.UnidadesMedidasAgro", b =>
                 {
-                    b.HasOne("Agrobook.Domain.Models.Base.UnidadesMedida", "UnidadesMedida")
+                    b.HasOne("Agrobook.Domain.Models.Base.UnidadesMedidas", "UnidadesMedidas")
                         .WithMany("UnidadesMedidaAgro")
-                        .HasForeignKey("UnidadesMedidaId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("UnidadesMedidasId")
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.Navigation("UnidadesMedida");
+                    b.Navigation("UnidadesMedidas");
                 });
 
             modelBuilder.Entity("Agrobook.Domain.Models.Caixa.Despesas", b =>
@@ -1498,6 +1504,28 @@ namespace Agrobook.Infra.Data.Migrations
                     b.Navigation("Associado");
                 });
 
+            modelBuilder.Entity("Agrobook.Domain.Models.Parceiro.Fisicas", b =>
+                {
+                    b.HasOne("Agrobook.Domain.Models.Parceiro.Associados", "Pessoa")
+                        .WithOne("PessoaFisica")
+                        .HasForeignKey("Agrobook.Domain.Models.Parceiro.Fisicas", "AssociadoId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Pessoa");
+                });
+
+            modelBuilder.Entity("Agrobook.Domain.Models.Parceiro.Juridicas", b =>
+                {
+                    b.HasOne("Agrobook.Domain.Models.Parceiro.Associados", "Pessoa")
+                        .WithOne("PessoaJuridica")
+                        .HasForeignKey("Agrobook.Domain.Models.Parceiro.Juridicas", "AssociadoId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Pessoa");
+                });
+
             modelBuilder.Entity("Agrobook.Domain.Models.Parceiro.LancamentosContabeis", b =>
                 {
                     b.HasOne("Agrobook.Domain.Models.Producao.Culturas", "Cultura")
@@ -1542,28 +1570,6 @@ namespace Agrobook.Infra.Data.Migrations
                     b.Navigation("Associados");
 
                     b.Navigation("Despesa");
-                });
-
-            modelBuilder.Entity("Agrobook.Domain.Models.Parceiro.PessoasFisicas", b =>
-                {
-                    b.HasOne("Agrobook.Domain.Models.Parceiro.Associados", "Associado")
-                        .WithOne("PessoaFisica")
-                        .HasForeignKey("Agrobook.Domain.Models.Parceiro.PessoasFisicas", "AssociadoId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.Navigation("Associado");
-                });
-
-            modelBuilder.Entity("Agrobook.Domain.Models.Parceiro.PessoasJuridicas", b =>
-                {
-                    b.HasOne("Agrobook.Domain.Models.Parceiro.Associados", "Associado")
-                        .WithOne("PessoaJuridica")
-                        .HasForeignKey("Agrobook.Domain.Models.Parceiro.PessoasJuridicas", "AssociadoId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.Navigation("Associado");
                 });
 
             modelBuilder.Entity("Agrobook.Domain.Models.PatrimonioGroup.AnexosManutencao", b =>
@@ -1714,7 +1720,7 @@ namespace Agrobook.Infra.Data.Migrations
                     b.Navigation("Despesas");
                 });
 
-            modelBuilder.Entity("Agrobook.Domain.Models.Base.UnidadesMedida", b =>
+            modelBuilder.Entity("Agrobook.Domain.Models.Base.UnidadesMedidas", b =>
                 {
                     b.Navigation("UnidadesMedidaAgro");
                 });

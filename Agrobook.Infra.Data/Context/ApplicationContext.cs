@@ -2,7 +2,7 @@
 {
     using Agrobook.Domain.Core.Data;
     using Agrobook.Infra.Data.Repositories.Atividades;
-    using Agrobook.Infra.Data.Repositories.Base;
+    using Agrobook.Infra.Data.Repositories.UnidadesMedidas;
     using Agrobook.Infra.Data.Repositories.Colaborador;
     using Agrobook.Infra.Data.Repositories.Despesas;
     using Agrobook.Infra.Data.Repositories.Fazenda;

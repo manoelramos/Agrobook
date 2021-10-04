@@ -132,4 +132,16 @@
   <data name="RegistroNaoEncontrado" xml:space="preserve">
     <value>Identificar incorreto ou registro não encontrado!</value>
   </data>
+  <data name="UMCC" xml:space="preserve">
+    <value>UMCC</value>
+    <comment>Sigla para erros durante o processo de criação da unidade de medida</comment>
+  </data>
+  <data name="UMDC" xml:space="preserve">
+    <value>UMDC</value>
+    <comment>Sigla para erros durante o processo de deleção da unidade de medida</comment>
+  </data>
+  <data name="UMUC" xml:space="preserve">
+    <value>UMUC</value>
+    <comment>Sigla para erros durante o processo de atualização da unidade de medida</comment>
+  </data>
 </root>

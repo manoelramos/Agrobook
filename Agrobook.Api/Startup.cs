@@ -10,6 +10,7 @@ namespace Agrobook.Api
     using MediatR;
     using System.Reflection;
     using Microsoft.AspNetCore.Mvc;
+    using System.Linq;
 
     public class Startup
     {
@@ -51,7 +52,10 @@ namespace Agrobook.Api
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Agrobook.Api", Version = "v1" });
+                c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
             });
+
+            services.AddRouting(options => options.LowercaseUrls = true);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -61,7 +65,7 @@ namespace Agrobook.Api
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Agrobook.Api v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Agrobook.Api v1"));                
             }
 
             app.UseHttpsRedirection();

@@ -13,8 +13,8 @@ namespace Agrobook.Domain.Models.Parceiro
         public int? EnderecoId { get; set; }
         public Enderecos Endereco { get; set; }
 
-        public PessoasFisicas PessoaFisica { get; set; }
-        public PessoasJuridicas PessoaJuridica { get; set; }
+        public Fisicas PessoaFisica { get; set; }
+        public Juridicas PessoaJuridica { get; set; }
         public ICollection<Atividades> Atividades { get; set; }
         public ICollection<Contatos> Contatos { get; set; }
         public ICollection<DadosBancarios> DadosBancarios { get; set; }

@@ -1,7 +1,5 @@
 ﻿namespace Agrobook.Application.PessoaJuridica.Commands
 {
-    using System;
-
     public class PessoaJuridicaCommand
     {
         public long Cnpj { get; set; }

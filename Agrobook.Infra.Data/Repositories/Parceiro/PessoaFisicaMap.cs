@@ -5,13 +5,13 @@
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-    internal class PessoaFisicaMap : EntityTypeConfiguration<PessoasFisicas>
+    internal class PessoaFisicaMap : EntityTypeConfiguration<Fisicas>
     {
-        protected override void Configure(EntityTypeBuilder<PessoasFisicas> builder)
+        protected override void Configure(EntityTypeBuilder<Fisicas> builder)
         {
-            builder.HasOne(c => c.Associado)
+            builder.HasOne(c => c.Pessoa)
                .WithOne(c => c.PessoaFisica)
-               .HasForeignKey<PessoasFisicas>(c => c.AssociadoId)
+               .HasForeignKey<Fisicas>(c => c.AssociadoId)
                .OnDelete(DeleteBehavior.NoAction);
         }
     }

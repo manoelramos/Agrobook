@@ -1,0 +1,14 @@
+--select * from UnidadesMedidas
+--INSERT INTO [dbo].[UnidadesMedidas] ([Descricao],[Simbolo],[AddedDate],[ModifiedDate],[Ativo]) VALUES ('Quilograma', 'Kg', GETDATE(),GETDATE(),1)
+--INSERT INTO [dbo].[UnidadesMedidas] ([Descricao],[Simbolo],[AddedDate],[ModifiedDate],[Ativo]) VALUES ('Quilograma', 'Kg', GETDATE(),GETDATE(),1)	 
+--INSERT INTO [dbo].[UnidadesMedidas] ([Descricao],[Simbolo],[AddedDate],[ModifiedDate],[Ativo]) VALUES ('Grama', 'g', GETDATE(),GETDATE(),1)
+--INSERT INTO [dbo].[UnidadesMedidas] ([Descricao],[Simbolo],[AddedDate],[ModifiedDate],[Ativo]) VALUES ('Miligrama', 'mg', GETDATE(),GETDATE(),1)
+--INSERT INTO [dbo].[UnidadesMedidas] ([Descricao],[Simbolo],[AddedDate],[ModifiedDate],[Ativo]) VALUES ('Litro', 'l', GETDATE(),GETDATE(),1)	
+--INSERT INTO [dbo].[UnidadesMedidas] ([Descricao],[Simbolo],[AddedDate],[ModifiedDate],[Ativo]) VALUES ('Mililitro', 'ml', GETDATE(),GETDATE(),1)	
+--INSERT INTO [dbo].[UnidadesMedidas] ([Descricao],[Simbolo],[AddedDate],[ModifiedDate],[Ativo]) VALUES ('Metro quadrado', 'm²', GETDATE(),GETDATE(),1)	
+--INSERT INTO [dbo].[UnidadesMedidas] ([Descricao],[Simbolo],[AddedDate],[ModifiedDate],[Ativo]) VALUES ('Quilometro quadrado', 'km²', GETDATE(),GETDATE(),1)	
+--INSERT INTO [dbo].[UnidadesMedidas] ([Descricao],[Simbolo],[AddedDate],[ModifiedDate],[Ativo]) VALUES ('Hectômetro quadrado', 'hm²', GETDATE(),GETDATE(),1)	
+--INSERT INTO [dbo].[UnidadesMedidas] ([Descricao],[Simbolo],[AddedDate],[ModifiedDate],[Ativo]) VALUES ('Decâmetro quadrado', 'dam²', GETDATE(),GETDATE(),1)	
+--INSERT INTO [dbo].[UnidadesMedidas] ([Descricao],[Simbolo],[AddedDate],[ModifiedDate],[Ativo]) VALUES ('Metro cúbico', 'm³', GETDATE(),GETDATE(),1)	
+--INSERT INTO [dbo].[UnidadesMedidas] ([Descricao],[Simbolo],[AddedDate],[ModifiedDate],[Ativo]) VALUES ('Quilômetro cúbico', 'km³', GETDATE(),GETDATE(),1)	
+
