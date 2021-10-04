@@ -4,14 +4,16 @@ using Agrobook.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Agrobook.Infra.Data.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20211004184908_Alteracao_Patrimonio")]
+    partial class Alteracao_Patrimonio
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -940,11 +942,11 @@ namespace Agrobook.Infra.Data.Migrations
                     b.Property<string>("Descricao")
                         .HasColumnType("varchar(200)");
 
-                    b.Property<int?>("EnderecoId")
+                    b.Property<int>("EnderecoId")
                         .HasColumnType("int");
 
-                    b.Property<decimal?>("Hectare")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<decimal>("Hectare")
+                        .HasColumnType("decimal(18,6)");
 
                     b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime2");
@@ -953,19 +955,12 @@ namespace Agrobook.Infra.Data.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(100)");
 
-                    b.Property<int>("PatrimonioId")
-                        .HasColumnType("int");
-
-                    b.Property<long?>("Telefone")
+                    b.Property<long>("Telefone")
                         .HasColumnType("bigint");
 
                     b.HasKey("Id");
 
                     b.HasIndex("EnderecoId")
-                        .IsUnique()
-                        .HasFilter("[EnderecoId] IS NOT NULL");
-
-                    b.HasIndex("PatrimonioId")
                         .IsUnique();
 
                     b.ToTable("Fazendas");
@@ -999,9 +994,6 @@ namespace Agrobook.Infra.Data.Migrations
                     b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("PatrimonioId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Tipo")
                         .HasColumnType("nvarchar(max)");
 
@@ -1016,9 +1008,6 @@ namespace Agrobook.Infra.Data.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("EnderecoId");
-
-                    b.HasIndex("PatrimonioId")
-                        .IsUnique();
 
                     b.ToTable("Imoveis");
                 });
@@ -1085,8 +1074,14 @@ namespace Agrobook.Infra.Data.Migrations
                     b.Property<DateTime?>("Fabricacao")
                         .HasColumnType("datetime2");
 
+                    b.Property<int?>("FazendaId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Identificacao")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ImovelId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime2");
@@ -1109,12 +1104,27 @@ namespace Agrobook.Infra.Data.Migrations
                     b.Property<decimal?>("ValorVenda")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<int?>("VeivuloId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime?>("Venda")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("FazendaId")
+                        .IsUnique()
+                        .HasFilter("[FazendaId] IS NOT NULL");
+
+                    b.HasIndex("ImovelId")
+                        .IsUnique()
+                        .HasFilter("[ImovelId] IS NOT NULL");
+
                     b.HasIndex("OrganizacaoId");
+
+                    b.HasIndex("VeivuloId")
+                        .IsUnique()
+                        .HasFilter("[VeivuloId] IS NOT NULL");
 
                     b.ToTable("Patrimonios");
                 });
@@ -1129,11 +1139,14 @@ namespace Agrobook.Infra.Data.Migrations
                     b.Property<DateTime>("AddedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("AnoFabricao")
+                    b.Property<DateTime>("AnoFabricao")
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("Ativo")
                         .HasColumnType("bit");
+
+                    b.Property<int>("CascadeMode")
+                        .HasColumnType("int");
 
                     b.Property<string>("Chassi")
                         .HasColumnType("nvarchar(max)");
@@ -1144,7 +1157,7 @@ namespace Agrobook.Infra.Data.Migrations
                     b.Property<string>("Cor")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long?>("Kilometragem")
+                    b.Property<long>("Kilometragem")
                         .HasColumnType("bigint");
 
                     b.Property<string>("Marca")
@@ -1156,12 +1169,8 @@ namespace Agrobook.Infra.Data.Migrations
                     b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("PatrimonioId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Placa")
-                        .IsRequired()
-                        .HasColumnType("varchar(8)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Renavam")
                         .HasColumnType("nvarchar(max)");
@@ -1170,9 +1179,6 @@ namespace Agrobook.Infra.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("PatrimonioId")
-                        .IsUnique();
 
                     b.ToTable("Veiculos");
                 });
@@ -1608,17 +1614,11 @@ namespace Agrobook.Infra.Data.Migrations
                 {
                     b.HasOne("Agrobook.Domain.Models.Enderecos", "Endereco")
                         .WithOne("Fazenda")
-                        .HasForeignKey("Agrobook.Domain.Models.PatrimonioGroup.Fazendas", "EnderecoId");
-
-                    b.HasOne("Agrobook.Domain.Models.PatrimonioGroup.Patrimonios", "Patrimonio")
-                        .WithOne("Fazenda")
-                        .HasForeignKey("Agrobook.Domain.Models.PatrimonioGroup.Fazendas", "PatrimonioId")
+                        .HasForeignKey("Agrobook.Domain.Models.PatrimonioGroup.Fazendas", "EnderecoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Endereco");
-
-                    b.Navigation("Patrimonio");
                 });
 
             modelBuilder.Entity("Agrobook.Domain.Models.PatrimonioGroup.Imoveis", b =>
@@ -1629,15 +1629,7 @@ namespace Agrobook.Infra.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Agrobook.Domain.Models.PatrimonioGroup.Patrimonios", "Patrimonio")
-                        .WithOne("Imovel")
-                        .HasForeignKey("Agrobook.Domain.Models.PatrimonioGroup.Imoveis", "PatrimonioId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Endereco");
-
-                    b.Navigation("Patrimonio");
                 });
 
             modelBuilder.Entity("Agrobook.Domain.Models.PatrimonioGroup.Manutencoes", b =>
@@ -1653,22 +1645,32 @@ namespace Agrobook.Infra.Data.Migrations
 
             modelBuilder.Entity("Agrobook.Domain.Models.PatrimonioGroup.Patrimonios", b =>
                 {
+                    b.HasOne("Agrobook.Domain.Models.PatrimonioGroup.Fazendas", "Fazenda")
+                        .WithOne("Patrimonio")
+                        .HasForeignKey("Agrobook.Domain.Models.PatrimonioGroup.Patrimonios", "FazendaId")
+                        .OnDelete(DeleteBehavior.NoAction);
+
+                    b.HasOne("Agrobook.Domain.Models.PatrimonioGroup.Imoveis", "Imovel")
+                        .WithOne("Patrimonio")
+                        .HasForeignKey("Agrobook.Domain.Models.PatrimonioGroup.Patrimonios", "ImovelId")
+                        .OnDelete(DeleteBehavior.NoAction);
+
                     b.HasOne("Agrobook.Domain.Models.Organizacoes", "Organizacao")
                         .WithMany("Patrimonios")
                         .HasForeignKey("OrganizacaoId");
 
+                    b.HasOne("Agrobook.Domain.Models.PatrimonioGroup.Veiculos", "Veiculo")
+                        .WithOne("Patrimonio")
+                        .HasForeignKey("Agrobook.Domain.Models.PatrimonioGroup.Patrimonios", "VeivuloId")
+                        .OnDelete(DeleteBehavior.NoAction);
+
+                    b.Navigation("Fazenda");
+
+                    b.Navigation("Imovel");
+
                     b.Navigation("Organizacao");
-                });
 
-            modelBuilder.Entity("Agrobook.Domain.Models.PatrimonioGroup.Veiculos", b =>
-                {
-                    b.HasOne("Agrobook.Domain.Models.PatrimonioGroup.Patrimonios", "Patrimonio")
-                        .WithOne("Veiculo")
-                        .HasForeignKey("Agrobook.Domain.Models.PatrimonioGroup.Veiculos", "PatrimonioId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Patrimonio");
+                    b.Navigation("Veiculo");
                 });
 
             modelBuilder.Entity("Agrobook.Domain.Models.Producao.Talhoes", b =>
@@ -1784,7 +1786,14 @@ namespace Agrobook.Infra.Data.Migrations
 
             modelBuilder.Entity("Agrobook.Domain.Models.PatrimonioGroup.Fazendas", b =>
                 {
+                    b.Navigation("Patrimonio");
+
                     b.Navigation("Talhoes");
+                });
+
+            modelBuilder.Entity("Agrobook.Domain.Models.PatrimonioGroup.Imoveis", b =>
+                {
+                    b.Navigation("Patrimonio");
                 });
 
             modelBuilder.Entity("Agrobook.Domain.Models.PatrimonioGroup.Manutencoes", b =>
@@ -1797,12 +1806,6 @@ namespace Agrobook.Infra.Data.Migrations
                     b.Navigation("Despesas");
 
                     b.Navigation("Detalhes");
-
-                    b.Navigation("Fazenda");
-
-                    b.Navigation("Imovel");
-
-                    b.Navigation("Veiculo");
                 });
 
             modelBuilder.Entity("Agrobook.Domain.Models.PatrimonioGroup.Veiculos", b =>
@@ -1812,6 +1815,8 @@ namespace Agrobook.Infra.Data.Migrations
                     b.Navigation("Atividades");
 
                     b.Navigation("Manutencoes");
+
+                    b.Navigation("Patrimonio");
                 });
 
             modelBuilder.Entity("Agrobook.Domain.Models.Producao.Culturas", b =>

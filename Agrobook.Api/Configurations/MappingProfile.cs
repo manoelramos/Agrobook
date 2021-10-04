@@ -1,6 +1,7 @@
 ﻿namespace Agrobook.Api.Configurations
 {
     using Agrobook.Application.Common;
+    using Agrobook.Application.Fazenda.Responses;
     using Agrobook.Application.Localidade.Responses;
     using Agrobook.Application.Organizacao.Commands;
     using Agrobook.Application.Organizacao.Responses;
@@ -12,6 +13,7 @@
     using Agrobook.Domain.Models;
     using Agrobook.Domain.Models.Base;
     using Agrobook.Domain.Models.Parceiro;
+    using Agrobook.Domain.Models.PatrimonioGroup;
     using AutoMapper;
 
     public class MappingProfile : Profile
@@ -35,7 +37,10 @@
 
             CreateMap<Organizacoes, OrganizacaoResponse>().ReverseMap();
             CreateMap<Organizacoes, OrganizacaoCreateCommand>().ReverseMap();
-            CreateMap<Organizacoes, OrganizacaoUpdateCommand>().ReverseMap();            
+            CreateMap<Organizacoes, OrganizacaoUpdateCommand>().ReverseMap();
+
+            CreateMap<Fazendas, FazendaResponse>().ReverseMap();
+            
 
             CreateMap<Associados,PessoaFisicaCreateCommand>().ReverseMap();
             

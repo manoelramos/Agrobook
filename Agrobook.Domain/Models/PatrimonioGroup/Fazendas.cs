@@ -8,12 +8,13 @@
     {
         public string Nome { get; set; }
         public string Descricao { get; set; }
-        public long Telefone {  get; set; }
-        public decimal Hectare {  get; set; }        
+        public long? Telefone { get; set; }
+        public decimal? Hectare { get; set; }
         public string Administrador { get; set; }
-        public int EnderecoId { get; set; }
-        public Enderecos Endereco {  get; set; }
-        public Patrimonios Patrimonio {  get; set; }
-        public ICollection<Talhoes> Talhoes {  get; set; }
+        public int? EnderecoId { get; set; }
+        public Enderecos Endereco { get; set; }
+        public int PatrimonioId { get; set; }
+        public Patrimonios Patrimonio { get; set; }
+        public ICollection<Talhoes> Talhoes { get; set; }
     }
 }

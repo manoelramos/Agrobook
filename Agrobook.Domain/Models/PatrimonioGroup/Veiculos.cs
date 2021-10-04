@@ -15,8 +15,10 @@
         public string Tipo { get; set; }
         public string Combustivel { get; set; }
 
-        public DateTime AnoFabricao { get; set; }
-        public long Kilometragem { get; set; }
+        public DateTime? AnoFabricao { get; set; }
+        public long? Kilometragem { get; set; }
+
+        public int PatrimonioId { get; set; }
         public Patrimonios Patrimonio { get; set; }
         public ICollection<Atividades> Atividades { get; set; }
         public ICollection<Manutencoes> Manutencoes { get; set; }

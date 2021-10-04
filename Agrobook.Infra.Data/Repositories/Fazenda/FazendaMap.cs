@@ -19,7 +19,12 @@
             builder.HasOne(c => c.Endereco)
                 .WithOne(c => c.Fazenda)
                  .HasForeignKey<Fazendas>(b => b.EnderecoId);
-                        
+
+            builder.HasOne(c => c.Patrimonio)
+                .WithOne(c => c.Fazenda)
+                .HasForeignKey<Fazendas>(c => c.PatrimonioId)
+                .OnDelete(DeleteBehavior.Cascade);
+
         }
     }
 }

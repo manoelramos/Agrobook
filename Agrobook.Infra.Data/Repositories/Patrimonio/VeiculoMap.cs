@@ -12,6 +12,10 @@
             builder.Property(c => c.Placa)
                .HasColumnType("varchar(8)")
                .IsRequired();
+
+            builder.HasOne(c => c.Patrimonio)
+                .WithOne(c => c.Veiculo)
+                .HasForeignKey<Veiculos>(c => c.PatrimonioId);
         }
     }
 }

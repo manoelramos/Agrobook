@@ -8,4 +8,8 @@
     <ProjectReference Include="..\Agrobook.Domain.Core\Agrobook.Domain.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\Veiculo\" />
+  </ItemGroup>
+
 </Project>

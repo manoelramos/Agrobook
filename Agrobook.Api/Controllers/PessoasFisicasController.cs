@@ -11,11 +11,11 @@
     using System.Threading.Tasks;
 
     [ApiVersion("1")]
-    public class PessoasFisicaController : ApiController
+    public class PessoasFisicasController : ApiController
     {
         private readonly IMediator _mediator;
 
-        public PessoasFisicaController(IMediator mediator)
+        public PessoasFisicasController(IMediator mediator)
         {
             _mediator = mediator;
         }

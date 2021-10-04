@@ -34,7 +34,6 @@
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Ignore<ValidationResult>();
-            //modelBuilder.ApplyConfiguration(new ColaboradorMap());
 
             modelBuilder.ApplyConfiguration(new CidadeMap());
             modelBuilder.ApplyConfiguration(new EstadoMap());
@@ -48,6 +47,8 @@
             modelBuilder.ApplyConfiguration(new ContratacaoMap());
             modelBuilder.ApplyConfiguration(new FazendaMap());
             modelBuilder.ApplyConfiguration(new TalhaoMap());
+            modelBuilder.ApplyConfiguration(new VeiculoMap());
+            modelBuilder.ApplyConfiguration(new PatrimonioMap());
             modelBuilder.ApplyConfiguration(new TalhaoSafraMap());
             modelBuilder.ApplyConfiguration(new AtividadesMap());
             modelBuilder.ApplyConfiguration(new DespesasMap());
@@ -78,7 +79,7 @@
             optionsBuilder.UseSqlServer(connectionString);
         }
 
-        private void SetDecimalPoints(ModelBuilder modelBuilder)
+        private static void SetDecimalPoints(ModelBuilder modelBuilder)
         {
             var properties = modelBuilder.Model.GetEntityTypes()
                                 .SelectMany(t => t.GetProperties())

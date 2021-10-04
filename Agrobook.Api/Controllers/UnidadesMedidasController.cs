@@ -12,11 +12,11 @@
     using System.Threading.Tasks;
 
     [ApiVersion("1")]
-    public class UnidadesMedidaController : ApiController
+    public class UnidadesMedidasController : ApiController
     {
         private readonly IMediator _mediator;
 
-        public UnidadesMedidaController(IMediator mediator)
+        public UnidadesMedidasController(IMediator mediator)
         {
             _mediator = mediator;
         }

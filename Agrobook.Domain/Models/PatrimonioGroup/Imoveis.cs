@@ -10,8 +10,10 @@
         public string UnidadeMedidaArea {  get; set;}
         public decimal Capacidade { get; set; }
         public string UnidadeMedidaCapacidade { get; set; }
+
         public int EnderecoId {  get; set; }
-        public Enderecos Endereco {  get; set; }
+        public Enderecos Endereco {  get; set; }        
+        public int PatrimonioId { get; set; }
         public Patrimonios Patrimonio { get; set; }
     }
 }
