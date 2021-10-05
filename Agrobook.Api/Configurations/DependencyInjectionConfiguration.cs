@@ -1,6 +1,7 @@
 ﻿namespace Agrobook.Api.Configurations
 {
     using Agrobook.Api.PipelineBehaviors;
+    using Agrobook.Application.Fazenda.Commands;
     using Agrobook.Application.Fazenda.Handles;
     using Agrobook.Application.Fazenda.Queries;
     using Agrobook.Application.Fazenda.Responses;
@@ -32,6 +33,7 @@
     using Agrobook.Infra.Data.Repositories.Fazenda;
     using Agrobook.Infra.Data.Repositories.Localidade;
     using Agrobook.Infra.Data.Repositories.Organizacao;
+    using Agrobook.Infra.Data.Repositories.Patrimonio;
     using Agrobook.Infra.Data.Repositories.UnidadesMedidas;
     using FluentValidation;
     using FluentValidation.Results;
@@ -55,6 +57,7 @@
             services.AddScoped<IUnidadeMedidaBaseRepository, UnidadeMedidaBaseRepository>();
             services.AddScoped<IUnidadeMedidaRepository, UnidadeMedidaRepository>();
             services.AddScoped<IFazendaRepository, FazendaRepository>();
+            services.AddScoped <IPatrimonioRepository, PatrimonioRepository>();
         }
 
         public static void RegisterMediatr(this IServiceCollection services)
@@ -72,6 +75,11 @@
             services.AddScoped<IRequestHandler<OrganizacaoUpdateCommand, ValidationResult>, OrganizacaoUpdateCommandHandle>();
 
             services.AddScoped<IRequestHandler<FazendaQuery, List<FazendaResponse>>, FazendasQueryHandle>();
+            services.AddScoped<IRequestHandler<FazendaByIdQuery, FazendaResponse>, FazendaByIdQueryHandle>();
+            services.AddScoped<IRequestHandler<FazendaCreateCommand, ValidationResult>, FazendaCreateCommandHandle>();
+            services.AddScoped<IRequestHandler<FazendaDeleteCommand, ValidationResult>, FazendaDeleteCommandHandle>();
+            services.AddScoped<IRequestHandler<FazendaUpdateCommand, ValidationResult>, FazendaUpdateCommandHandle>();
+
 
             services.AddScoped<IRequestHandler<PessoaFisicaCreateCommand, ValidationResult>, PessoaFisicaCreateCommandHandle>();
             services.AddScoped<IRequestHandler<PessoaFisicaUpdateCommand, ValidationResult>, PessoaFisicaUpdateCommanHandle>();

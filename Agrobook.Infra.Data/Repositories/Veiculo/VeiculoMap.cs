@@ -1,4 +1,4 @@
-﻿namespace Agrobook.Infra.Data.Repositories.Patrimonio
+﻿namespace Agrobook.Infra.Data.Repositories.Veiculo
 {
     using Agrobook.Domain.Models.PatrimonioGroup;
     using Agrobook.Infra.Data.TypeConfiguration;

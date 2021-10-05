@@ -70,6 +70,33 @@ namespace Agrobook.Application {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to FCC.
+        /// </summary>
+        internal static string FCC {
+            get {
+                return ResourceManager.GetString("FCC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FDC.
+        /// </summary>
+        internal static string FDC {
+            get {
+                return ResourceManager.GetString("FDC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FUC.
+        /// </summary>
+        internal static string FUC {
+            get {
+                return ResourceManager.GetString("FUC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to OCC.
         /// </summary>
         internal static string OCC {

@@ -31,7 +31,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Fazenda\Commands\" />
     <Folder Include="Fazenda\Validators\" />
     <Folder Include="UnidadesMedidas\Validators\" />
   </ItemGroup>

@@ -11,6 +11,7 @@
         public long? Telefone { get; set; }
         public decimal? Hectare { get; set; }
         public string Administrador { get; set; }
+        public decimal? TaxaValorizacaoAnual { get; set; }
         public int? EnderecoId { get; set; }
         public Enderecos Endereco { get; set; }
         public int PatrimonioId { get; set; }

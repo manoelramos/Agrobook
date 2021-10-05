@@ -10,6 +10,8 @@
     using Agrobook.Infra.Data.Repositories.Organizacao;
     using Agrobook.Infra.Data.Repositories.Parceiro;
     using Agrobook.Infra.Data.Repositories.Patrimonio;
+    using Agrobook.Infra.Data.Repositories.Veiculo;
+    using Agrobook.Infra.Data.Repositories.Imoveis;
     using Agrobook.Infra.Data.Repositories.Talhao;
     using Agrobook.Infra.Data.Repositories.TalhaoSafra;
     using FluentValidation.Results;

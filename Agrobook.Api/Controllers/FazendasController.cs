@@ -1,9 +1,11 @@
 ﻿namespace Agrobook.Api.Controllers
 {
+    using Agrobook.Application.Fazenda.Commands;
     using Agrobook.Application.Fazenda.Queries;
     using Agrobook.Application.Fazenda.Responses;
     using MediatR;
     using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
     using System.Collections.Generic;
     using System.Threading.Tasks;
@@ -30,36 +32,36 @@
             return Ok(response);
         }
 
-        ///// <summary>
-        ///// Lista das Unidades de medidas naturais e customizadas(aquelas utilizadas apenas no ambiente do agro negócio)
-        ///// </summary>
-        ///// <param name="ativo"></param>
-        ///// <returns></returns>
+        /// <summary>
+        /// Lista das Unidades de medidas naturais e customizadas(aquelas utilizadas apenas no ambiente do agro negócio)
+        /// </summary>
+        /// <param name="ativo"></param>
+        /// <returns></returns>
 
-        //[HttpGet, Route("unidades-medidas"), AllowAnonymous]
-        //public async Task<ActionResult<IEnumerable<UnidadeMedidaResponse>>> GetUnidadesMedidas(bool ativo = true)
-        //{
-        //    var response = await _mediator.Send(new UnidadesMedidasQuery(ativo));
-        //    return Ok(response);
-        //}
+        [HttpGet, Route("{id}"), AllowAnonymous]
+        public async Task<ActionResult<FazendaResponse>> Get(int id)
+        {
+            var response = await _mediator.Send(new FazendaByIdQuery(id));
+            return Ok(response);
+        }
+
+        /// <summary>
+        /// Cria uma unidade de medida customizada com base em uma unidade de medida padrão
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPost,  AllowAnonymous]
+        [ProducesResponseType(typeof(FazendaResponse), StatusCodes.Status201Created)]
+        [ProducesDefaultResponseType]
+        //[ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([FromBody] FazendaCreateCommand command)
+        {
+            var response = await _mediator.Send(command);
+            return CustomResponse(response);
+        }
 
         ///// <summary>
-        ///// Cria uma unidade de medida customizada com base em uma unidade de medida padrão
-        ///// </summary>
-        ///// <param name="command"></param>
-        ///// <returns></returns>
-        //[HttpPost, Route("unidades-medidas"), AllowAnonymous]
-        //[ProducesResponseType(typeof(UnidadeMedidaResponse), StatusCodes.Status201Created)]
-        //[ProducesDefaultResponseType]
-        ////[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Create([FromBody] UnidadeMedidaCreateCommand command)
-        //{
-        //    var response = await _mediator.Send(command);
-        //    return CustomResponse(response);
-        //}
-
-        ///// <summary>
-        ///// Atualiza uma unidade de medida customizada
+        ///// Atualiza os dados de uma fazenda
         ///// </summary>
         ///// <param name="command"></param>
         ///// <returns></returns>
@@ -72,18 +74,18 @@
         //    return CustomResponse(response);
         //}
 
-        ///// <summary>
-        ///// Deleta uma unidade de medida customizada
-        ///// </summary>
-        ///// <param name="id"></param>
-        ///// <returns></returns>
-        //[HttpDelete, Route("unidades-medidas/{id}"), AllowAnonymous]
-        //[ProducesResponseType(typeof(UnidadeMedidaResponse), StatusCodes.Status204NoContent)]
-        //[ProducesDefaultResponseType]
-        //public async Task<ActionResult> Delete(int id)
-        //{
-        //    var response = await _mediator.Send(new UnidadeMedidaDeleteCommand(id));
-        //    return CustomResponse(response);
-        //}
+        /// <summary>
+        /// Deleta logicamente uma fazenda
+        /// /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpDelete, Route("{id}"), AllowAnonymous]
+        [ProducesResponseType(typeof(FazendaResponse), StatusCodes.Status204NoContent)]
+        [ProducesDefaultResponseType]
+        public async Task<ActionResult> Delete(int id)
+        {
+            var response = await _mediator.Send(new FazendaDeleteCommand(id));
+            return CustomResponse(response);
+        }
     }
 }

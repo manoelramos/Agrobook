@@ -14,9 +14,11 @@
         public string Cor { get; set; }
         public string Tipo { get; set; }
         public string Combustivel { get; set; }
-
+        public string EstadoConservacao { get; set; }
         public DateTime? AnoFabricao { get; set; }
-        public long? Kilometragem { get; set; }
+        public long? KilometragemCompra { get; set; }
+        public long? KilometragemVenda { get; set; }
+        public decimal? TaxaDepreciacaoAnual { get; set; }
 
         public int PatrimonioId { get; set; }
         public Patrimonios Patrimonio { get; set; }

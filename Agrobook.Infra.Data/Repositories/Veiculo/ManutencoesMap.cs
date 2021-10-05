@@ -1,21 +1,21 @@
-﻿namespace Agrobook.Infra.Data.Repositories.Patrimonio
+﻿namespace Agrobook.Infra.Data.Repositories.Veiculo
 {
     using Agrobook.Domain.Models.PatrimonioGroup;
     using Agrobook.Infra.Data.TypeConfiguration;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-    internal class AnexosVeiculoMap : EntityTypeConfiguration<AnexosVeiculo>
+    class ManutencoesMap : EntityTypeConfiguration<Manutencoes>
     {
-        protected override void Configure(EntityTypeBuilder<AnexosVeiculo> builder)
+        protected override void Configure(EntityTypeBuilder<Manutencoes> builder)
         {
             builder.Property(c => c.Descricao)
-               .HasColumnType("varchar(300)")
+               .HasColumnType("varchar(200)")
                .IsRequired();
 
             builder.HasOne(c => c.Veiculo)
-                .WithMany(c => c.Anexos)
+                .WithMany(c => c.Manutencoes)
                 .HasForeignKey(c => c.VeiculoId);
         }
-    }    
+    }
 }

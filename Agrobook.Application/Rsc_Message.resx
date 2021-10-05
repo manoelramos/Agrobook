@@ -121,6 +121,18 @@
     <value>ASS</value>
     <comment>Sigla para erros durante o processo de criação de associado(s)</comment>
   </data>
+  <data name="FCC" xml:space="preserve">
+    <value>FCC</value>
+    <comment>Sigla para erros durante o processo de criação da fazenda</comment>
+  </data>
+  <data name="FDC" xml:space="preserve">
+    <value>FDC</value>
+    <comment>Sigla para erros durante o processo de deleção da fazenda</comment>
+  </data>
+  <data name="FUC" xml:space="preserve">
+    <value>FUC</value>
+    <comment>Sigla para erros durante o processo de atualização da fazenda</comment>
+  </data>
   <data name="OCC" xml:space="preserve">
     <value>OCC</value>
     <comment>Sigla para erros durante o processo de criação da organização</comment>
