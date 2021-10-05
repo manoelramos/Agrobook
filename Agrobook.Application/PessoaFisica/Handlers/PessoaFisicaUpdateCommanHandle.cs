@@ -28,7 +28,7 @@
         {
             try
             {
-                var existePessoa = _associadosRepository.ExistsAsync(o => o.Id == request.Id, cancellationToken).GetAwaiter().GetResult();
+                var existePessoa = await _associadosRepository.ExistsAsync(o => o.Id == request.Id, cancellationToken);
                 if (!existePessoa)
                 {
                     _error.Errors.Add(new ValidationFailure(Rsc_Message.OUC, Rsc_Message.RegistroNaoEncontrado));

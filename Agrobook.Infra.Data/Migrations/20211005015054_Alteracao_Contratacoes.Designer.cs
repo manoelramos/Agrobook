@@ -4,14 +4,16 @@ using Agrobook.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Agrobook.Infra.Data.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20211005015054_Alteracao_Contratacoes")]
+    partial class Alteracao_Contratacoes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1010,7 +1012,9 @@ namespace Agrobook.Infra.Data.Migrations
 
                     b.HasIndex("EnderecoId");
 
-                    b.HasIndex("FazendaId");
+                    b.HasIndex("FazendaId")
+                        .IsUnique()
+                        .HasFilter("[FazendaId] IS NOT NULL");
 
                     b.HasIndex("PatrimonioId")
                         .IsUnique();
@@ -1601,7 +1605,7 @@ namespace Agrobook.Infra.Data.Migrations
                     b.HasOne("Agrobook.Domain.Models.PatrimonioGroup.Patrimonios", "Patrimonio")
                         .WithOne("Fazenda")
                         .HasForeignKey("Agrobook.Domain.Models.PatrimonioGroup.Fazendas", "PatrimonioId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Endereco");
@@ -1618,8 +1622,8 @@ namespace Agrobook.Infra.Data.Migrations
                         .IsRequired();
 
                     b.HasOne("Agrobook.Domain.Models.PatrimonioGroup.Fazendas", "Fazenda")
-                        .WithMany("Imoveis")
-                        .HasForeignKey("FazendaId")
+                        .WithOne("Imovel")
+                        .HasForeignKey("Agrobook.Domain.Models.PatrimonioGroup.Imoveis", "FazendaId")
                         .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("Agrobook.Domain.Models.PatrimonioGroup.Patrimonios", "Patrimonio")
@@ -1779,7 +1783,7 @@ namespace Agrobook.Infra.Data.Migrations
 
             modelBuilder.Entity("Agrobook.Domain.Models.PatrimonioGroup.Fazendas", b =>
                 {
-                    b.Navigation("Imoveis");
+                    b.Navigation("Imovel");
 
                     b.Navigation("Talhoes");
                 });

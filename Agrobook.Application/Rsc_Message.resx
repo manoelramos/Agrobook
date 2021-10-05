@@ -133,6 +133,14 @@
     <value>FUC</value>
     <comment>Sigla para erros durante o processo de atualização da fazenda</comment>
   </data>
+  <data name="ICC" xml:space="preserve">
+    <value>ICC</value>
+    <comment>Sigla para erros durante o processo de criação do imovel</comment>
+  </data>
+  <data name="IUC" xml:space="preserve">
+    <value>IUC</value>
+    <comment>Sigla para erros durante o processo de atualização do imóvel</comment>
+  </data>
   <data name="OCC" xml:space="preserve">
     <value>OCC</value>
     <comment>Sigla para erros durante o processo de criação da organização</comment>

@@ -30,7 +30,7 @@
         {
             try
             {
-                var existeUnidade = _unidadeMedidaRepository.ExistsAsync(o => o.Id == command.Id).GetAwaiter().GetResult();
+                var existeUnidade = await _unidadeMedidaRepository.ExistsAsync(o => o.Id == command.Id, cancellationToken);
                 if (!existeUnidade)
                 {
                     _error.Errors.Add(new ValidationFailure(Rsc_Message.UMUC, Rsc_Message.RegistroNaoEncontrado));

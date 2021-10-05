@@ -17,5 +17,6 @@
         public int PatrimonioId { get; set; }
         public Patrimonios Patrimonio { get; set; }
         public ICollection<Talhoes> Talhoes { get; set; }
+        public ICollection<Imoveis> Imoveis { get; set; }
     }
 }

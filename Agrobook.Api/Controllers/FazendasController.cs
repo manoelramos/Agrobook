@@ -60,19 +60,19 @@
             return CustomResponse(response);
         }
 
-        ///// <summary>
-        ///// Atualiza os dados de uma fazenda
-        ///// </summary>
-        ///// <param name="command"></param>
-        ///// <returns></returns>
-        //[ProducesResponseType(typeof(UnidadeMedidaResponse), StatusCodes.Status200OK)]
-        //[ProducesDefaultResponseType]
-        //[HttpPut, Route("unidades-medidas"), AllowAnonymous]
-        //public async Task<IActionResult> Edit(UnidadeMedidaUpdateCommand command)
-        //{
-        //    var response = await _mediator.Send(command);
-        //    return CustomResponse(response);
-        //}
+        /// <summary>
+        /// Atualiza os dados de uma fazenda
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [ProducesResponseType(typeof(FazendaResponse), StatusCodes.Status200OK)]
+        [ProducesDefaultResponseType]
+        [HttpPut, AllowAnonymous]
+        public async Task<IActionResult> Edit(FazendaUpdateCommand command)
+        {
+            var response = await _mediator.Send(command);
+            return CustomResponse(response);
+        }
 
         /// <summary>
         /// Deleta logicamente uma fazenda

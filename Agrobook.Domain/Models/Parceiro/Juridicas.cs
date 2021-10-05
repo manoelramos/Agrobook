@@ -4,8 +4,7 @@
 
     public class Juridicas : Entity<Juridicas>
     {
-        public int CNPJ {  get; set; }
-        public string Tipo {  get; set; } //Prestador de serviço ou  fornecedor
+        public int CNPJ {  get; set; }        
         public string NomeFantasia {  get; set; }
         public int? InscricaoEstadual { get; set; }
         public int? InscricaoMunicipal { get; set; }

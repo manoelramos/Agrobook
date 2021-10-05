@@ -3,6 +3,8 @@
     using Agrobook.Application.Common;
     using Agrobook.Application.Fazenda.Commands;
     using Agrobook.Application.Fazenda.Responses;
+    using Agrobook.Application.Imoveis.Commands;
+    using Agrobook.Application.Imoveis.Responses;
     using Agrobook.Application.Localidade.Responses;
     using Agrobook.Application.Organizacao.Commands;
     using Agrobook.Application.Organizacao.Responses;
@@ -42,12 +44,19 @@
             CreateMap<Fazendas, FazendaResponse>().ReverseMap();
             CreateMap<Fazendas, FazendaCreateCommand>().ReverseMap();
 
+            CreateMap<Imoveis, ImovelCreateCommand>().ReverseMap();
+            CreateMap<Imoveis, ImovelResponse>().ReverseMap();
             CreateMap<Patrimonios, FazendaCreateCommand>().ReverseMap().
                 ConstructUsing((source, context) => new Patrimonios
                 {
                     Fazenda = context.Mapper.Map<Fazendas>(source)
-                });
+                }).ForMember(x => x.Imovel, opt => opt.Ignore());
 
+            CreateMap<Patrimonios, ImovelCreateCommand>().ReverseMap().
+                ConstructUsing((source, context) => new Patrimonios
+                {
+                    Imovel = context.Mapper.Map<Imoveis>(source)
+                }).ForMember(x => x.Fazenda, opt => opt.Ignore());
 
             CreateMap<Associados, PessoaFisicaCreateCommand>().ReverseMap();
 

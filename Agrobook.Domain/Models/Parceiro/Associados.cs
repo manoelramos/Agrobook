@@ -1,4 +1,5 @@
-﻿using Agrobook.Domain.Core.Models;
+﻿using Agrobook.Domain.Core.Enum;
+using Agrobook.Domain.Core.Models;
 using System.Collections.Generic;
 
 namespace Agrobook.Domain.Models.Parceiro
@@ -7,8 +8,7 @@ namespace Agrobook.Domain.Models.Parceiro
     {
         public string Nome { get; set; }
         public string Email { get; set; }
-                
-        public ICollection<Contratacoes> Contratacoes { get; set; }
+        public Categorias.TipoRelacao TipoRelacao { get; set; }        
 
         public int? EnderecoId { get; set; }
         public Enderecos Endereco { get; set; }
@@ -20,5 +20,6 @@ namespace Agrobook.Domain.Models.Parceiro
         public ICollection<DadosBancarios> DadosBancarios { get; set; }
         public ICollection<Documentos> Documentos { get; set; }
         public ICollection<Pagamentos> Pagamentos { get; set; }
+        public ICollection<Contratacoes> Contratacoes { get; set; }
     }
 }

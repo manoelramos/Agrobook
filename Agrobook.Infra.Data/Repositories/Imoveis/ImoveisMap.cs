@@ -24,7 +24,12 @@
             builder.HasOne(c => c.Patrimonio)
                 .WithOne(c => c.Imovel)
                 .HasForeignKey<Imoveis>(c => c.PatrimonioId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.HasOne(c => c.Fazenda)
+                .WithMany(c => c.Imoveis)
+                .HasForeignKey(c => c.FazendaId)                
+                .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

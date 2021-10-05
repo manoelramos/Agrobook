@@ -1,6 +1,6 @@
 ﻿namespace Agrobook.Application.Fazenda.Handles
 {
-    using Agrobook.Application.Fazenda.Commands;
+    using Agrobook.Application.Imoveis.Commands;
     using Agrobook.Domain.Core.Messaging;
     using Agrobook.Domain.Interfaces.Data;
     using Agrobook.Domain.Models.PatrimonioGroup;
@@ -11,27 +11,27 @@
     using System.Threading;
     using System.Threading.Tasks;
 
-    public class FazendaUpdateCommandHandle : CommandHandler, IRequestHandler<FazendaUpdateCommand, ValidationResult>
+    public class ImovelUpdateCommandHandle : CommandHandler, IRequestHandler<ImovelUpdateCommand, ValidationResult>
     {
         private readonly IPatrimonioRepository _patrimonioRepository;
         private readonly IMapper _map;
         private readonly ValidationResult _error = new();
 
-        public FazendaUpdateCommandHandle(IPatrimonioRepository patrimonioRepository, IMapper map)
+        public ImovelUpdateCommandHandle(IPatrimonioRepository patrimonioRepository, IMapper map)
             : base(patrimonioRepository.UnitOfWork)
         {
             _patrimonioRepository = patrimonioRepository;
             _map = map;
         }
 
-        public async Task<ValidationResult> Handle(FazendaUpdateCommand request, CancellationToken cancellationToken)
+        public async Task<ValidationResult> Handle(ImovelUpdateCommand request, CancellationToken cancellationToken)
         {
             try
             {
-                var existeFazenda = await _patrimonioRepository.ExistsAsync(o => o.Fazenda.Id == request.Id, cancellationToken);
-                if (!existeFazenda)
+                var existeImovel = await _patrimonioRepository.ExistsAsync(o => o.Imovel.Id == request.Id, cancellationToken);
+                if (!existeImovel)
                 {
-                    _error.Errors.Add(new ValidationFailure(Rsc_Message.FUC, Rsc_Message.RegistroNaoEncontrado));
+                    _error.Errors.Add(new ValidationFailure(Rsc_Message.IUC, Rsc_Message.RegistroNaoEncontrado));
                     return _error;
                 }
 
@@ -41,7 +41,7 @@
             }
             catch (Exception ex)
             {
-                _error.Errors.Add(new ValidationFailure(Rsc_Message.FUC, ex.InnerException.Message));
+                _error.Errors.Add(new ValidationFailure(Rsc_Message.IUC, ex.InnerException.Message));
                 return _error;
             }
         }

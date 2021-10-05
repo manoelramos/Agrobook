@@ -97,6 +97,24 @@ namespace Agrobook.Application {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ICC.
+        /// </summary>
+        internal static string ICC {
+            get {
+                return ResourceManager.GetString("ICC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IUC.
+        /// </summary>
+        internal static string IUC {
+            get {
+                return ResourceManager.GetString("IUC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to OCC.
         /// </summary>
         internal static string OCC {

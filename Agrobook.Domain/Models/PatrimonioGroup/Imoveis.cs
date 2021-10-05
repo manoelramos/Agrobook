@@ -15,5 +15,8 @@
         public Enderecos Endereco { get; set; }
         public int PatrimonioId { get; set; }
         public Patrimonios Patrimonio { get; set; }
+
+        public int? FazendaId { get; set; }
+        public Fazendas Fazenda {  get; set; }
     }
 }

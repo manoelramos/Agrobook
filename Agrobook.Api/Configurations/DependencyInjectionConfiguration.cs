@@ -5,6 +5,10 @@
     using Agrobook.Application.Fazenda.Handles;
     using Agrobook.Application.Fazenda.Queries;
     using Agrobook.Application.Fazenda.Responses;
+    using Agrobook.Application.Imoveis.Commands;
+    using Agrobook.Application.Imoveis.Handles;
+    using Agrobook.Application.Imoveis.Queries;
+    using Agrobook.Application.Imoveis.Responses;
     using Agrobook.Application.Localidade.Handles;
     using Agrobook.Application.Localidade.Queries;
     using Agrobook.Application.Localidade.Responses;
@@ -31,6 +35,7 @@
     using Agrobook.Infra.Data.Repositories.Colaborador;
     using Agrobook.Infra.Data.Repositories.Enderecos;
     using Agrobook.Infra.Data.Repositories.Fazenda;
+    using Agrobook.Infra.Data.Repositories.Imoveis;
     using Agrobook.Infra.Data.Repositories.Localidade;
     using Agrobook.Infra.Data.Repositories.Organizacao;
     using Agrobook.Infra.Data.Repositories.Patrimonio;
@@ -58,11 +63,11 @@
             services.AddScoped<IUnidadeMedidaRepository, UnidadeMedidaRepository>();
             services.AddScoped<IFazendaRepository, FazendaRepository>();
             services.AddScoped <IPatrimonioRepository, PatrimonioRepository>();
+            services.AddScoped <IImovelRepository, ImovelRepository>();
         }
 
         public static void RegisterMediatr(this IServiceCollection services)
         {
-
             //services.AddValidatorsFromAssembly(typeof(Startup).Assembly);
 
             services.AddValidatorsFromAssembly(Assembly.Load("Agrobook.Application"));
@@ -79,7 +84,6 @@
             services.AddScoped<IRequestHandler<FazendaCreateCommand, ValidationResult>, FazendaCreateCommandHandle>();
             services.AddScoped<IRequestHandler<FazendaDeleteCommand, ValidationResult>, FazendaDeleteCommandHandle>();
             services.AddScoped<IRequestHandler<FazendaUpdateCommand, ValidationResult>, FazendaUpdateCommandHandle>();
-
 
             services.AddScoped<IRequestHandler<PessoaFisicaCreateCommand, ValidationResult>, PessoaFisicaCreateCommandHandle>();
             services.AddScoped<IRequestHandler<PessoaFisicaUpdateCommand, ValidationResult>, PessoaFisicaUpdateCommanHandle>();
@@ -98,6 +102,12 @@
             services.AddScoped<IRequestHandler<UnidadesMedidasQuery, List<UnidadeMedidaResponse>>, UnidadesMedidasQueryHandle>();
             services.AddScoped<IRequestHandler<UnidadeMedidaCreateCommand, ValidationResult>, UnidadeMedidaCreateCommandHandle>();
             services.AddScoped<IRequestHandler<UnidadeMedidaUpdateCommand, ValidationResult>, UnidadeMedidaUpdateCommandHandle>();
+
+            services.AddScoped<IRequestHandler<ImovelQuery, List<ImovelResponse>>, ImoveisQueryHandle>();
+            services.AddScoped<IRequestHandler<ImovelByIdQuery, ImovelResponse>, ImovelByIdQueryHandle>();
+            services.AddScoped<IRequestHandler<ImovelCreateCommand, ValidationResult>, ImovelCreateCommandHandle>();
+            services.AddScoped<IRequestHandler<ImovelDeleteCommand, ValidationResult>, ImovelDeleteCommandHandle>();
+            services.AddScoped<IRequestHandler<ImovelUpdateCommand, ValidationResult>, ImovelUpdateCommandHandle>();
         }
 
         public static void RegisterServices(this IServiceCollection services)

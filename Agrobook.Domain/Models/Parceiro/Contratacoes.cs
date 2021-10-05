@@ -1,24 +1,12 @@
 ﻿namespace Agrobook.Domain.Models.Parceiro
 {
+    using Agrobook.Domain.Core.Enum;
     using Agrobook.Domain.Core.Models;
-    using System;
-
-    public enum ModeloContrato
-    {
-        CLT,
-        TempoDeterminado,
-        TempoIndeterminado,
-        Temporario,
-        TrabalhoEventual,
-        JovemAprendiz,
-        Estagiario,
-        Intermitente,
-        PessoaJuridica
-    }
+    using System;  
 
     public class Contratacoes : Entity<Contratacoes>
     {
-        public int Modelo {  get; set; }
+        public Categorias.ModeloContrato Modelo {  get; set; }
         public string Funcao {  get; set; }
                 
         public DateTime Inicio {  get; set; }

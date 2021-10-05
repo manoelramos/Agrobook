@@ -4,8 +4,7 @@
 
     public class DadosBancarios : Entity<DadosBancarios>
     {
-        public string Instituicao { get; set; }
-        public int? Banco { get; set; }
+        public string Banco { get; set; }
         public int? Agencia { get; set; }
         public string Conta { get; set; }
         public string TipoPix {  get; set; }

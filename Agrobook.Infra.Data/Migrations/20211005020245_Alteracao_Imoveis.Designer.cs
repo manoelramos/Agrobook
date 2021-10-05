@@ -4,14 +4,16 @@ using Agrobook.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Agrobook.Infra.Data.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20211005020245_Alteracao_Imoveis")]
+    partial class Alteracao_Imoveis
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1601,7 +1603,7 @@ namespace Agrobook.Infra.Data.Migrations
                     b.HasOne("Agrobook.Domain.Models.PatrimonioGroup.Patrimonios", "Patrimonio")
                         .WithOne("Fazenda")
                         .HasForeignKey("Agrobook.Domain.Models.PatrimonioGroup.Fazendas", "PatrimonioId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Endereco");

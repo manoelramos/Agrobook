@@ -17,9 +17,9 @@
         public decimal? ValorCompra { get; set; }
         public decimal? ValorVenda { get; set; }
 
-        public Fazendas Fazenda { get; set; }
-        public Veiculos Veiculo { get; set; }
-        public Imoveis Imovel { get; set; }
+        public  Fazendas Fazenda { get; set; }
+        public  Veiculos Veiculo { get; set; }
+        public  Imoveis Imovel { get; set; }
 
         public int? OrganizacaoId { get; set; }
         public Organizacoes Organizacao { get; set; }

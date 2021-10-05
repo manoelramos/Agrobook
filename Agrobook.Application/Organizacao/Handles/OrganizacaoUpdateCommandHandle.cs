@@ -28,7 +28,7 @@
         {
             try
             {
-                var existeOrganizacao = _organizacaoRepository.ExistsAsync(o => o.Id == request.Id).GetAwaiter().GetResult();
+                var existeOrganizacao = await _organizacaoRepository.ExistsAsync(o => o.Id == request.Id, cancellationToken);
                 if (!existeOrganizacao)
                 {
                     _error.Errors.Add(new ValidationFailure(Rsc_Message.OUC, Rsc_Message.RegistroNaoEncontrado));
