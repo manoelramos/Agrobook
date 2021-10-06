@@ -11,6 +11,7 @@ namespace Agrobook.Api
     using System.Reflection;
     using Microsoft.AspNetCore.Mvc;
     using System.Linq;
+    using Agrobook.Infra.Data.Context;
 
     public class Startup
     {
@@ -61,11 +62,19 @@ namespace Agrobook.Api
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+
+            using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            {
+                var context = serviceScope.ServiceProvider.GetService<ApplicationContext>();
+                context.Database.EnsureCreated();
+            }
+
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Agrobook.Api v1"));                
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Agrobook.Api v1"));
             }
 
             app.UseHttpsRedirection();

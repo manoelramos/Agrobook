@@ -6,11 +6,18 @@
 
     public class UnidadesMedidasQuery : Query<List<UnidadeMedidaResponse>>
     {
-        public UnidadesMedidasQuery(bool active)
+        public enum TipoFilter
         {
-            Active = active;
+            Base,
+            Custom,
+            All
         }
 
-        public bool Active { get; set; }
-    }
+        public UnidadesMedidasQuery(TipoFilter filter)
+        {
+            Filter = filter;
+        }
+
+        public TipoFilter Filter { get; set; }
+    }    
 }

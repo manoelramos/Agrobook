@@ -30,6 +30,11 @@
                 .WithMany(c => c.Imoveis)
                 .HasForeignKey(c => c.FazendaId)                
                 .OnDelete(DeleteBehavior.NoAction);
+
+            builder.HasOne(c => c.Classe)
+                .WithMany(c => c.Imoveis)
+                .HasForeignKey(c => c.ClasseId)
+                .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

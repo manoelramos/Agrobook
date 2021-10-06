@@ -52,6 +52,9 @@
 
         public static void RegisterRepositories(this IServiceCollection services)
         {
+            //// Ensure the database is created.
+            //context.Database.EnsureCreated();
+
             services.AddDbContext<ApplicationContext>();
             //services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
@@ -59,7 +62,6 @@
             services.AddScoped<IEnderecosRepository, EnderecosRepository>();
             services.AddScoped<IOrganizacaoRepository, OrganizacaoRepository>();
             services.AddScoped<IAssociadosRepository, AssociadoRepository>();
-            services.AddScoped<IUnidadeMedidaBaseRepository, UnidadeMedidaBaseRepository>();
             services.AddScoped<IUnidadeMedidaRepository, UnidadeMedidaRepository>();
             services.AddScoped<IFazendaRepository, FazendaRepository>();
             services.AddScoped <IPatrimonioRepository, PatrimonioRepository>();
@@ -98,7 +100,6 @@
             services.AddScoped<IRequestHandler<PessoaJuridicaDeleteCommand, ValidationResult>, PessoaJuridicaDeleteCommandHandle>();
             
             services.AddScoped<IRequestHandler<EstadosQuery, List<EstadoResponse>>, EstadosQueryHandle>();
-            services.AddScoped<IRequestHandler<UnidadesMedidasBaseQuery, List<UnidadeMedidaResponse>>, UnidadesMedidaBaseQueryHandle>();
             services.AddScoped<IRequestHandler<UnidadesMedidasQuery, List<UnidadeMedidaResponse>>, UnidadesMedidasQueryHandle>();
             services.AddScoped<IRequestHandler<UnidadeMedidaCreateCommand, ValidationResult>, UnidadeMedidaCreateCommandHandle>();
             services.AddScoped<IRequestHandler<UnidadeMedidaUpdateCommand, ValidationResult>, UnidadeMedidaUpdateCommandHandle>();

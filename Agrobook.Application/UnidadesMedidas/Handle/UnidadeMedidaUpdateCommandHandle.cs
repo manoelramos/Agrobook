@@ -1,10 +1,8 @@
 ﻿namespace Agrobook.Application.UnidadesMedidas.Handles
 {
-    using Agrobook.Application.Organizacao.Commands;
     using Agrobook.Application.UnidadesMedidas.Commmand;
     using Agrobook.Domain.Core.Messaging;
     using Agrobook.Domain.Interfaces.Data;
-    using Agrobook.Domain.Models;
     using Agrobook.Domain.Models.Base;
     using AutoMapper;
     using FluentValidation.Results;
@@ -37,7 +35,7 @@
                     return _error;
                 }
 
-                var unidade = _map.Map<UnidadesMedidasAgro>(command);
+                var unidade = _map.Map<UnidadesMedidas>(command);
                 await _unidadeMedidaRepository.UpdateAsync(unidade, cancellationToken);
                 return await CommitAsync(cancellationToken);
             }

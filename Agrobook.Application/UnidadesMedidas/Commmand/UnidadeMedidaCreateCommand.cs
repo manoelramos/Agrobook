@@ -6,7 +6,7 @@
     {
         public string Descricao {  get; set; }
         public string Simbolo { get; set; }
-        public decimal Quantidade { get; set; }
-        public int UnidadesMedidasId {  get; set; }
+        public decimal? ValorUnidade { get; set; }
+        public int? UnidadeBaseId {  get; set; }
     }
 }

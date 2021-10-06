@@ -1,6 +1,5 @@
 ﻿namespace Agrobook.Application.Imoveis.Commands
 {
-    using Agrobook.Application.Imoveis.Responses;
     using Agrobook.Domain.Core.Messaging;
 
     public class ImovelDeleteCommand : Command

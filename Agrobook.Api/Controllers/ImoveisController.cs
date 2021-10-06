@@ -1,6 +1,5 @@
 ﻿namespace Agrobook.Api.Controllers
 {
-    using Agrobook.Application.Fazenda.Responses;
     using Agrobook.Application.Imoveis.Commands;
     using Agrobook.Application.Imoveis.Queries;
     using Agrobook.Application.Imoveis.Responses;

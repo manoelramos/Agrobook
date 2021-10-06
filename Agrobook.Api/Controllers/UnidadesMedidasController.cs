@@ -20,19 +20,7 @@
         {
             _mediator = mediator;
         }
-
-        /// <summary>
-        /// Unidades de medidas naturais/padrão em qualquer lugar
-        /// </summary>
-        /// <param name="ativo"></param>
-        /// <returns></returns>
-        [HttpGet, Route("unidades-medidas-base"), AllowAnonymous]
-        public async Task<ActionResult<IEnumerable<UnidadeMedidaResponse>>> GetUnidadesMedidasBase(bool ativo = true)
-        {
-            var response = await _mediator.Send(new UnidadesMedidasBaseQuery(ativo));
-            return Ok(response);
-        }
-
+             
         /// <summary>
         /// Lista das Unidades de medidas naturais e customizadas(aquelas utilizadas apenas no ambiente do agro negócio)
         /// </summary>
@@ -40,9 +28,9 @@
         /// <returns></returns>
 
         [HttpGet, Route("unidades-medidas"), AllowAnonymous]
-        public async Task<ActionResult<IEnumerable<UnidadeMedidaResponse>>> GetUnidadesMedidas(bool ativo = true)
+        public async Task<ActionResult<IEnumerable<UnidadeMedidaResponse>>> GetUnidadesMedidas(UnidadesMedidasQuery.TipoFilter filter)
         {
-            var response = await _mediator.Send(new UnidadesMedidasQuery(ativo));
+            var response = await _mediator.Send(new UnidadesMedidasQuery(filter));
             return Ok(response);
         }
 

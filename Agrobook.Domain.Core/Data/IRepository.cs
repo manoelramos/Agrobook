@@ -19,6 +19,8 @@
 
         ValueTask<List<TEntity>> GetAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken = default);
 
+        IQueryable<TEntity> GetQueryble(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken = default);
+
         ValueTask<bool> ExistsAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken = default);
 
         ValueTask<bool> ExistsAsync<TParameter>(Expression<Func<TParameter, bool>> predicate, CancellationToken cancellationToken = default) where TParameter : class;

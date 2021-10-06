@@ -11,7 +11,6 @@
     using Agrobook.Application.PessoaFisica.Commands;
     using Agrobook.Application.PessoaFisica.Responses;
     using Agrobook.Application.PessoaJuridica.Responses;
-    using Agrobook.Application.UnidadesMedidas.Commmand;
     using Agrobook.Application.UnidadesMedidas.Response;
     using Agrobook.Domain.Models;
     using Agrobook.Domain.Models.Base;
@@ -24,10 +23,6 @@
         public MappingProfile()
         {
             CreateMap<UnidadesMedidas, UnidadeMedidaResponse>().ReverseMap();
-            CreateMap<UnidadesMedidasAgro, UnidadeMedidaResponse>().ReverseMap();
-            CreateMap<UnidadesMedidas, UnidadesMedidasAgro>().ReverseMap();
-            CreateMap<UnidadesMedidasAgro, UnidadeMedidaCreateCommand>().ReverseMap();
-            CreateMap<UnidadesMedidasAgro, UnidadeMedidaUpdateCommand>().ReverseMap();
 
             CreateMap<Estados, EstadoResponse>().ReverseMap();
             CreateMap<Enderecos, EnderecoResponse>().ReverseMap();

@@ -92,6 +92,12 @@
         {
             return await Include().Where(predicate).ToListAsync(cancellationToken);
         }
+
+        public IQueryable<TEntity> GetQueryble(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken = default)
+        {
+            return Include().Where(predicate).AsQueryable();
+        }
+
         public async ValueTask<TEntity> GetByIdAsync(long id, CancellationToken cancellationToken = default)
         {
             return await Include().SingleOrDefaultAsync(c => c.Id == id, cancellationToken);

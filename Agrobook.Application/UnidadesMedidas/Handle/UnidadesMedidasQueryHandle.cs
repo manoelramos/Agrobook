@@ -6,30 +6,33 @@
     using AutoMapper;
     using MediatR;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
+    using Domain.Models.Base;
 
     public class UnidadesMedidasQueryHandle : IRequestHandler<UnidadesMedidasQuery, List<UnidadeMedidaResponse>>
     {
-        private readonly IUnidadeMedidaBaseRepository _unidadeMedidaBaseRepository;
         private readonly IUnidadeMedidaRepository _unidadeMedidaRepository;
         private readonly IMapper _map;
 
-        public UnidadesMedidasQueryHandle(IUnidadeMedidaBaseRepository unidadeBase, IUnidadeMedidaRepository unidadeMedidaRepository, IMapper map)
+        public UnidadesMedidasQueryHandle(IUnidadeMedidaRepository unidadeMedidaRepository, IMapper map)
         {
-            _unidadeMedidaBaseRepository = unidadeBase;
             _unidadeMedidaRepository = unidadeMedidaRepository;
             _map = map;
         }
 
         public async Task<List<UnidadeMedidaResponse>> Handle(UnidadesMedidasQuery request, CancellationToken cancellationToken)
         {
-            var entitiesBase = _map.Map<List<UnidadeMedidaResponse>>(await _unidadeMedidaBaseRepository.GetAsync(x => x.Ativo == request.Active, cancellationToken));
-            var entitiesCustom = _map.Map<List<UnidadeMedidaResponse>>(await _unidadeMedidaRepository.GetAsync(x => x.Ativo == request.Active, cancellationToken));
-            var result = entitiesBase.Union(entitiesCustom);
+            List<UnidadesMedidas> result = request.Filter switch
+            {
+                UnidadesMedidasQuery.TipoFilter.Base => await _unidadeMedidaRepository.GetAsync(u => u.Ativo && !u.UnidadeBaseId.HasValue, cancellationToken),
+                UnidadesMedidasQuery.TipoFilter.Custom => await _unidadeMedidaRepository.GetAsync(u => u.Ativo && u.UnidadeBaseId.HasValue, cancellationToken),
+                UnidadesMedidasQuery.TipoFilter.All => await _unidadeMedidaRepository.GetAsync(u => u.Ativo, cancellationToken),
+                _ => new(),
+            };
 
-            return result.ToList();
+            var retorno = _map.Map<List<UnidadeMedidaResponse>>(result);
+            return retorno;
         }
     }
 }

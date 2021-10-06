@@ -7,6 +7,9 @@
     {
         public string Descricao { get; set; }
         public string Simbolo { get; set; }
-        public ICollection<UnidadesMedidasAgro> UnidadesMedidaAgro {  get; set; }
+        public int? UnidadeBaseId { get; set; }
+        public decimal? ValorUnidade { get; set; }
+        public virtual UnidadesMedidas UnidadeMedidaCustom { get; set; }
+        public virtual HashSet<UnidadesMedidas> UnidadesMedidasCustom { get; set; }
     }
 }

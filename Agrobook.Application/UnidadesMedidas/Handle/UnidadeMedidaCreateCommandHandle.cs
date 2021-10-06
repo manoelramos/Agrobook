@@ -27,7 +27,7 @@
         {
             try
             {
-                var unidades = _map.Map<UnidadesMedidasAgro>(request);
+                var unidades = _map.Map<UnidadesMedidas>(request);
                 await _organizacaoRepository.CreateAsync(unidades, cancellationToken);
                 return await CommitAsync(cancellationToken);
             }

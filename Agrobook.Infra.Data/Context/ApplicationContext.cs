@@ -28,10 +28,8 @@
 
         public ApplicationContext(DbContextOptions<ApplicationContext> options, IConfiguration configuration) : base(options)
         {
-            _configuration = configuration;
+            _configuration = configuration;            
         }
-
-        //DbSet<Organizacoes> Organizacoes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -66,7 +64,6 @@
             modelBuilder.ApplyConfiguration(new DetalhesPatrimonioMap());
             modelBuilder.ApplyConfiguration(new ImoveisMap());
             modelBuilder.ApplyConfiguration(new ManutencoesMap());
-            modelBuilder.ApplyConfiguration(new UnidadesMedidaAgroMap());
             modelBuilder.ApplyConfiguration(new UnidadesMedidaMap());
 
 

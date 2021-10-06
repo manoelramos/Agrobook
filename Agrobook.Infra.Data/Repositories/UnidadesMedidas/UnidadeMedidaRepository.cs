@@ -5,7 +5,7 @@
     using Agrobook.Infra.Data.Repositories.Base;
     using Domain.Models.Base;
 
-    public class UnidadeMedidaRepository : Repository<UnidadesMedidasAgro>, IUnidadeMedidaRepository
+    public class UnidadeMedidaRepository : Repository<UnidadesMedidas>, IUnidadeMedidaRepository
     {
         public UnidadeMedidaRepository(ApplicationContext context) : base(context)
         {

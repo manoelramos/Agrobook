@@ -11,7 +11,12 @@
         {
             builder.Property(c => c.Descricao)
                .HasColumnType("varchar(100)")
-               .IsRequired();           
+               .IsRequired();
+
+            builder.HasOne(s => s.UnidadeMedidaCustom).
+                WithMany(c => c.UnidadesMedidasCustom).
+                HasForeignKey(x => x.UnidadeBaseId).
+                OnDelete(DeleteBehavior.NoAction);
         }
     }
 }
