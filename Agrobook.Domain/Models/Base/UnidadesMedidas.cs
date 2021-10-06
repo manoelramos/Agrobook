@@ -1,6 +1,7 @@
 ﻿namespace Agrobook.Domain.Models.Base
 {
     using Agrobook.Domain.Core.Models;
+    using Agrobook.Domain.Models.PatrimonioGroup;
     using System.Collections.Generic;
 
     public class UnidadesMedidas : Entity<UnidadesMedidas>
@@ -11,5 +12,7 @@
         public decimal? ValorUnidade { get; set; }
         public virtual UnidadesMedidas UnidadeMedidaCustom { get; set; }
         public virtual HashSet<UnidadesMedidas> UnidadesMedidasCustom { get; set; }
+
+        public virtual ICollection<Imoveis> Imoveis {  get; set; }
     }
 }

@@ -9,14 +9,6 @@
     {
         protected override void Configure(EntityTypeBuilder<Imoveis> builder)
         {
-            builder.Property(c => c.UnidadeMedidaArea)
-               .HasColumnType("varchar(4)")
-               .IsRequired();
-
-            builder.Property(c => c.UnidadeMedidaCapacidade)
-               .HasColumnType("varchar(4)")
-               .IsRequired();
-
             builder.HasOne(c => c.Endereco)
                 .WithMany(c => c.Imoveis)
                 .HasForeignKey(c => c.EnderecoId);
@@ -28,12 +20,22 @@
 
             builder.HasOne(c => c.Fazenda)
                 .WithMany(c => c.Imoveis)
-                .HasForeignKey(c => c.FazendaId)                
+                .HasForeignKey(c => c.FazendaId)
                 .OnDelete(DeleteBehavior.NoAction);
 
             builder.HasOne(c => c.Classe)
                 .WithMany(c => c.Imoveis)
                 .HasForeignKey(c => c.ClasseId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.HasOne(c => c.UnidadeMedidaArea)
+                .WithMany(c => c.Imoveis)
+                .HasForeignKey(nameof(Imoveis.UnidadeMedidaAreaId))
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.HasOne(nameof(Imoveis.UnidadeMedidaCapcidade))
+                .WithMany()
+                .HasForeignKey(nameof(Imoveis.UnidadeMedidaCapacidadeId))
                 .OnDelete(DeleteBehavior.NoAction);
         }
     }
