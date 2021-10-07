@@ -121,6 +121,10 @@
     <value>ASS</value>
     <comment>Sigla para erros durante o processo de criação de associado(s)</comment>
   </data>
+  <data name="DPCC" xml:space="preserve">
+    <value>DPCC</value>
+    <comment>Sigla para erros durante o processo de criação da observação do patrimonio</comment>
+  </data>
   <data name="FCC" xml:space="preserve">
     <value>FCC</value>
     <comment>Sigla para erros durante o processo de criação da fazenda</comment>

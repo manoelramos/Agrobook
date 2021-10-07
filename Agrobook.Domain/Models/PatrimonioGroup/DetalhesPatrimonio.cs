@@ -4,8 +4,7 @@
 
     public class DetalhesPatrimonio : Entity<DetalhesPatrimonio>
     {
-        public int Observacao {  get; set; }
-
+        public string Observacao {  get; set; }
         public int PatrimonioId {  get; set; }
         public Patrimonios Patrimonio {  get; set; }
     }

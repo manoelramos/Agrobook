@@ -70,6 +70,15 @@ namespace Agrobook.Application {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to DPCC.
+        /// </summary>
+        internal static string DPCC {
+            get {
+                return ResourceManager.GetString("DPCC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to FCC.
         /// </summary>
         internal static string FCC {

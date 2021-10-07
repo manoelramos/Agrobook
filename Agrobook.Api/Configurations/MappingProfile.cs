@@ -1,6 +1,8 @@
 ﻿namespace Agrobook.Api.Configurations
 {
     using Agrobook.Application.Common;
+    using Agrobook.Application.DetalhesPatrimonio.Commands;
+    using Agrobook.Application.DetalhesPatrimonio.Responses;
     using Agrobook.Application.Fazenda.Commands;
     using Agrobook.Application.Fazenda.Responses;
     using Agrobook.Application.Imoveis.Commands;
@@ -29,6 +31,10 @@
             CreateMap<Enderecos, EnderecoCommand>().ReverseMap();
 
             CreateMap<Classses, ClasseResponse>().ReverseMap();
+            
+            CreateMap<DetalhesPatrimonio, DetalhesPatrimonioResponse>().ReverseMap();
+            CreateMap<DetalhesPatrimonio, DetalhePatrimonioCreateCommand>().ReverseMap();
+            
 
             CreateMap<DadosBancarios, DadosBancariosCommand>().ReverseMap();
             CreateMap<Contatos, ContatosCommand>().ReverseMap();

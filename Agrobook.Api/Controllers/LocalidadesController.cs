@@ -9,7 +9,6 @@
     [ApiVersion("1")]
     public class LocalidadesController : ApiController
     {
-
         private readonly IMediator _mediator;
 
         public LocalidadesController(IMediator mediator)

@@ -1,6 +1,10 @@
 ﻿namespace Agrobook.Api.Configurations
 {
     using Agrobook.Api.PipelineBehaviors;
+    using Agrobook.Application.DetalhesPatrimonio.Commands;
+    using Agrobook.Application.DetalhesPatrimonio.Handles;
+    using Agrobook.Application.DetalhesPatrimonio.Queries;
+    using Agrobook.Application.DetalhesPatrimonio.Responses;
     using Agrobook.Application.Fazenda.Commands;
     using Agrobook.Application.Fazenda.Handles;
     using Agrobook.Application.Fazenda.Queries;
@@ -66,6 +70,7 @@
             services.AddScoped<IFazendaRepository, FazendaRepository>();
             services.AddScoped <IPatrimonioRepository, PatrimonioRepository>();
             services.AddScoped <IImovelRepository, ImovelRepository>();
+            services.AddScoped<IDetalhePatrimonioRepository, DetalhePatrimonioRepository>();
         }
 
         public static void RegisterMediatr(this IServiceCollection services)
@@ -109,6 +114,9 @@
             services.AddScoped<IRequestHandler<ImovelCreateCommand, ValidationResult>, ImovelCreateCommandHandle>();
             services.AddScoped<IRequestHandler<ImovelDeleteCommand, ValidationResult>, ImovelDeleteCommandHandle>();
             services.AddScoped<IRequestHandler<ImovelUpdateCommand, ValidationResult>, ImovelUpdateCommandHandle>();
+            
+            services.AddScoped<IRequestHandler<DetalhesByPatrimonioIdQuery, List<DetalhesPatrimonioResponse>>, DetalhesByPatrimonioIdHandle>();
+            services.AddScoped<IRequestHandler<DetalhePatrimonioCreateCommand, ValidationResult>, DetalhesPatrimonioCreateCommandHandle>();
         }
 
         public static void RegisterServices(this IServiceCollection services)
@@ -119,3 +127,4 @@
         }
     }
 }
+

@@ -3,6 +3,7 @@
     using Agrobook.Domain.Models.Parceiro;
     using Agrobook.Infra.Data.TypeConfiguration;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
+    using Microsoft.EntityFrameworkCore;
 
     internal class LancamentosContabeisMap : EntityTypeConfiguration<LancamentosContabeis>
     {
@@ -10,11 +11,13 @@
         {
             builder.HasOne(c => c.Cultura)
               .WithMany(c => c.LancamentosContabeis)
-              .HasForeignKey(c => c.CulturaId);
+              .HasForeignKey(c => c.CulturaId)
+              .OnDelete(DeleteBehavior.NoAction);
 
             builder.HasOne(c => c.TipoLancamento)
               .WithMany(c => c.LancamentosContabeis)
-              .HasForeignKey(c => c.TipoLancamentoId);
+              .HasForeignKey(c => c.TipoLancamentoId)
+              .OnDelete(DeleteBehavior.NoAction);
 
             builder.HasOne(c => c.Pagamento)
               .WithMany(c => c.LancamentosContabeis)
