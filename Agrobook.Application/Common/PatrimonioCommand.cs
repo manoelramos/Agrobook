@@ -6,8 +6,9 @@
     public class PatrimonioCommand : Command
     {
         public int OrganizacaoId {  get; set; }
-        public DateTime? Compra { get; set; }
+        public DateTime? DataCompra { get; set; }
+        public DateTime? DataVenda { get; set; }
         public decimal? ValorCompra { get; set; }
-        public decimal? ValorReferencia { get; set; }
+        public decimal? ValorVenda { get; set; }
     }
 }

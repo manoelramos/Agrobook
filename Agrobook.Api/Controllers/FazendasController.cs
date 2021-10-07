@@ -11,7 +11,6 @@
     using System.Threading.Tasks;
 
     [ApiVersion("1")]
-    [Route("[controller]")]
     public class FazendasController : ApiController
     {
         private readonly IMediator _mediator;
@@ -25,7 +24,7 @@
         /// </summary>
         /// <param name="ativo"></param>
         /// <returns></returns>
-        [HttpGet, AllowAnonymous]
+        [HttpGet, Route("[controller]"), AllowAnonymous]
         public async Task<ActionResult<IEnumerable<FazendaResponse>>> Get(bool ativo = true)
         {
             var response = await _mediator.Send(new FazendaQuery(ativo));
@@ -38,7 +37,7 @@
         /// <param name="ativo"></param>
         /// <returns></returns>
 
-        [HttpGet, Route("{id}"), AllowAnonymous]
+        [HttpGet, Route("[controller]/{id}"), AllowAnonymous]
         public async Task<ActionResult<FazendaResponse>> Get(int id)
         {
             var response = await _mediator.Send(new FazendaByIdQuery(id));
@@ -50,7 +49,7 @@
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
-        [HttpPost,  AllowAnonymous]
+        [HttpPost, Route("[controller]"), AllowAnonymous]
         [ProducesResponseType(typeof(FazendaResponse), StatusCodes.Status201Created)]
         [ProducesDefaultResponseType]
         //[ValidateAntiForgeryToken]
@@ -67,7 +66,7 @@
         /// <returns></returns>
         [ProducesResponseType(typeof(FazendaResponse), StatusCodes.Status200OK)]
         [ProducesDefaultResponseType]
-        [HttpPut, AllowAnonymous]
+        [HttpPut, Route("[controller]"), AllowAnonymous]
         public async Task<IActionResult> Edit(FazendaUpdateCommand command)
         {
             var response = await _mediator.Send(command);
@@ -79,7 +78,7 @@
         /// /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [HttpDelete, Route("{id}"), AllowAnonymous]
+        [HttpDelete, Route("[controller]/{id}"), AllowAnonymous]
         [ProducesResponseType(typeof(FazendaResponse), StatusCodes.Status204NoContent)]
         [ProducesDefaultResponseType]
         public async Task<ActionResult> Delete(int id)

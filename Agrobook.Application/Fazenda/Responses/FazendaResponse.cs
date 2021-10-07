@@ -4,12 +4,12 @@
 
     public class FazendaResponse
     {
+        public int Id {  get; set; }
         public string Nome { get; set; }
         public string Descricao { get; set; }
         public long? Telefone { get; set; }
         public decimal? Hectare { get; set; }
         public string Administrador { get; set; }
-        public int? EnderecoId { get; set; }
         public EnderecoResponse Endereco { get; set; }
     }
 }

@@ -28,6 +28,8 @@
             CreateMap<Enderecos, EnderecoResponse>().ReverseMap();
             CreateMap<Enderecos, EnderecoCommand>().ReverseMap();
 
+            CreateMap<Classses, ClasseResponse>().ReverseMap();
+
             CreateMap<DadosBancarios, DadosBancariosCommand>().ReverseMap();
             CreateMap<Contatos, ContatosCommand>().ReverseMap();
             CreateMap<Documentos, DocumentosCommand>().ReverseMap();

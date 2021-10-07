@@ -11,8 +11,7 @@
     using System.Threading.Tasks;
 
     //[Route("api/[controller]"), Authorize(AuthenticationSchemes = "Bearer")]
-    [ApiVersion("1")]
-    [Route("[controller]")]
+    [ApiVersion("1")]    
     public class OrganizacoesController : ApiController
     {
         private readonly IMediator _mediator;
@@ -22,7 +21,7 @@
             _mediator = mediator;
         }
 
-        [HttpGet, AllowAnonymous]
+        [HttpGet, Route("[controller]"), AllowAnonymous]
         // GET: OrganizacoesController
         public async Task<ActionResult<IEnumerable<OrganizacaoResponse>>> GetOrganizacoes(bool ativo = true)
         {
@@ -31,7 +30,7 @@
         }
 
         // GET: OrganizacoesController/Details/5
-        [HttpGet, Route("{id}"), AllowAnonymous]
+        [HttpGet, Route("[controller]/{id}"), AllowAnonymous]
         public async Task<ActionResult<OrganizacaoResponse>> GetOrganizacById(int id)
         {
             var response = await _mediator.Send(new OrganizacaoByIdQuery(id));
@@ -39,7 +38,7 @@
         }
 
         // POST: OrganizacoesController/Create
-        [HttpPost,  AllowAnonymous]
+        [HttpPost, Route("[controller]"), AllowAnonymous]
         [ProducesResponseType(typeof(IEnumerable<OrganizacaoResponse>), StatusCodes.Status201Created)]
         [ProducesDefaultResponseType]
         //[ValidateAntiForgeryToken]
@@ -50,7 +49,7 @@
         }
 
         // PUT: OrganizacoesController/Edit/5
-        [HttpPut, AllowAnonymous]
+        [HttpPut, Route("[controller]"), AllowAnonymous]
         [ProducesResponseType(typeof(IEnumerable<OrganizacaoResponse>), StatusCodes.Status200OK)]
         [ProducesDefaultResponseType]
         //[ValidateAntiForgeryToken]
@@ -61,7 +60,7 @@
         }
 
         // DELETE: OrganizacoesController/Delete/5
-        [HttpDelete, Route("{id}"), AllowAnonymous]
+        [HttpDelete, Route("[controller]/{id}"), AllowAnonymous]
         [ProducesResponseType(typeof(IEnumerable<OrganizacaoResponse>), StatusCodes.Status204NoContent)]
         [ProducesDefaultResponseType]
         public async Task<ActionResult> Delete(int id)

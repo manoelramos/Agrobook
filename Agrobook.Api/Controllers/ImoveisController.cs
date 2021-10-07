@@ -10,8 +10,7 @@
     using System.Collections.Generic;
     using System.Threading.Tasks;
 
-    [ApiVersion("1")]
-    [Route("[controller]")]
+    [ApiVersion("1")]    
     public class ImoveisController : ApiController
     {
         private readonly IMediator _mediator;
@@ -26,7 +25,7 @@
         /// </summary>
         /// <param name="ativo"></param>
         /// <returns></returns>
-        [HttpGet, AllowAnonymous]
+        [HttpGet,Route("[controller]"), AllowAnonymous]
         public async Task<ActionResult<IEnumerable<ImovelResponse>>> Get(bool ativo = true)
         {
             var response = await _mediator.Send(new ImovelQuery(ativo));
@@ -39,7 +38,7 @@
         /// <param name="ativo"></param>
         /// <returns></returns>
 
-        [HttpGet, Route("{id}"), AllowAnonymous]
+        [HttpGet, Route("[controller]/{id}"), AllowAnonymous]
         public async Task<ActionResult<ImovelResponse>> Get(int id)
         {
             var response = await _mediator.Send(new ImovelByIdQuery(id));
@@ -51,7 +50,7 @@
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
-        [HttpPost, AllowAnonymous]
+        [HttpPost, Route("[controller]"), AllowAnonymous]
         [ProducesResponseType(typeof(ImovelResponse), StatusCodes.Status201Created)]
         [ProducesDefaultResponseType]
         //[ValidateAntiForgeryToken]
@@ -68,7 +67,7 @@
         /// <returns></returns>
         [ProducesResponseType(typeof(ImovelResponse), StatusCodes.Status200OK)]
         [ProducesDefaultResponseType]
-        [HttpPut, AllowAnonymous]
+        [HttpPut, Route("[controller]"), AllowAnonymous]
         public async Task<IActionResult> Edit(ImovelUpdateCommand command)
         {
             var response = await _mediator.Send(command);
