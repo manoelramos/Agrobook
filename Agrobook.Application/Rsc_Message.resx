@@ -168,4 +168,16 @@
     <value>UMUC</value>
     <comment>Sigla para erros durante o processo de atualização da unidade de medida</comment>
   </data>
+  <data name="VCC" xml:space="preserve">
+    <value>VCC</value>
+    <comment>Sigla para erros durante o processo de criação de veículo</comment>
+  </data>
+  <data name="VDC" xml:space="preserve">
+    <value>VDC</value>
+    <comment>Sigla para erros durante o processo de deleção do veiculo</comment>
+  </data>
+  <data name="VUC" xml:space="preserve">
+    <value>VUC</value>
+    <comment>Sigla para erros durante o processo de atualização do veículo</comment>
+  </data>
 </root>

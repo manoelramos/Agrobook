@@ -34,9 +34,10 @@
     using Agrobook.Application.UnidadesMedidas.Handles;
     using Agrobook.Application.UnidadesMedidas.Queries;
     using Agrobook.Application.UnidadesMedidas.Response;
-    using Agrobook.Application.Veiculos.Handles;
-    using Agrobook.Application.Veiculos.Queries;
-    using Agrobook.Application.Veiculos.Responses;
+    using Agrobook.Application.Veiculo.Commands;
+    using Agrobook.Application.Veiculo.Handles;
+    using Agrobook.Application.Veiculo.Queries;
+    using Agrobook.Application.Veiculo.Responses;
     using Agrobook.Domain.Interfaces.Data;
     using Agrobook.Infra.Data.Context;
     using Agrobook.Infra.Data.Repositories.Colaborador;
@@ -123,7 +124,11 @@
             services.AddScoped<IRequestHandler<DetalhesByPatrimonioIdQuery, List<DetalhesPatrimonioResponse>>, DetalhesByPatrimonioIdHandle>();
             services.AddScoped<IRequestHandler<DetalhePatrimonioCreateCommand, ValidationResult>, DetalhesPatrimonioCreateCommandHandle>();
 
-            services.AddScoped<IRequestHandler<VeiculosQuery, List<VeiculoResponse>>, VeiculosQueryHandles>();
+            services.AddScoped<IRequestHandler<VeiculosQuery, List<VeiculoResponse>>, VeiculosQueryHandle>();
+            services.AddScoped<IRequestHandler<VeiculoByIdQuery, VeiculoResponse>, VeiculoByIdQueryHandle>();
+            services.AddScoped<IRequestHandler<VeiculoCreateCommand, ValidationResult>, VeiculoCreateCommandHandle>();
+            services.AddScoped<IRequestHandler<VeiculoUpdateCommand, ValidationResult>, VeiculoUpdateCommandHandle>();
+            services.AddScoped<IRequestHandler<VeiculoDeleteCommand, ValidationResult>, VeiculoDeleteCommandHandle>();
         }
 
         public static void RegisterServices(this IServiceCollection services)

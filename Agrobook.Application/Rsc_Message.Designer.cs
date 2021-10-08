@@ -176,5 +176,32 @@ namespace Agrobook.Application {
                 return ResourceManager.GetString("UMUC", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to VCC.
+        /// </summary>
+        internal static string VCC {
+            get {
+                return ResourceManager.GetString("VCC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to VDC.
+        /// </summary>
+        internal static string VDC {
+            get {
+                return ResourceManager.GetString("VDC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to VUC.
+        /// </summary>
+        internal static string VUC {
+            get {
+                return ResourceManager.GetString("VUC", resourceCulture);
+            }
+        }
     }
 }

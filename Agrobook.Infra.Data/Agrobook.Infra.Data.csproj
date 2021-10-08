@@ -21,4 +21,8 @@
     <ProjectReference Include="..\Agrobook.Domain\Agrobook.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>
