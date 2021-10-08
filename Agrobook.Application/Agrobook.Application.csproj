@@ -34,6 +34,7 @@
     <Folder Include="Fazenda\Validators\" />
     <Folder Include="Imoveis\Validators\" />
     <Folder Include="UnidadesMedidas\Validators\" />
+    <Folder Include="Veiculos\Commands\" />
   </ItemGroup>
 
 </Project>

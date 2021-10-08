@@ -14,6 +14,7 @@
     using Agrobook.Application.PessoaFisica.Responses;
     using Agrobook.Application.PessoaJuridica.Responses;
     using Agrobook.Application.UnidadesMedidas.Response;
+    using Agrobook.Application.Veiculos.Responses;
     using Agrobook.Domain.Models;
     using Agrobook.Domain.Models.Base;
     using Agrobook.Domain.Models.Parceiro;
@@ -34,7 +35,9 @@
             
             CreateMap<DetalhesPatrimonio, DetalhesPatrimonioResponse>().ReverseMap();
             CreateMap<DetalhesPatrimonio, DetalhePatrimonioCreateCommand>().ReverseMap();
-            
+
+            CreateMap<Veiculos, VeiculoResponse>().ReverseMap();
+
 
             CreateMap<DadosBancarios, DadosBancariosCommand>().ReverseMap();
             CreateMap<Contatos, ContatosCommand>().ReverseMap();

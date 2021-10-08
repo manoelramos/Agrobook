@@ -34,6 +34,9 @@
     using Agrobook.Application.UnidadesMedidas.Handles;
     using Agrobook.Application.UnidadesMedidas.Queries;
     using Agrobook.Application.UnidadesMedidas.Response;
+    using Agrobook.Application.Veiculos.Handles;
+    using Agrobook.Application.Veiculos.Queries;
+    using Agrobook.Application.Veiculos.Responses;
     using Agrobook.Domain.Interfaces.Data;
     using Agrobook.Infra.Data.Context;
     using Agrobook.Infra.Data.Repositories.Colaborador;
@@ -44,6 +47,7 @@
     using Agrobook.Infra.Data.Repositories.Organizacao;
     using Agrobook.Infra.Data.Repositories.Patrimonio;
     using Agrobook.Infra.Data.Repositories.UnidadesMedidas;
+    using Agrobook.Infra.Data.Repositories.Veiculo;
     using FluentValidation;
     using FluentValidation.Results;
     using MediatR;
@@ -71,6 +75,7 @@
             services.AddScoped <IPatrimonioRepository, PatrimonioRepository>();
             services.AddScoped <IImovelRepository, ImovelRepository>();
             services.AddScoped<IDetalhePatrimonioRepository, DetalhePatrimonioRepository>();
+            services.AddScoped<IVeiculoRepository, VeiculoRepository>();
         }
 
         public static void RegisterMediatr(this IServiceCollection services)
@@ -117,6 +122,8 @@
             
             services.AddScoped<IRequestHandler<DetalhesByPatrimonioIdQuery, List<DetalhesPatrimonioResponse>>, DetalhesByPatrimonioIdHandle>();
             services.AddScoped<IRequestHandler<DetalhePatrimonioCreateCommand, ValidationResult>, DetalhesPatrimonioCreateCommandHandle>();
+
+            services.AddScoped<IRequestHandler<VeiculosQuery, List<VeiculoResponse>>, VeiculosQueryHandles>();
         }
 
         public static void RegisterServices(this IServiceCollection services)

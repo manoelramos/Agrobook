@@ -6,7 +6,7 @@
 
     public class ImovelResponse
     {
-        public int Id { get; set; }
+        public int PatrimonioId { get; set; }
         public string CodigoImovel { get; set; }
         public decimal Area { get; set; }
         public decimal Capacidade { get; set; }
