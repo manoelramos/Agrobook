@@ -28,7 +28,7 @@
 
         public ApplicationContext(DbContextOptions<ApplicationContext> options, IConfiguration configuration) : base(options)
         {
-            _configuration = configuration;            
+            _configuration = configuration;
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
