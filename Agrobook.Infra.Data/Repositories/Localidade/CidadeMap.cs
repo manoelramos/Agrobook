@@ -17,9 +17,6 @@
                 .WithMany(c => c.Cidades)
                 .HasForeignKey(c => c.EstadoId);
 
-            builder.HasMany(c => c.Enderecos)
-                .WithOne(c => c.Cidade)
-                .HasForeignKey(c => c.CidadeId);
         }
     }
 }

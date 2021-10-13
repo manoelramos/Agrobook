@@ -9,10 +9,8 @@
         public int CodigoUf {  get; set; }
         public string Nome { get; set; }
         public string Uf { get; set; }
-        public int Regiao {  get; set; }
-        
+        public int Regiao {  get; set; }        
         public ICollection<Cidades> Cidades { get; set; }
-        public ICollection<Enderecos> Enderecos { get; set; }
 
         public override bool IsValid()
         {

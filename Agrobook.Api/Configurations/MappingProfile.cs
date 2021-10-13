@@ -32,7 +32,7 @@
             CreateMap<Enderecos, EnderecoCommand>().ReverseMap();
 
             CreateMap<Classses, ClasseResponse>().ReverseMap();
-            
+
             CreateMap<DetalhesPatrimonio, DetalhesPatrimonioResponse>().ReverseMap();
             CreateMap<DetalhesPatrimonio, DetalhePatrimonioCreateCommand>().ReverseMap();
 

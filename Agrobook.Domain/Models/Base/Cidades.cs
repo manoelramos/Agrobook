@@ -9,7 +9,6 @@
         public string Nome { get; set; }
         public int EstadoId { get; set; }
         public Estados Estado { get; set; }
-        public ICollection<Enderecos> Enderecos { get; set; }
 
         public override bool IsValid()
         {

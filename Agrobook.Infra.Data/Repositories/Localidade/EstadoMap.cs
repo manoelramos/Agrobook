@@ -20,12 +20,7 @@
             builder.HasMany(c => c.Cidades)
                 .WithOne(c => c.Estado)
                 .HasForeignKey(c => c.EstadoId)
-                .OnDelete(DeleteBehavior.NoAction);
-
-            builder.HasMany(c => c.Enderecos)
-                .WithOne(c => c.Estado)
-                .HasForeignKey(c => c.EstadoId)
-                .OnDelete(DeleteBehavior.NoAction); ;
+                .OnDelete(DeleteBehavior.NoAction);           
         }
     }
 }
