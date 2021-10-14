@@ -8,7 +8,7 @@
     internal class DespesasMap : EntityTypeConfiguration<Despesas>
     {
         protected override void Configure(EntityTypeBuilder<Despesas> builder)
-        {            
+        {
 
             builder.Property(c => c.Observacao)
               .HasColumnType("varchar(400)");
@@ -24,12 +24,18 @@
 
             builder.HasOne(c => c.CategoriaDespesa)
                 .WithMany(c => c.Despesas)
-                 .HasForeignKey(b => b.CategoriaDespesaId);
+                 .HasForeignKey(b => b.CategoriaDespesaId)
+                 .OnDelete(DeleteBehavior.NoAction);
 
-            builder.HasOne(c => c.Moeda)
+            builder.HasOne(c => c.Cultura)
                 .WithMany(c => c.Despesas)
-                 .HasForeignKey(b => b.MoedaId);
+                 .HasForeignKey(b => b.CulturaId)
+                 .OnDelete(DeleteBehavior.NoAction);
 
+            builder.HasOne(c => c.Credor)
+               .WithMany(c => c.Despesas)
+                .HasForeignKey(b => b.CredorId)
+                .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

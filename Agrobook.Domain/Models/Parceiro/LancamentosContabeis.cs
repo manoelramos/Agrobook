@@ -12,7 +12,7 @@
         public int Quantidade { get; set; }
 
         public int PagamentoId { get; set; }
-        public Pagamentos Pagamento { get; set; }
+        public Parcelas Pagamento { get; set; }
 
         public int CulturaId { get; set; }
         public Culturas Cultura { get; set; }

@@ -68,8 +68,7 @@
 
             CreateMap<Fisicas, PessoaFisicaCommand>().ReverseMap();
             CreateMap<PessoaFisicaResponse, Associados>().ReverseMap();
-            CreateMap<PessoaFisicaResponse, Associados>().
-                ForMember(x => x.Pagamentos, opt => opt.Ignore()).
+            CreateMap<PessoaFisicaResponse, Associados>().                
                 ForMember(x => x.PessoaJuridica, opt => opt.Ignore()).
                 ForMember(x => x.PessoaFisica, opt => opt.Ignore()).
                 ForMember(x => x.Contatos, opt => opt.Ignore()).
@@ -81,7 +80,6 @@
 
             CreateMap<PessoaJuridicaResponse, Associados>().ReverseMap();
             CreateMap<PessoaJuridicaResponse, Associados>().
-                ForMember(x => x.Pagamentos, opt => opt.Ignore()).
                 ForMember(x => x.PessoaJuridica, opt => opt.Ignore()).
                 ForMember(x => x.PessoaFisica, opt => opt.Ignore()).
                 ForMember(x => x.Contatos, opt => opt.Ignore()).

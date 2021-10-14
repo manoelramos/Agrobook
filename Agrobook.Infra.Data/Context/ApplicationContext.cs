@@ -57,7 +57,7 @@
             modelBuilder.ApplyConfiguration(new LancamentosContabeisMap());
             modelBuilder.ApplyConfiguration(new ContatosMap());
             modelBuilder.ApplyConfiguration(new DocumentosMap());
-            modelBuilder.ApplyConfiguration(new PagamentosMap());
+            modelBuilder.ApplyConfiguration(new ParcelasMap());
             modelBuilder.ApplyConfiguration(new AnexosManutencaoMap());
             modelBuilder.ApplyConfiguration(new AnexosVeiculoMap());
             modelBuilder.ApplyConfiguration(new AnexosManutencaoMap());

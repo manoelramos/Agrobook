@@ -6,7 +6,7 @@
     {
         public byte[] Anexo { get; set; }
         public string Descricao { get; set; }
-        public int PagamentosId { get; set; }
-        public Pagamentos Pagamentos { get; set; }
+        public int ParcelasId { get; set; }
+        public Parcelas Parcelas { get; set; }
     }
 }

@@ -8,9 +8,9 @@
     {
         protected override void Configure(EntityTypeBuilder<ComprovantesPagamentos> builder)
         {
-            builder.HasOne(c => c.Pagamentos)
+            builder.HasOne(c => c.Parcelas)
                  .WithMany(c => c.ComprovantesPagamentos)
-                  .HasForeignKey(b => b.PagamentosId);
+                  .HasForeignKey(b => b.ParcelasId);
         }
     }
 }
