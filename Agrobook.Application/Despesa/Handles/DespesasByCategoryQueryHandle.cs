@@ -6,11 +6,12 @@
     using AutoMapper;
     using MediatR;
     using Microsoft.EntityFrameworkCore;
+    using System.Collections.Generic;
     using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
 
-    public class DespesasByCategoryQueryHandle : IRequestHandler<DespesasByCategoryQuery, DespesaResponse>
+    public class DespesasByCategoryQueryHandle : IRequestHandler<DespesasByCategoryQuery, List<DespesaResponse>>
     {
         private readonly IDespesaRepository _despesaRepository;
         private readonly IMapper _map;
@@ -21,7 +22,7 @@
             _map = map;
         }
 
-        public Task<DespesaResponse> Handle(DespesasByCategoryQuery request, CancellationToken cancellationToken)
+        public Task<List<DespesaResponse>> Handle(DespesasByCategoryQuery request, CancellationToken cancellationToken)
         {
             var entitie = _despesaRepository.
                   Include(c => c.Parcelas).
@@ -31,7 +32,7 @@
                   AsNoTracking().
                   FirstOrDefault(x => x.CategoriaDespesaId.Equals(request.categoriaId));
 
-            var despesas = _map.Map<DespesaResponse>(entitie);
+            var despesas = _map.Map<List<DespesaResponse>>(entitie);
 
             return Task.FromResult(despesas);
         }

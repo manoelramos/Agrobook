@@ -140,10 +140,10 @@
             services.AddScoped<IRequestHandler<VeiculoUpdateCommand, ValidationResult>, VeiculoUpdateCommandHandle>();
             services.AddScoped<IRequestHandler<VeiculoDeleteCommand, ValidationResult>, VeiculoDeleteCommandHandle>();
 
-            services.AddScoped<IRequestHandler<DespesasByCategoryQuery, DespesaResponse>, DespesasByCategoryQueryHandle>();
+            services.AddScoped<IRequestHandler<DespesasByCategoryQuery, List<DespesaResponse>>, DespesasByCategoryQueryHandle>();
             services.AddScoped<IRequestHandler<DespesaCreateCommand, ValidationResult>, DespesaCreateCommandHandle>();
 
-            services.AddScoped<IRequestHandler<CulturasQuery, CulturaResponse>, CulturaQueryHandle>();
+            services.AddScoped<IRequestHandler<CulturasQuery, List<CulturaResponse>>, CulturaQueryHandle>();
         }
 
         public static void RegisterServices(this IServiceCollection services)

@@ -5,10 +5,11 @@
     using Agrobook.Domain.Interfaces.Data;
     using AutoMapper;
     using MediatR;
+    using System.Collections.Generic;
     using System.Threading;
     using System.Threading.Tasks;
 
-    public class CulturaQueryHandle : IRequestHandler<CulturasQuery, CulturaResponse>
+    public class CulturaQueryHandle : IRequestHandler<CulturasQuery, List<CulturaResponse>>
     {
         private readonly ICulturaRepository _culturaRepository;
         private readonly IMapper _map;
@@ -19,11 +20,11 @@
             _map = map;
         }
 
-        public async Task<CulturaResponse> Handle(CulturasQuery request, CancellationToken cancellationToken)
+        public async Task<List<CulturaResponse>> Handle(CulturasQuery request, CancellationToken cancellationToken)
         {
             var entitie = await _culturaRepository.GetAsync(x => x.Ativo, cancellationToken);
 
-            var culturas = _map.Map<CulturaResponse>(entitie);
+            var culturas = _map.Map<List<CulturaResponse>>(entitie);
 
             return culturas;
         }
