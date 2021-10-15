@@ -1,6 +1,9 @@
 ﻿namespace Agrobook.Api.Configurations
 {
     using Agrobook.Api.PipelineBehaviors;
+    using Agrobook.Application.CategoriaDespesa.Handles;
+    using Agrobook.Application.CategoriaDespesa.Queries;
+    using Agrobook.Application.CategoriaDespesa.Responses;
     using Agrobook.Application.Cultura.Handles;
     using Agrobook.Application.Cultura.Queries;
     using Agrobook.Application.Cultura.Responses;
@@ -46,6 +49,7 @@
     using Agrobook.Application.Veiculo.Responses;
     using Agrobook.Domain.Interfaces.Data;
     using Agrobook.Infra.Data.Context;
+    using Agrobook.Infra.Data.Repositories.CategoriaDespesa;
     using Agrobook.Infra.Data.Repositories.Colaborador;
     using Agrobook.Infra.Data.Repositories.Cultura;
     using Agrobook.Infra.Data.Repositories.Despesas;
@@ -87,6 +91,8 @@
             services.AddScoped<IVeiculoRepository, VeiculoRepository>();
             services.AddScoped<IDespesaRepository, DespesaRepository>();
             services.AddScoped<ICulturaRepository, CulturaRepository>();
+            services.AddScoped<ICategoriaDespesaRepository, CategoriaDespesaRepository>();
+            
         }
 
         public static void RegisterMediatr(this IServiceCollection services)
@@ -144,6 +150,7 @@
             services.AddScoped<IRequestHandler<DespesaCreateCommand, ValidationResult>, DespesaCreateCommandHandle>();
 
             services.AddScoped<IRequestHandler<CulturasQuery, List<CulturaResponse>>, CulturaQueryHandle>();
+            services.AddScoped<IRequestHandler<CategoriaDespesaQuery, List<CategoriaDespesaResponse>>, CategoriaDespesaQueryHandles>();
         }
 
         public static void RegisterServices(this IServiceCollection services)

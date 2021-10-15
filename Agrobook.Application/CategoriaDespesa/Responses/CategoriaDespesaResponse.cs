@@ -1,8 +1,9 @@
-﻿namespace Agrobook.Application.Fazenda.Responses
+﻿namespace Agrobook.Application.CategoriaDespesa.Responses
 {
     public class CategoriaDespesaResponse
     {
         public int Id { get; set; }
+        public string Nome { get; set; }
         public string Descricao { get; set; }
     }
 }

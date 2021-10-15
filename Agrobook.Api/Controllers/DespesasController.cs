@@ -26,7 +26,7 @@
         /// <param name="ativo"></param>
         /// <returns></returns>
         [HttpGet, Route("[controller]"), AllowAnonymous]
-        public async Task<ActionResult<IEnumerable<DespesaResponse>>> Get(int categoriaId)
+        public async Task<ActionResult<List<DespesaResponse>>> Get(int categoriaId)
         {
             var response = await _mediator.Send(new DespesasByCategoryQuery(categoriaId));
             return Ok(response);

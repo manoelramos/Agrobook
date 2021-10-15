@@ -1,5 +1,6 @@
 ﻿namespace Agrobook.Api.Configurations
 {
+    using Agrobook.Application.CategoriaDespesa.Responses;
     using Agrobook.Application.Common;
     using Agrobook.Application.Cultura.Responses;
     using Agrobook.Application.Despesa.Commands;
@@ -54,6 +55,9 @@
 
             CreateMap<Fazendas, FazendaResponse>().ReverseMap();
             CreateMap<Fazendas, FazendaCreateCommand>().ReverseMap();
+            
+            CreateMap<CategoriasDespesas, CategoriaDespesaResponse>().ReverseMap();
+            
 
             CreateMap<Imoveis, ImovelCreateCommand>().ReverseMap();
             CreateMap<Imoveis, ImovelResponse>().ReverseMap();
@@ -72,7 +76,7 @@
             CreateMap<Associados, PessoaFisicaCreateCommand>().ReverseMap();
             
             CreateMap<Associados, AssociadoResponse>().ReverseMap();
-            CreateMap<CategoriasDespesas, CategoriaDespesaResponse>().ReverseMap();
+
             CreateMap<Safras, SafraResponse>().ReverseMap();
             CreateMap<Patrimonios, PatrimonioResponse>().ReverseMap();
             CreateMap<Parcelas, ParcelaResponse>().ReverseMap();

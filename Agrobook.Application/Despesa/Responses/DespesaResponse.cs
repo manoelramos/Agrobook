@@ -1,5 +1,6 @@
 ﻿namespace Agrobook.Application.Despesa.Response
 {
+    using Agrobook.Application.CategoriaDespesa.Responses;
     using Agrobook.Application.Fazenda.Responses;
     using System.Collections.Generic;
 
