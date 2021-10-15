@@ -1,6 +1,8 @@
 ﻿namespace Agrobook.Api.Configurations
 {
     using Agrobook.Application.Common;
+    using Agrobook.Application.Cultura.Responses;
+    using Agrobook.Application.Despesa.Commands;
     using Agrobook.Application.DetalhesPatrimonio.Commands;
     using Agrobook.Application.DetalhesPatrimonio.Responses;
     using Agrobook.Application.Fazenda.Commands;
@@ -17,8 +19,10 @@
     using Agrobook.Application.Veiculo.Responses;
     using Agrobook.Domain.Models;
     using Agrobook.Domain.Models.Base;
+    using Agrobook.Domain.Models.Caixa;
     using Agrobook.Domain.Models.Parceiro;
     using Agrobook.Domain.Models.PatrimonioGroup;
+    using Agrobook.Domain.Models.Producao;
     using AutoMapper;
 
     public class MappingProfile : Profile
@@ -37,6 +41,7 @@
             CreateMap<DetalhesPatrimonio, DetalhePatrimonioCreateCommand>().ReverseMap();
 
             CreateMap<Veiculos, VeiculoResponse>().ReverseMap();
+            CreateMap<Culturas, CulturaResponse>().ReverseMap();            
 
 
             CreateMap<DadosBancarios, DadosBancariosCommand>().ReverseMap();
@@ -65,6 +70,15 @@
                 }).ForMember(x => x.Fazenda, opt => opt.Ignore());
 
             CreateMap<Associados, PessoaFisicaCreateCommand>().ReverseMap();
+            
+            CreateMap<Associados, AssociadoResponse>().ReverseMap();
+            CreateMap<CategoriasDespesas, CategoriaDespesaResponse>().ReverseMap();
+            CreateMap<Safras, SafraResponse>().ReverseMap();
+            CreateMap<Patrimonios, PatrimonioResponse>().ReverseMap();
+            CreateMap<Parcelas, ParcelaResponse>().ReverseMap();
+            
+            CreateMap<Despesas, DespesaCreateCommand>().ReverseMap();
+            CreateMap<Parcelas, ParcelaCreateCommand>().ReverseMap();
 
             CreateMap<Fisicas, PessoaFisicaCommand>().ReverseMap();
             CreateMap<PessoaFisicaResponse, Associados>().ReverseMap();

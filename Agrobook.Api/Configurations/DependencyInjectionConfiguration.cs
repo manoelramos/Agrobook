@@ -1,6 +1,12 @@
 ﻿namespace Agrobook.Api.Configurations
 {
     using Agrobook.Api.PipelineBehaviors;
+    using Agrobook.Application.Cultura.Handles;
+    using Agrobook.Application.Cultura.Queries;
+    using Agrobook.Application.Cultura.Responses;
+    using Agrobook.Application.Despesa.Commands;
+    using Agrobook.Application.Despesa.Queries;
+    using Agrobook.Application.Despesa.Response;
     using Agrobook.Application.DetalhesPatrimonio.Commands;
     using Agrobook.Application.DetalhesPatrimonio.Handles;
     using Agrobook.Application.DetalhesPatrimonio.Queries;
@@ -41,6 +47,8 @@
     using Agrobook.Domain.Interfaces.Data;
     using Agrobook.Infra.Data.Context;
     using Agrobook.Infra.Data.Repositories.Colaborador;
+    using Agrobook.Infra.Data.Repositories.Cultura;
+    using Agrobook.Infra.Data.Repositories.Despesas;
     using Agrobook.Infra.Data.Repositories.Enderecos;
     using Agrobook.Infra.Data.Repositories.Fazenda;
     using Agrobook.Infra.Data.Repositories.Imoveis;
@@ -77,6 +85,8 @@
             services.AddScoped <IImovelRepository, ImovelRepository>();
             services.AddScoped<IDetalhePatrimonioRepository, DetalhePatrimonioRepository>();
             services.AddScoped<IVeiculoRepository, VeiculoRepository>();
+            services.AddScoped<IDespesaRepository, DespesaRepository>();
+            services.AddScoped<ICulturaRepository, CulturaRepository>();
         }
 
         public static void RegisterMediatr(this IServiceCollection services)
@@ -129,6 +139,11 @@
             services.AddScoped<IRequestHandler<VeiculoCreateCommand, ValidationResult>, VeiculoCreateCommandHandle>();
             services.AddScoped<IRequestHandler<VeiculoUpdateCommand, ValidationResult>, VeiculoUpdateCommandHandle>();
             services.AddScoped<IRequestHandler<VeiculoDeleteCommand, ValidationResult>, VeiculoDeleteCommandHandle>();
+
+            services.AddScoped<IRequestHandler<DespesasByCategoryQuery, DespesaResponse>, DespesasByCategoryQueryHandle>();
+            services.AddScoped<IRequestHandler<DespesaCreateCommand, ValidationResult>, DespesaCreateCommandHandle>();
+
+            services.AddScoped<IRequestHandler<CulturasQuery, CulturaResponse>, CulturaQueryHandle>();
         }
 
         public static void RegisterServices(this IServiceCollection services)

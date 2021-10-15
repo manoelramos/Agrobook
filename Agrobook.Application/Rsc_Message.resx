@@ -121,6 +121,10 @@
     <value>ASS</value>
     <comment>Sigla para erros durante o processo de criação de associado(s)</comment>
   </data>
+  <data name="DCC" xml:space="preserve">
+    <value>DCC</value>
+    <comment>Sigla para erros durante o processo de criação da despesa</comment>
+  </data>
   <data name="DPCC" xml:space="preserve">
     <value>DPCC</value>
     <comment>Sigla para erros durante o processo de criação da observação do patrimonio</comment>
