@@ -8,7 +8,6 @@
     public class Safras : Entity<Safras>
     {
         public string Descricao { get; set; }
-        public string Cultura { get; set; }
         public string NomeResponsável { get; set; }
         public string TelefoneResponsável { get; set; }
         public DateTime DataPlantio{  get; set; }
@@ -18,5 +17,8 @@
         public ICollection<TalhoesSafras> TalhaoSafras {  get; set; }
         public ICollection<Atividades> Atividades { get; set; }
         public ICollection<Despesas> Despesas { get; set; }
+
+        public int CulturaId { get; set; }
+        public Culturas Cultura { get; set; }
     }
 }

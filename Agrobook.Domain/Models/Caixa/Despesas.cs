@@ -24,8 +24,6 @@
         public Patrimonios Patrimonio { get; set; }
 
         public ICollection<Parcelas> Parcelas { get; set; }
-
-        public int? CulturaId { get; set; }
-        public Culturas Cultura { get; set; }
+       
     }
 }

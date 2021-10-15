@@ -12,6 +12,11 @@
             builder.Property(c => c.Descricao)
                .HasColumnType("varchar(200)")
                .IsRequired();
+
+            builder.HasMany(c => c.Safras)
+           .WithOne(c => c.Cultura)
+            .HasForeignKey(b => b.CulturaId)
+            .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

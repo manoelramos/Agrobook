@@ -21,6 +21,7 @@
     using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
+    using Agrobook.Infra.Data.Repositories.Cultura;
 
     public class ApplicationContext : DbContext, IUnitOfWork
     {
@@ -38,6 +39,7 @@
             modelBuilder.ApplyConfiguration(new CidadeMap());
             modelBuilder.ApplyConfiguration(new EstadoMap());
             modelBuilder.ApplyConfiguration(new EnderecoMap());
+            modelBuilder.ApplyConfiguration(new CulturaMap());
 
             modelBuilder.ApplyConfiguration(new OrganizacaoMap());
             modelBuilder.ApplyConfiguration(new PatrimonioMap());
@@ -54,7 +56,6 @@
             modelBuilder.ApplyConfiguration(new DespesasMap());
             modelBuilder.ApplyConfiguration(new ComprovantesPagamentosMap());
             modelBuilder.ApplyConfiguration(new ContasBancariasMap());
-            modelBuilder.ApplyConfiguration(new LancamentosContabeisMap());
             modelBuilder.ApplyConfiguration(new ContatosMap());
             modelBuilder.ApplyConfiguration(new DocumentosMap());
             modelBuilder.ApplyConfiguration(new ParcelasMap());

@@ -18,7 +18,6 @@
         public Despesas Despesa { get; set; }
 
         public ICollection<ComprovantesPagamentos> ComprovantesPagamentos { get; set; }
-        public ICollection<LancamentosContabeis> LancamentosContabeis { get; set; }        
 
         public int IdMoedaParcela { get; set; }
         public Moeda Moeda { get; set; }

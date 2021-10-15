@@ -1,14 +1,11 @@
 ﻿namespace Agrobook.Domain.Models.Producao
 {
     using Agrobook.Domain.Core.Models;
-    using Agrobook.Domain.Models.Caixa;
-    using Agrobook.Domain.Models.Parceiro;
     using System.Collections.Generic;
 
     public class Culturas : Entity<Culturas>
     {
-        public string Descricao {  get; set; }
-        public ICollection<LancamentosContabeis> LancamentosContabeis {  get; set; }
-        public ICollection<Despesas> Despesas { get; set; }
+        public string Descricao { get; set; }
+        public ICollection<Safras> Safras { get; set; }
     }
 }

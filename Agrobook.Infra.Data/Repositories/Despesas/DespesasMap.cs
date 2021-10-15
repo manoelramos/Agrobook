@@ -25,12 +25,7 @@
             builder.HasOne(c => c.CategoriaDespesa)
                 .WithMany(c => c.Despesas)
                  .HasForeignKey(b => b.CategoriaDespesaId)
-                 .OnDelete(DeleteBehavior.NoAction);
-
-            builder.HasOne(c => c.Cultura)
-                .WithMany(c => c.Despesas)
-                 .HasForeignKey(b => b.CulturaId)
-                 .OnDelete(DeleteBehavior.NoAction);
+                 .OnDelete(DeleteBehavior.NoAction);       
 
             builder.HasOne(c => c.Credor)
                .WithMany(c => c.Despesas)
