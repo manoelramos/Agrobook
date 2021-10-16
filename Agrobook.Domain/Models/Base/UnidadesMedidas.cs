@@ -2,6 +2,7 @@
 {
     using Agrobook.Domain.Core.Models;
     using Agrobook.Domain.Models.PatrimonioGroup;
+    using Agrobook.Domain.Models.Pedido;
     using System.Collections.Generic;
 
     public class UnidadesMedidas : Entity<UnidadesMedidas>
@@ -14,5 +15,6 @@
         public virtual HashSet<UnidadesMedidas> UnidadesMedidasCustom { get; set; }
 
         public virtual ICollection<Imoveis> Imoveis {  get; set; }
+        public ICollection<Pedidos> Pedidos { get; set; }
     }
 }

@@ -3,6 +3,7 @@
     using Agrobook.Domain.Core.Models;
     using Agrobook.Domain.Models.Base;
     using Agrobook.Domain.Models.Caixa;
+    using Agrobook.Domain.Models.Pedido;
     using System;
     using System.Collections.Generic;
 
@@ -24,5 +25,8 @@
 
         public int FinanciamentoId { get; set; }
         public Financiamentos Financiamentos { get; set; }
+
+        public int PedidoId { get; set; }
+        public Pedidos Pedido { get; set; }
     }
 }

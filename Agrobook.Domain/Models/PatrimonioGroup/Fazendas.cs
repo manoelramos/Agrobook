@@ -1,6 +1,7 @@
 ﻿namespace Agrobook.Domain.Models.PatrimonioGroup
 {
     using Agrobook.Domain.Core.Models;
+    using Agrobook.Domain.Models.Pedido;
     using Agrobook.Domain.Models.Producao;
     using System.Collections.Generic;
 
@@ -18,5 +19,6 @@
         public Patrimonios Patrimonio { get; set; }
         public ICollection<Talhoes> Talhoes { get; set; }
         public ICollection<Imoveis> Imoveis { get; set; }
+        public ICollection<Pedidos> Pedidos { get; set; }
     }
 }
