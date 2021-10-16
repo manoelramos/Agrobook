@@ -1,5 +1,6 @@
 ﻿namespace Agrobook.Application.Despesa.Commands
 {
+    using Agrobook.Application.Parcela.Commands;
     using Agrobook.Domain.Core.Messaging;
     using System.Collections.Generic;
 

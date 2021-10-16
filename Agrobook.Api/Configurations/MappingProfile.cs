@@ -8,11 +8,14 @@
     using Agrobook.Application.DetalhesPatrimonio.Responses;
     using Agrobook.Application.Fazenda.Commands;
     using Agrobook.Application.Fazenda.Responses;
+    using Agrobook.Application.Financiamento.Commands;
+    using Agrobook.Application.Financiamento.Responses;
     using Agrobook.Application.Imoveis.Commands;
     using Agrobook.Application.Imoveis.Responses;
     using Agrobook.Application.Localidade.Responses;
     using Agrobook.Application.Organizacao.Commands;
     using Agrobook.Application.Organizacao.Responses;
+    using Agrobook.Application.Parcela.Commands;
     using Agrobook.Application.PessoaFisica.Commands;
     using Agrobook.Application.PessoaFisica.Responses;
     using Agrobook.Application.PessoaJuridica.Responses;
@@ -105,6 +108,12 @@
                 ForMember(x => x.Contratacoes, opt => opt.Ignore()).
                 ForMember(x => x.Documentos, opt => opt.Ignore()).
                 ForMember(x => x.Endereco, opt => opt.Ignore());
+
+            CreateMap<Financiamentos, FinanciamentoResponse>().ReverseMap();
+            CreateMap<Financiamentos, FinanciamentoCreateCommand>().ReverseMap();
+            CreateMap<Financiamentos, FinanciamentoUpdateCommand>().ReverseMap();          
+
+
         }
     }
 }

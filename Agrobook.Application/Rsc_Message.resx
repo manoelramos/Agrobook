@@ -137,6 +137,18 @@
     <value>FDC</value>
     <comment>Sigla para erros durante o processo de deleção da fazenda</comment>
   </data>
+  <data name="FINCC" xml:space="preserve">
+    <value>FINCC</value>
+    <comment>Sigla para erros durante o processo de criação de financiamento</comment>
+  </data>
+  <data name="FINDC" xml:space="preserve">
+    <value>FINDC</value>
+    <comment>Sigla para erros durante o processo de deleção do financiamento</comment>
+  </data>
+  <data name="FINUC" xml:space="preserve">
+    <value>FINUC</value>
+    <comment>Sigla para erros durante o processo de atualização do financiamento</comment>
+  </data>
   <data name="FUC" xml:space="preserve">
     <value>FUC</value>
     <comment>Sigla para erros durante o processo de atualização da fazenda</comment>

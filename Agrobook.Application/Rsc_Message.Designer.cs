@@ -106,6 +106,33 @@ namespace Agrobook.Application {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to FINCC.
+        /// </summary>
+        internal static string FINCC {
+            get {
+                return ResourceManager.GetString("FINCC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FINDC.
+        /// </summary>
+        internal static string FINDC {
+            get {
+                return ResourceManager.GetString("FINDC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FINUC.
+        /// </summary>
+        internal static string FINUC {
+            get {
+                return ResourceManager.GetString("FINUC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to FUC.
         /// </summary>
         internal static string FUC {

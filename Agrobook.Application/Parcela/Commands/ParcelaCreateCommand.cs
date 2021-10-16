@@ -1,4 +1,4 @@
-﻿namespace Agrobook.Application.Despesa.Commands
+﻿namespace Agrobook.Application.Parcela.Commands
 {
     using System;
 
