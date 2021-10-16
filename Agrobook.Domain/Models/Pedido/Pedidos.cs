@@ -10,6 +10,7 @@
     {        
         public int NumeroPedidoFornecedor { get; set; }
         public decimal Quantidade { get; set; }
+        public bool PossuiRoyalty { get; set; }
 
         public int UnidadeMedidaId { get; set; }
         public UnidadesMedidas UnidadeMedida { get; set; }

@@ -33,6 +33,8 @@
     using Agrobook.Application.Organizacao.Handles;
     using Agrobook.Application.Organizacao.Queries;
     using Agrobook.Application.Organizacao.Responses;
+    using Agrobook.Application.Pedido.Queries;
+    using Agrobook.Application.Pedido.Responses;
     using Agrobook.Application.PessoaFisica.Commands;
     using Agrobook.Application.PessoaFisica.Handlers;
     using Agrobook.Application.PessoaFisica.Handles;
@@ -64,6 +66,7 @@
     using Agrobook.Infra.Data.Repositories.Localidade;
     using Agrobook.Infra.Data.Repositories.Organizacao;
     using Agrobook.Infra.Data.Repositories.Patrimonio;
+    using Agrobook.Infra.Data.Repositories.Pedido;
     using Agrobook.Infra.Data.Repositories.UnidadesMedidas;
     using Agrobook.Infra.Data.Repositories.Veiculo;
     using FluentValidation;
@@ -98,6 +101,8 @@
             services.AddScoped<ICulturaRepository, CulturaRepository>();
             services.AddScoped<ICategoriaDespesaRepository, CategoriaDespesaRepository>();
             services.AddScoped<IFinanciamentoRepository, FinanciamentoRepository>();
+            services.AddScoped<IPedidoRepository, PedidoRepository>();
+            
         }
 
         public static void RegisterMediatr(this IServiceCollection services)
@@ -157,10 +162,13 @@
             services.AddScoped<IRequestHandler<CulturasQuery, List<CulturaResponse>>, CulturaQueryHandle>();
             services.AddScoped<IRequestHandler<CategoriaDespesaQuery, List<CategoriaDespesaResponse>>, CategoriaDespesaQueryHandles>();
 
+            services.AddScoped<IRequestHandler<FinanciamentoByFiltersQuery, List<FinanciamentoResponse>>, FinanciamentoByFiltersQueryHandle>();
             services.AddScoped<IRequestHandler<FinanciamentoCreateCommand, ValidationResult>, FinanciamentoCreateCommandHandle>();
             services.AddScoped<IRequestHandler<FinanciamentoUpdateCommand, ValidationResult>, FinanciamentoUpdateCommandHandle>();
             services.AddScoped<IRequestHandler<FinanciamentoDeleteCommand, ValidationResult>, FinanciamentoDeleteCommandHandle>();
-            services.AddScoped<IRequestHandler<FinanciamentoByFiltersQuery, List<FinanciamentoResponse>>, FinanciamentoByFiltersQueryHandle>();
+
+            services.AddScoped<IRequestHandler<PedidoByIdQuery, PedidoResponse>, PedidoByIdQueryHandle>();
+
         }
 
         public static void RegisterServices(this IServiceCollection services)

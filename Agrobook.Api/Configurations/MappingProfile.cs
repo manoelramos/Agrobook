@@ -12,10 +12,13 @@
     using Agrobook.Application.Financiamento.Responses;
     using Agrobook.Application.Imoveis.Commands;
     using Agrobook.Application.Imoveis.Responses;
+    using Agrobook.Application.Insumo.Responses;
     using Agrobook.Application.Localidade.Responses;
     using Agrobook.Application.Organizacao.Commands;
     using Agrobook.Application.Organizacao.Responses;
     using Agrobook.Application.Parcela.Commands;
+    using Agrobook.Application.Pedido.Commands;
+    using Agrobook.Application.Pedido.Responses;
     using Agrobook.Application.PessoaFisica.Commands;
     using Agrobook.Application.PessoaFisica.Responses;
     using Agrobook.Application.PessoaJuridica.Responses;
@@ -26,6 +29,7 @@
     using Agrobook.Domain.Models.Caixa;
     using Agrobook.Domain.Models.Parceiro;
     using Agrobook.Domain.Models.PatrimonioGroup;
+    using Agrobook.Domain.Models.Pedido;
     using Agrobook.Domain.Models.Producao;
     using AutoMapper;
 
@@ -45,7 +49,7 @@
             CreateMap<DetalhesPatrimonio, DetalhePatrimonioCreateCommand>().ReverseMap();
 
             CreateMap<Veiculos, VeiculoResponse>().ReverseMap();
-            CreateMap<Culturas, CulturaResponse>().ReverseMap();            
+            CreateMap<Culturas, CulturaResponse>().ReverseMap();
 
 
             CreateMap<DadosBancarios, DadosBancariosCommand>().ReverseMap();
@@ -58,9 +62,9 @@
 
             CreateMap<Fazendas, FazendaResponse>().ReverseMap();
             CreateMap<Fazendas, FazendaCreateCommand>().ReverseMap();
-            
+
             CreateMap<CategoriasDespesas, CategoriaDespesaResponse>().ReverseMap();
-            
+
 
             CreateMap<Imoveis, ImovelCreateCommand>().ReverseMap();
             CreateMap<Imoveis, ImovelResponse>().ReverseMap();
@@ -77,19 +81,19 @@
                 }).ForMember(x => x.Fazenda, opt => opt.Ignore());
 
             CreateMap<Associados, PessoaFisicaCreateCommand>().ReverseMap();
-            
+
             CreateMap<Associados, AssociadoResponse>().ReverseMap();
 
             CreateMap<Safras, SafraResponse>().ReverseMap();
             CreateMap<Patrimonios, PatrimonioResponse>().ReverseMap();
             CreateMap<Parcelas, ParcelaResponse>().ReverseMap();
-            
+
             CreateMap<Despesas, DespesaCreateCommand>().ReverseMap();
             CreateMap<Parcelas, ParcelaCreateCommand>().ReverseMap();
 
             CreateMap<Fisicas, PessoaFisicaCommand>().ReverseMap();
             CreateMap<PessoaFisicaResponse, Associados>().ReverseMap();
-            CreateMap<PessoaFisicaResponse, Associados>().                
+            CreateMap<PessoaFisicaResponse, Associados>().
                 ForMember(x => x.PessoaJuridica, opt => opt.Ignore()).
                 ForMember(x => x.PessoaFisica, opt => opt.Ignore()).
                 ForMember(x => x.Contatos, opt => opt.Ignore()).
@@ -111,8 +115,12 @@
 
             CreateMap<Financiamentos, FinanciamentoResponse>().ReverseMap();
             CreateMap<Financiamentos, FinanciamentoCreateCommand>().ReverseMap();
-            CreateMap<Financiamentos, FinanciamentoUpdateCommand>().ReverseMap();          
+            CreateMap<Financiamentos, FinanciamentoUpdateCommand>().ReverseMap();
 
+            CreateMap<Pedidos, PedidoResponse>().ReverseMap();
+            CreateMap<Pedidos, PedidoCreateCommand>().ReverseMap();
+            CreateMap<Pedidos, PedidoUpdateCommand>().ReverseMap();
+            CreateMap<Insumos, InsumoResponse>().ReverseMap();           
 
         }
     }
