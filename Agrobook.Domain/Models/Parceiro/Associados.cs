@@ -22,5 +22,6 @@ namespace Agrobook.Domain.Models.Parceiro
         public ICollection<Documentos> Documentos { get; set; }
         public ICollection<Despesas> Despesas { get; set; }
         public ICollection<Contratacoes> Contratacoes { get; set; }
+        public ICollection<Financiamentos> Financiamentos { get; set; }
     }
 }

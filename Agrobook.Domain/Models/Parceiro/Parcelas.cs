@@ -20,6 +20,9 @@
         public ICollection<ComprovantesPagamentos> ComprovantesPagamentos { get; set; }
 
         public int IdMoedaParcela { get; set; }
-        public Moeda Moeda { get; set; }
+        public Moedas Moeda { get; set; }
+
+        public int FinanciamentoId { get; set; }
+        public Financiamentos Financiamentos { get; set; }
     }
 }

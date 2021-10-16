@@ -22,6 +22,7 @@
     using System.Threading;
     using System.Threading.Tasks;
     using Agrobook.Infra.Data.Repositories.Cultura;
+    using Agrobook.Infra.Data.Repositories.Financiamentos;
 
     public class ApplicationContext : DbContext, IUnitOfWork
     {
@@ -66,6 +67,7 @@
             modelBuilder.ApplyConfiguration(new ImoveisMap());
             modelBuilder.ApplyConfiguration(new ManutencoesMap());
             modelBuilder.ApplyConfiguration(new UnidadesMedidaMap());
+            modelBuilder.ApplyConfiguration(new FinanciamentoMap());
 
 
             SetDecimalPoints(modelBuilder);

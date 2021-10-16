@@ -25,5 +25,6 @@
 
         public ICollection<DetalhesPatrimonio> Detalhes { get; set; }
         public ICollection<Despesas> Despesas { get; set; }
+        public ICollection<Financiamentos> Financiamentos { get; set; }
     }
 }
