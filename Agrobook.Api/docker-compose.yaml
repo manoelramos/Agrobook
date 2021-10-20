@@ -1,6 +1,6 @@
 version: '2.2'
 services:
-  siteheroismarvel:
+  Agrobook.Api:
     image: appagrobook
     build:
       context: .
