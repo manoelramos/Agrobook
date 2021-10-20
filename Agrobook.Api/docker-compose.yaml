@@ -1,14 +1,14 @@
 version: '2.2'
 services:
-  Agrobook.Api:
-    image: appagrobook
+  agrobook.api:
+    image: agrobook.api
     build:
       context: .
     ports:
       - "20000:80"
-    networks:
-      - agrobook-network  
+#    networks:
+#      - agrobook-network  
 
-networks: 
-    agrobook-network:
-        driver: bridge
+#networks: 
+#    agrobook-network:
+#        driver: bridge
