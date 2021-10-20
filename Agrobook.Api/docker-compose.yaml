@@ -1,0 +1,14 @@
+version: '1'
+services:
+  siteheroismarvel:
+    image: appagrobook
+    build:
+      context: .
+    ports:
+      - "20000:80"
+    networks:
+      - agrobook-network  
+
+networks: 
+    agrobook-network:
+        driver: bridge
