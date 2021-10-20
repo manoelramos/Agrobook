@@ -6,7 +6,7 @@ EXPOSE 80
 EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
-WORKDIR /src
+WORKDIR ../src
 COPY ["Agrobook.Api/Agrobook.Api.csproj", "Agrobook.Api/"]
 RUN dotnet restore "Agrobook.Api/Agrobook.Api.csproj"
 COPY . .
