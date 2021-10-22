@@ -1,11 +1,22 @@
 version: '2.2'
 services:
-  agrobook.api:
+  app:
     image: agrobook.api
     build:
       context: .
+
+  https-portal:
+    image: steveltn/https-portal:1
     ports:
-      - "20000:80"
+      - '80:80'
+      - '443:443'
+    links:
+      - app
+    restart: always
+    environment:
+      DOMAINS: 'alpacatracker.com -> http://app:5000'
+      STAGE: 'production'
+    
 #    networks:
 #      - agrobook-network  
 
