@@ -2,16 +2,13 @@
 
 FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS base
 WORKDIR /app
+
 EXPOSE 80
-EXPOSE 443
+EXPOSE 5000
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
 COPY ["Agrobook.Api/Agrobook.Api.csproj", "Agrobook.Api/"]
-COPY ["Agrobook.Infra.Data/Agrobook.Infra.Data.csproj", "Agrobook.Infra.Data/"]
-COPY ["Agrobook.Domain/Agrobook.Domain.csproj", "Agrobook.Domain/"]
-COPY ["Agrobook.Domain.Core/Agrobook.Domain.Core.csproj", "Agrobook.Domain.Core/"]
-COPY ["Agrobook.Application/Agrobook.Application.csproj", "Agrobook.Application/"]
 RUN dotnet restore "Agrobook.Api/Agrobook.Api.csproj"
 COPY . .
 WORKDIR "/src/Agrobook.Api"
