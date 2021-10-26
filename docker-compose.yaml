@@ -1,10 +1,11 @@
 version: '2.3'
+
 services:
-  services:
-    image: dockeragrobook
-    build:
-      context: .
-      dockerfile: Dockerfile
+  app:  
+   image: dockeragrobook
+   build:
+     context: .
+     dockerfile: Dockerfile
 
   https-portal:
     image: steveltn/https-portal:1
