@@ -14,7 +14,6 @@ namespace Agrobook.Api
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    //webBuilder.UseSetting("https_port", "8080");
                     webBuilder.UseStartup<Startup>();
                 });
     }
