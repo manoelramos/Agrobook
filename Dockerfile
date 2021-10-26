@@ -22,7 +22,7 @@ FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 
-ENV ASPNETCORE_URLS http://+:5000
-EXPOSE 5000
+ENV ASPNETCORE_URLS http://+:80
+EXPOSE 80
 
 ENTRYPOINT ["dotnet", "Agrobook.Api.dll"]
