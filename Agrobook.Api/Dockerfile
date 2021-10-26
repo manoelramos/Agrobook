@@ -2,8 +2,6 @@
 
 FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS base
 WORKDIR /app
-EXPOSE 80
-EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
@@ -24,7 +22,7 @@ FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 
-ENV ASPNETCORE_URLS http://+:5000
-EXPOSE 5000
+ENV ASPNETCORE_URLS http://+:1500
+EXPOSE 1500
 
 ENTRYPOINT ["dotnet", "Agrobook.Api.dll"]

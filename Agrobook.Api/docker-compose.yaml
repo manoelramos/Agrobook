@@ -15,7 +15,7 @@ services:
       - app
     restart: always
     environment:
-      DOMAINS: 'alpacatracker.com -> http://app:5000'
+      DOMAINS: 'agrobook.xyz -> http://app:1500'
       STAGE: 'production'
     
 #    networks:

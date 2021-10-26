@@ -84,7 +84,7 @@
 
             string connectionString = _configuration.GetConnectionString("DefaultConnection");
             //optionsBuilder.UseNpgsql(connectionString);
-            optionsBuilder.UseNpgsql("User ID=igor;Password=TdoisvJViBC5shKi;Host=agrodb-postgresql-do-user-10050823-0.b.db.ondigitalocean.com;Port=25060;Database=defaultdb;Pooling=true;SSL Mode=Require;Trust Server Certificate=true");
+            optionsBuilder.UseNpgsql("User ID=igor;Password=TdoisvJViBC5shKi;Host=agrodb-postgresql-do-user-10050823-0.b.db.ondigitalocean.com;Port=25060;Database=defaultdb;SSL Mode=Require;Trust Server Certificate=true");
         }
 
         private static void SetDecimalPoints(ModelBuilder modelBuilder)
