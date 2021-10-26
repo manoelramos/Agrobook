@@ -16,7 +16,7 @@ services:
       - app
     restart: always
     environment:
-      DOMAINS: 'agrobook.xyz -> http://app:1500'
+      DOMAINS: 'agrobook.xyz -> http://app:5000'
       STAGE: 'production'
     
 #    networks:
