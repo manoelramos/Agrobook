@@ -26,6 +26,6 @@ ENV ASPNETCORE_URLS http://+:80
 EXPOSE 80
 EXPOSE 443
 
-ENV ASPNETCORE_ENVIRONMENT=Development #Add this line.
+ENV ASPNETCORE_ENVIRONMENT=Development
 
 ENTRYPOINT ["dotnet", "Agrobook.Api.dll"]
