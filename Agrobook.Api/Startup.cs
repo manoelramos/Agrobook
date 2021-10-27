@@ -44,8 +44,6 @@ namespace Agrobook.Api
                 p.AssumeDefaultVersionWhenUnspecified = true;
             });
 
-            //services.AddHttpsRedirection(op => { op.HttpsPort = 1500; });
-
             services.AddVersionedApiExplorer(p =>
             {
                 p.GroupNameFormat = "'v'VVV";
